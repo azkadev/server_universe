@@ -50,8 +50,7 @@ mixin Router {
   HttpRoute get(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
-        const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
   }) =>
       createRoute(Method.get, path, callback, middleware);
 
@@ -60,8 +59,7 @@ mixin Router {
   HttpRoute head(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
-        const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
   }) =>
       createRoute(Method.head, path, callback, middleware);
 
@@ -70,8 +68,7 @@ mixin Router {
   HttpRoute post(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
-        const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
   }) =>
       createRoute(Method.post, path, callback, middleware);
 
@@ -79,8 +76,7 @@ mixin Router {
   HttpRoute put(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
-        const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
   }) =>
       createRoute(Method.put, path, callback, middleware);
 
@@ -89,8 +85,7 @@ mixin Router {
   HttpRoute delete(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
-        const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
   }) =>
       createRoute(Method.delete, path, callback, middleware);
 
@@ -99,8 +94,7 @@ mixin Router {
   HttpRoute patch(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
-        const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
   }) =>
       createRoute(Method.patch, path, callback, middleware);
 
@@ -109,8 +103,7 @@ mixin Router {
   HttpRoute options(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
-        const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
   }) =>
       createRoute(Method.options, path, callback, middleware);
 
@@ -119,8 +112,7 @@ mixin Router {
   HttpRoute all(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
-        const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
   }) =>
       createRoute(Method.all, path, callback, middleware);
 
@@ -128,12 +120,9 @@ mixin Router {
     Method method,
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, [
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
-        const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
   ]) {
-    final route = HttpRoute(
-        '${pathPrefix == '' ? '' : '$pathPrefix/'}$path', callback, method,
-        middleware: middleware);
+    final route = HttpRoute('${pathPrefix == '' ? '' : '$pathPrefix/'}$path', callback, method, middleware: middleware);
     app.addRoute(route);
     return route;
   }
