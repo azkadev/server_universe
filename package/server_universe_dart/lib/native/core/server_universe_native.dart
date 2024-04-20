@@ -173,6 +173,7 @@ class ServerUniverseNative with Router {
     LogType logLevel = LogType.info,
     int simultaneousProcessing = 1000000000,
   }) : requestQueue = Queue(parallel: simultaneousProcessing) {
+    onInternalError = null;
     _registerDefaultParamTypes();
     _registerDefaultTypeHandlers();
     _registerPluginListeners();

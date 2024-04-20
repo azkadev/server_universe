@@ -30,6 +30,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -79,15 +80,20 @@ extension ResponseHelpers on HttpResponse {
 
   /// Helper method for those used to res.json()
   ///
-  Future json(Object? json) {
+  FutureOr<dynamic> json(Object? json) async {
     headers.contentType = ContentType.json;
     write(jsonEncode(json));
-    return close();
+    return await close();
+  }
+
+  HttpResponse status(int value) {
+    statusCode = value;
+    return this;
   }
 
   /// Helper method to just send data;
-  Future send(Object? data) {
+  FutureOr<dynamic> send(Object? data) async {
     write(data);
-    return close();
+    return await close();
   }
 }

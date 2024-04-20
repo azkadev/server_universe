@@ -31,7 +31,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 <!-- END LICENSE --> */
 // import 'package:server_universe_dart/edge/edge.dart';
- 
+
 import 'dart:io';
 import 'package:general_lib/extension/dynamic.dart';
 import 'package:server_universe_dart/native/native.dart';
@@ -41,34 +41,23 @@ void main() async {
   int port = int.tryParse(Platform.environment["PORT"] ?? "3000") ?? 3000;
   String host = Platform.environment["HOST"] ?? "0.0.0.0";
   ServerUniverseNative app = ServerUniverseNative(
-    // simultaneousProcessing: 100000000,
-    logLevel: LogType.error,
+    logLevel: LogType.error, 
     onNotFound: (request, res) async {
-      Map json_data = {};
-
-      HttpConnectionInfo? connectionInfo = request.connectionInfo;
-      if (connectionInfo != null) {
-        json_data["addres"] = connectionInfo.remoteAddress.address;json_data["port"] = connectionInfo.remotePort;
-      }
       return res.send(({
         "@type": "error",
         "message": "path_not_found",
         "description": "PATH: Not Found",
-        ...json_data,
       }.toStringifyPretty()));
-    },
-    onInternalError: (req, res) {
-      return res.send({"@type": "error", "message": "server_crash"}.toStringifyPretty());
-    },
+    }, 
   );
   app.all("/", (req, res) {
     return res.send("oke");
   });
-  
+
   int count = 0;
-  app.all("/version", (req, res) {
+  app.all("/version", (req, res) async {
     count++;
-    return res.send("\nCOUNT: ${count}");
+    return await res.status(200).send("\nCOUNT: ${count}");
   });
   await app.listen(port, host);
   print("Server on");

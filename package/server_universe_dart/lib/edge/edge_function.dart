@@ -36,7 +36,6 @@ import 'package:server_universe_dart/edge/request_handler.dart';
 class ServerUniverseDartFunction {
   String path;
   RegExp method;
-
   RequestHandler onRequest;
   ServerUniverseDartFunction({
     required this.path,

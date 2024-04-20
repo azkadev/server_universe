@@ -6,6 +6,10 @@ This guide for help you run this program
 
 ### Supabase
 
+sudo supabase init
+
+sudo supabase functions new example
+
 Run
 
 dart run server_universe_dart run supabase

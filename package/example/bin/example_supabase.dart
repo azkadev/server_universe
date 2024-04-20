@@ -32,10 +32,12 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 
 import 'package:server_universe_dart/edge/edge.dart';
+
 void main() async {
   print("start");
   ServerUniverseEdge app = ServerUniverseEdge(
     onNotFound: (request, res) async {
+      
       return res.status(404).json({"@type": "error", "message": "path_not_found", "description": "PATH: ${request.path} Not Found"});
     },
     onError: (req, res, object, stackTrace) {
@@ -47,6 +49,7 @@ void main() async {
     return res.send("oke");
   });
   app.all("/version", (req, res) {
+    
     return res.json({
       "@type": "version",
       "version": "0.0.0",

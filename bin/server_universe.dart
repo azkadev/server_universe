@@ -39,6 +39,6 @@ void main(List<String> args) async {
 
   await file.writeAsString("""
 #!/bin/sh
-${List.generate(10000, (index) => "curl http://127.0.0.1:3000/version").join("\n\n")}
+${List.generate(10000, (index) => "curl http://127.0.0.1:6817/functions/v1/general_api/").join("\n")}
 """.trim());
 }

@@ -361,7 +361,7 @@ void main() async {
   int port = int.tryParse(Platform.environment["PORT"] ?? "3000") ?? 3000;
   String host = Platform.environment["HOST"] ?? "0.0.0.0";
   ServerUniverseNative app = ServerUniverseNative(
-    onNotFound: (request, res) async {
+    onNotFound: (req, res) async {
       
       return res.json({"@type": "error", "message": "path_not_found", "description": "PATH: Not Found"});
     },
@@ -394,8 +394,8 @@ import 'package:server_universe_dart/edge/edge.dart';
 void main() async {
   print("start");
   ServerUniverseEdge app = ServerUniverseEdge(
-    onNotFound: (request, res) async {
-      return res.status(404).json({"@type": "error", "message": "path_not_found", "description": "PATH: ${request.path} Not Found"});
+    onNotFound: (req, res) async {
+      return res.status(404).json({"@type": "error", "message": "path_not_found", "description": "PATH: ${req.path} Not Found"});
     },
     onError: (req, res, object, stackTrace) {
       return res.status(500).json({"@type": "error", "message": "server_crash"});
