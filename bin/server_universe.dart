@@ -34,10 +34,11 @@ import "dart:io";
 
 import "package:path/path.dart" as path;
 
-void main(List<String> args) {
-  Directory directory = Directory(path.join(Directory.current.path, "."));
+void main(List<String> args) async {
+  File file = File(path.join(Directory.current.path, "loop.sh"));
 
-  print(directory.toString());
-  print(path.basename(directory.path));
-  print(directory.uri.toFilePath());
+  await file.writeAsString("""
+#!/bin/sh
+${List.generate(10000, (index) => "curl http://127.0.0.1:3000/version").join("\n\n")}
+""".trim());
 }

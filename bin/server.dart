@@ -32,25 +32,25 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 // import 'package:server_universe_dart/edge/edge.dart';
 
-import 'dart:convert';
+// import 'dart:convert';
 import 'dart:io';
+import 'package:alfred/alfred.dart';
 import 'package:general_lib/extension/dynamic.dart';
-import 'package:server_universe_dart/native/native.dart';
+// import 'package:server_universe_dart/native/native.dart';
 
 void main() async {
   print("start");
   int port = int.tryParse(Platform.environment["PORT"] ?? "3000") ?? 3000;
   String host = Platform.environment["HOST"] ?? "0.0.0.0";
-  ServerUniverseNative app = ServerUniverseNative(
-    // simultaneousProcessing: 100000000,
-    logLevel: LogType.error,
+  Alfred app = Alfred(
+    simultaneousProcessing: 10,
     onNotFound: (request, res) async {
       Map json_data = {};
 
-      HttpConnectionInfo? connectionInfo = request.connectionInfo;
-      if (connectionInfo != null) {
-        json_data["addres"] = connectionInfo.remoteAddress.address;json_data["port"] = connectionInfo.remotePort;
-      }
+      // HttpConnectionInfo? connectionInfo = request.connectionInfo;
+      // if (connectionInfo != null) {
+      //   json_data["addres"] = connectionInfo.remoteAddress.address;json_data["port"] = connectionInfo.remotePort;
+      // }
       return res.send(({
         "@type": "error",
         "message": "path_not_found",
@@ -65,7 +65,6 @@ void main() async {
   app.all("/", (req, res) {
     return res.send("oke");
   });
-  
   int count = 0;
   app.all("/version", (req, res) {
     count++;

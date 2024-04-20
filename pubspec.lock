@@ -10,7 +10,7 @@ packages:
     source: hosted
     version: "67.0.0"
   alfred:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: alfred
       sha256: "61c74bfccd41447ddb7eb76e0e1204e1b1da0c099d441d00fa8d2b86de5415e3"
