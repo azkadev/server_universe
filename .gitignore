@@ -3,3 +3,6 @@
 .dart_tool/
 
 command_*.sh
+
+*.exe
+*.deb

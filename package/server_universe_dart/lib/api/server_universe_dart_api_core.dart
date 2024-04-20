@@ -94,7 +94,9 @@ class ServerUniverseDartApi {
 
     File file_guide = File(path.join(directory_project.path, "guide-server-universe.md"));
 
-      await file_guide.writeAsString(guide_server_universe_markdown());
+    await file_guide.writeAsString(guide_server_universe_markdown(
+      name_project: project_name,
+    ));
     // supabase file script
     File file_script_native = File(path.join(directory_project.path, "bin", "${project_name}_native.dart"));
 
@@ -111,7 +113,7 @@ class ServerUniverseDartApi {
 
     // supabase directory deploy
     Directory directory_script_supabase = Directory(path.join(directory_project.path, "supabase", "functions", project_name));
-    
+
     // default configuration pubspec
     PubspecServerUniverse pubspec_server_default = PubspecServerUniverse.create(
       repository: "https://github.com/azkadev/server_universe",
@@ -503,9 +505,8 @@ declare global {
 ''';
   }
 
-
-  static String guide_server_universe_markdown() {
-    return r"""
+  static String guide_server_universe_markdown({required String name_project}) {
+    return """
 # Guide Server Universe
 
 Server Universe Is created by [AZKADEV](https://github.com/azkadev) Sponsored By [Global Corporation]()
@@ -514,12 +515,14 @@ This guide for help you run this program
 
 ### Supabase
 
+sudo supabase init
+
+sudo supabase functions new ${name_project}
+
 Run
 
 dart run server_universe_dart run supabase
 """
         .trim();
   }
-
-
 }
