@@ -1,35 +1,3 @@
-/* <!-- START LICENSE -->
-
-
-Program Ini Di buat Oleh DEVELOPER Dari PERUSAHAAN GLOBAL CORPORATION 
-Social Media: 
-
-- Youtube: https://youtube.com/@Global_Corporation 
-- Github: https://github.com/globalcorporation
-- TELEGRAM: https://t.me/GLOBAL_CORP_ORG_BOT
-
-Seluruh kode disini di buat 100% murni tanpa jiplak / mencuri kode lain jika ada akan ada link komment di baris code
-
-Jika anda mau mengedit pastikan kredit ini tidak di hapus / di ganti!
-
-Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin update segera lapor ke sub)
-
-Misal anda beli Beli source code di Slebew CORPORATION anda lapor dahulu di slebew jangan lapor di GLOBAL CORPORATION!
-
-Jika ada kendala program ini (Pastikan sebelum deal project tidak ada negosiasi harga)
-Karena jika ada negosiasi harga kemungkinan
-
-1. Software Ada yang di kurangin
-2. Informasi tidak lengkap
-3. Bantuan Tidak Bisa remote / full time (Ada jeda)
-
-Sebelum program ini sampai ke pembeli developer kami sudah melakukan testing
-
-jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesuai ? 
-Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
-
-
-<!-- END LICENSE --> */
 file:///home/galaxeus/.pub-cache/hosted/pub.dev/collection-1.18.0/lib/collection.dart
 file:///home/galaxeus/.pub-cache/hosted/pub.dev/collection-1.18.0/lib/src/algorithms.dart
 file:///home/galaxeus/.pub-cache/hosted/pub.dev/collection-1.18.0/lib/src/boollist.dart
@@ -70,61 +38,45 @@ file:///home/galaxeus/.pub-cache/hosted/pub.dev/json_annotation-4.8.1/lib/src/js
 file:///home/galaxeus/.pub-cache/hosted/pub.dev/json_annotation-4.8.1/lib/src/json_serializable.dart
 file:///home/galaxeus/.pub-cache/hosted/pub.dev/json_annotation-4.8.1/lib/src/json_serializable.g.dart
 file:///home/galaxeus/.pub-cache/hosted/pub.dev/json_annotation-4.8.1/lib/src/json_value.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/meta-1.11.0/lib/meta.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/meta-1.11.0/lib/meta_meta.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/annotations.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/core.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/d/core.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/d/core/core.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/core_comon.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.dom.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2015.collection.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2015.core.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2015.generator.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2015.iterable.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2015.promise.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2015.proxy.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2015.reflect.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2015.symbol.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2015.symbol.wellknown.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2016.array.include.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2017.intl.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2017.object.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2017.sharedmemory.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2017.string.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2017.typedarrays.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2018.asyncgenerator.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2018.asynciterable.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2018.intl.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2018.promise.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2018.regexp.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2019.array.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2019.intl.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2019.object.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2019.string.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2019.symbol.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2020.bigint.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2020.date.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2020.intl.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2020.number.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2020.promise.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2020.sharedmemory.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2020.string.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2020.symbol.wellknown.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2021.intl.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2021.promise.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2021.string.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2021.weakref.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2022.array.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2022.error.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2022.intl.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2022.object.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2022.regexp.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2022.sharedmemory.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es2023.array.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.es5.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.scripthost.d.dart
-file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.4/lib/src/d/core/lib.webworker.importscripts.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/meta-1.14.0/lib/meta.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/meta-1.14.0/lib/meta_meta.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/annotations.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/core.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/d/core.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/d/typescript/typescript.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.dom.css.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.dom.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.dom.webassembly.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2015.collection.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2015.core.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2015.generator.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2015.iterable.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2015.promise.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2015.proxy.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2015.reflect.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2015.reflect.reflect.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2015.symbol.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2015.symbol.wellknown.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2017.object.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2017.sharedmemory.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2018.asyncgenerator.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2018.asynciterable.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2018.regexp.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2019.array.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2019.object.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2020.bigint.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2020.promise.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2021.promise.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2021.weakref.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2022.error.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2022.regexp.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es2022.sharedmemory.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es5.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.es5.intl.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/lib.scripthost.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/null_comon.intl.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/null_comon.webassembly.d.dart
+file:///home/galaxeus/.pub-cache/hosted/pub.dev/typings-0.0.6+2/lib/src/d/typescript/typescript_comon.d.dart
 file:///home/galaxeus/Documents/galaxeus/app/server_universe/package/example/.dart_tool/package_config.json
 file:///home/galaxeus/Documents/galaxeus/app/server_universe/package/example/bin/example_supabase.dart
 file:///home/galaxeus/Documents/galaxeus/app/server_universe/package/server_universe_dart/lib/edge/core/abort/abort.dart

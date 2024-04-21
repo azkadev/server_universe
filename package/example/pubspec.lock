@@ -217,6 +217,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+  io:
+    dependency: transitive
+    description:
+      name: io
+      sha256: "2ec25704aba361659e10e3e5f5d672068d332fc8ac516421d483a11e5cbd061e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.4"
   js:
     dependency: transitive
     description:
@@ -245,10 +253,10 @@ packages:
     dependency: transitive
     description:
       name: mason_logger
-      sha256: b8c9d94617c09d4312e4f180ba191f15024a5d2c7027df99d3cdcb4b70675f87
+      sha256: "0e90e637dcfcb7fb6c30b38e71cd41fa0e4e3df6f1da177f8251ac3f15147e9f"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.10"
+    version: "0.2.12"
   matcher:
     dependency: transitive
     description:
@@ -261,10 +269,10 @@ packages:
     dependency: transitive
     description:
       name: meta
-      sha256: d584fa6707a52763a52446f02cc621b077888fb63b93bbcb1143a7be5a0c0c04
+      sha256: "25dfcaf170a0190f47ca6355bdd4552cb8924b430512ff0cafb8db9bd41fe33b"
       url: "https://pub.dev"
     source: hosted
-    version: "1.11.0"
+    version: "1.14.0"
   mime:
     dependency: transitive
     description:
@@ -426,10 +434,10 @@ packages:
     dependency: transitive
     description:
       name: typings
-      sha256: "0c9e86e6c9c40c8133fab7d0f3ec9c89c2e8348d762613cffe0c40395ad39de6"
+      sha256: "0cc1ae719b3f0edb3399f4de1416d91396a8fd30fcd18ea792e487691f9b13e0"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.4"
+    version: "0.0.6+2"
   universal_io:
     dependency: transitive
     description:

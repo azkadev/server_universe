@@ -52,7 +52,7 @@ void main() async {
     
     return res.json({
       "@type": "version",
-      "version": "0.0.0",
+      "version": "new update",
     });
   });
 }
