@@ -55,6 +55,7 @@ Future<void> server_universeDartCli(List<String> args_raw) async {
   List<String> commands = [
     "build",
     "create",
+    "init",
     "deploy",
     "run",
   ];
@@ -147,7 +148,11 @@ Future<void> server_universeDartCli(List<String> args_raw) async {
     }
     Directory directory_current = Directory.current;
 
-    if (["build", "run", "deploy"].contains(command)) {
+    if ([
+      "build",
+      "run",
+      "deploy",
+    ].contains(command)) {
       Progress progress = logger.progress("Starting ${command.toUpperCaseFirstData()}: ");
       String? inputFileName = () {
         String input = (args.after("-i") ?? args.after("--input") ?? "").trim();
