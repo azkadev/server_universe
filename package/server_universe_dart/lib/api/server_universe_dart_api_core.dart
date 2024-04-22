@@ -36,6 +36,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:general_lib/general_lib.dart';
+import 'package:general_lib/watch/watch.dart';
 import 'package:server_universe_dart/api/extensions.dart';
 import 'package:server_universe_scheme/scheme/scheme/pubspec_server_universe.dart';
 import "package:path/path.dart" as path;
@@ -220,8 +221,10 @@ class ServerUniverseDartApi {
         }
       }
 
+      // old
       directory_bin.watch(recursive: true).listen(onUpdate);
       directory_lib.watch(recursive: true).listen(onUpdate);
+      directory_lib.listSync().watchRecursive(onData: onUpdate);
       return await (procces.exitCode);
     }
     return 1;

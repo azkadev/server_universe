@@ -3,7 +3,7 @@ description: 'Serve Universal Library For Help you make server rest api on cross
 homepage: 'https://github.com/azkadev/server_universe'
 repository: 'https://github.com/azkadev/server_universe'
 version: '0.0.0'
-publish_to: 'none'
+# publish_to: 'none'
 issue_tracker: 'https://github.com/azkadev/server_universe/issues'
 documentation: 'https://github.com/azkadev/server_universe/tree/main/docs'
 funding: 
@@ -25,19 +25,15 @@ dependencies:
   mime: '^1.0.5'
   mime_type: '^1.0.0'
   queue: '^3.1.0'
-  meta: '^1.14.0'
+  meta: '^1.11.0'
   path: '^1.9.0'
-  general_lib: '^0.0.34'
+  general_lib: '^0.0.35'
   mason_logger: '^0.2.11'
   collection: '^1.18.0'
   yaml: '^3.1.2'
   yaml_writer: '^2.0.0'
-  server_universe_scheme: 
-    path: '../server_universe_scheme'
-
-dependency_overrides: 
-  general_lib: 
-    path: '../../../general_project/library/general_lib'  
+  server_universe_scheme: ^0.0.0
+    # path: '../server_universe_scheme' 
 dev_dependencies: 
   build_runner: '^2.3.3'
   freezed: '^2.3.2'

@@ -205,10 +205,10 @@ packages:
     dependency: transitive
     description:
       name: general_lib
-      sha256: f9fe2744149c4490d971c151a657ae40a27d2df2cc7c62faa2f0fc70e93d8a93
+      sha256: "417b758435d0027578891dd6a8acc0a33cf1582e96964d89615d4af935c9da7f"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.34"
+    version: "0.0.35"
   glob:
     dependency: transitive
     description:
@@ -309,10 +309,10 @@ packages:
     dependency: transitive
     description:
       name: mime
-      sha256: e4ff8e8564c03f255408decd16e7899da1733852a9110a58fe6d1b817684a63e
+      sha256: "2e123074287cc9fd6c09de8336dae606d1ddb88d9ac47358826db698c176a1f2"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.5"
   mime_type:
     dependency: transitive
     description:
@@ -395,9 +395,10 @@ packages:
   server_universe_scheme:
     dependency: transitive
     description:
-      path: "../server_universe_scheme"
-      relative: true
-    source: path
+      name: server_universe_scheme
+      sha256: fe8ae1919970b8ee66dbdfe47a53f14a01bc42802fa9a1278bee5a2b463168d2
+      url: "https://pub.dev"
+    source: hosted
     version: "0.0.0"
   shelf:
     dependency: transitive
@@ -539,10 +540,10 @@ packages:
     dependency: transitive
     description:
       name: typings
-      sha256: "0c9e86e6c9c40c8133fab7d0f3ec9c89c2e8348d762613cffe0c40395ad39de6"
+      sha256: "0cc1ae719b3f0edb3399f4de1416d91396a8fd30fcd18ea792e487691f9b13e0"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.4"
+    version: "0.0.6+2"
   universal_io:
     dependency: transitive
     description:
@@ -615,5 +616,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.2"
+  yaml_writer:
+    dependency: transitive
+    description:
+      name: yaml_writer
+      sha256: f182931a598f9a3fd29ff528f0caab98fffa713583e30c12c7a27ce0b66c1308
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
 sdks:
   dart: ">=3.3.0 <4.0.0"
