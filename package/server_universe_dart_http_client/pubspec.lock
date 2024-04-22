@@ -383,7 +383,7 @@ packages:
       path: "../server_universe_dart"
       relative: true
     source: path
-    version: "0.0.6"
+    version: "0.0.7"
   server_universe_scheme:
     dependency: transitive
     description:

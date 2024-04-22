@@ -17,7 +17,7 @@ This library created by poor programmers, i need more sponsor for make this libr
 
 1. [Documentation](/docs/)
 2. [Youtube](https://youtube.com/@azkadev)
-3. [Telegram Support Group](https://t.me/)
+3. [Telegram Support Group](https://t.me/DEVELOPER_GLOBAL_PUBLIC)
 4. [Contact Developer](https://github.com/azkadev) (check social media or readme profile github)
 
 ## 🔖️ Features
