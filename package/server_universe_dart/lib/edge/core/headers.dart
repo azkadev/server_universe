@@ -38,7 +38,8 @@ import 'package:server_universe_dart/edge/core/interop/headers.dart' as interop;
 class Headers {
   final interop.Headers _delegate;
 
-  Headers([Map<String, String>? headers]) : _delegate = interop.Headers(jsify(headers ?? {}));
+  Headers([Map<String, String>? headers])
+      : _delegate = interop.Headers(jsify(headers ?? {}));
 
   Headers._(this._delegate);
 

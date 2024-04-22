@@ -34,21 +34,24 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 import "package:general_lib/general_lib.dart";
 // import "dart:convert";
 
-
- 
 class PubspecServerUniversePlatforms extends JsonScheme {
-
-  
   PubspecServerUniversePlatforms(super.rawData);
-   
+
   static Map get defaultData {
-    return {"@type":"pubspecServerUniversePlatforms","android":null,"ios":null,"linux":null,"macos":null,"web":null,"windows":null};
+    return {
+      "@type": "pubspecServerUniversePlatforms",
+      "android": null,
+      "ios": null,
+      "linux": null,
+      "macos": null,
+      "web": null,
+      "windows": null
+    };
   }
 
-  
   String? get special_type {
     try {
-      if (rawData["@type"] is String == false){
+      if (rawData["@type"] is String == false) {
         return null;
       }
       return rawData["@type"] as String;
@@ -57,16 +60,13 @@ class PubspecServerUniversePlatforms extends JsonScheme {
     }
   }
 
-  
   set special_type(String? value) {
     rawData["@type"] = value;
   }
 
-
-  
   Object? get android {
     try {
-      if (rawData["android"] is Object == false){
+      if (rawData["android"] is Object == false) {
         return null;
       }
       return rawData["android"] as Object;
@@ -75,16 +75,13 @@ class PubspecServerUniversePlatforms extends JsonScheme {
     }
   }
 
-  
   set android(Object? value) {
     rawData["android"] = value;
   }
 
-
-  
   Object? get ios {
     try {
-      if (rawData["ios"] is Object == false){
+      if (rawData["ios"] is Object == false) {
         return null;
       }
       return rawData["ios"] as Object;
@@ -93,16 +90,13 @@ class PubspecServerUniversePlatforms extends JsonScheme {
     }
   }
 
-  
   set ios(Object? value) {
     rawData["ios"] = value;
   }
 
-
-  
   Object? get linux {
     try {
-      if (rawData["linux"] is Object == false){
+      if (rawData["linux"] is Object == false) {
         return null;
       }
       return rawData["linux"] as Object;
@@ -111,16 +105,13 @@ class PubspecServerUniversePlatforms extends JsonScheme {
     }
   }
 
-  
   set linux(Object? value) {
     rawData["linux"] = value;
   }
 
-
-  
   Object? get macos {
     try {
-      if (rawData["macos"] is Object == false){
+      if (rawData["macos"] is Object == false) {
         return null;
       }
       return rawData["macos"] as Object;
@@ -129,16 +120,13 @@ class PubspecServerUniversePlatforms extends JsonScheme {
     }
   }
 
-  
   set macos(Object? value) {
     rawData["macos"] = value;
   }
 
-
-  
   Object? get web {
     try {
-      if (rawData["web"] is Object == false){
+      if (rawData["web"] is Object == false) {
         return null;
       }
       return rawData["web"] as Object;
@@ -147,16 +135,13 @@ class PubspecServerUniversePlatforms extends JsonScheme {
     }
   }
 
-  
   set web(Object? value) {
     rawData["web"] = value;
   }
 
-
-  
   Object? get windows {
     try {
-      if (rawData["windows"] is Object == false){
+      if (rawData["windows"] is Object == false) {
         return null;
       }
       return rawData["windows"] as Object;
@@ -165,15 +150,11 @@ class PubspecServerUniversePlatforms extends JsonScheme {
     }
   }
 
-  
   set windows(Object? value) {
     rawData["windows"] = value;
   }
 
-
-  
   static PubspecServerUniversePlatforms create({
-
     String special_type = "pubspecServerUniversePlatforms",
     Object? android,
     Object? ios,
@@ -181,10 +162,9 @@ class PubspecServerUniversePlatforms extends JsonScheme {
     Object? macos,
     Object? web,
     Object? windows,
-})  {
+  }) {
     // PubspecServerUniversePlatforms pubspecServerUniversePlatforms = PubspecServerUniversePlatforms({
-Map pubspecServerUniversePlatforms_data_create_json = {
-  
+    Map pubspecServerUniversePlatforms_data_create_json = {
       "@type": special_type,
       "android": android,
       "ios": ios,
@@ -192,17 +172,14 @@ Map pubspecServerUniversePlatforms_data_create_json = {
       "macos": macos,
       "web": web,
       "windows": windows,
+    };
 
+    pubspecServerUniversePlatforms_data_create_json
+        .removeWhere((key, value) => value == null);
+    PubspecServerUniversePlatforms pubspecServerUniversePlatforms_data_create =
+        PubspecServerUniversePlatforms(
+            pubspecServerUniversePlatforms_data_create_json);
 
-};
-
-
-          pubspecServerUniversePlatforms_data_create_json.removeWhere((key, value) => value == null);
-PubspecServerUniversePlatforms pubspecServerUniversePlatforms_data_create = PubspecServerUniversePlatforms(pubspecServerUniversePlatforms_data_create_json);
-
-return pubspecServerUniversePlatforms_data_create;
-
-
-
-      }
+    return pubspecServerUniversePlatforms_data_create;
+  }
 }

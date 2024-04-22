@@ -621,12 +621,14 @@ class HttpClientResponse implements io.HttpClientResponse {
     headers = HttpHeaders.fromFetchResponseHeaders(_response.headers);
     _body = _response.body ?? Stream.empty();
 
-    final contentLengthHeader = headers.value(io.HttpHeaders.contentLengthHeader);
+    final contentLengthHeader =
+        headers.value(io.HttpHeaders.contentLengthHeader);
     contentLength = int.parse(contentLengthHeader ?? '-1');
   }
 
   @override
-  io.X509Certificate? get certificate => throw UnsupportedError(kUnsupportedEnv);
+  io.X509Certificate? get certificate =>
+      throw UnsupportedError(kUnsupportedEnv);
 
   @override
   io.HttpClientResponseCompressionState get compressionState {

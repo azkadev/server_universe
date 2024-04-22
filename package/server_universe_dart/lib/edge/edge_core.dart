@@ -57,27 +57,41 @@ class ServerUniverseEdge {
     required this.onError,
     required this.onNotFound,
     this.server_universeDartLogLevelType = ServerUniverseDartLogLevelType.all,
-    this.server_universeDartPlatformType = ServerUniverseDartPlatformType.supabase,
+    this.server_universeDartPlatformType =
+        ServerUniverseDartPlatformType.supabase,
   });
   void ensureInitialized() {
     ServerUniverseDartLib.ensureInitialized();
-    if (server_universeDartPlatformType == ServerUniverseDartPlatformType.supabase) {
-      server_universeDartSupabaseFetchHandler = allowInterop((interop.Request request) {
+    if (server_universeDartPlatformType ==
+        ServerUniverseDartPlatformType.supabase) {
+      server_universeDartSupabaseFetchHandler =
+          allowInterop((interop.Request request) {
         return futureToPromise(Future(() async {
           Request requestDart = requestFromJsObject(request);
-          if (server_universeDartLogLevelType == ServerUniverseDartLogLevelType.info || server_universeDartLogLevelType == ServerUniverseDartLogLevelType.all) {
-            print("[REQUEST]: ${DateTime.now().toString()} ${requestDart.path}");
+          if (server_universeDartLogLevelType ==
+                  ServerUniverseDartLogLevelType.info ||
+              server_universeDartLogLevelType ==
+                  ServerUniverseDartLogLevelType.all) {
+            print(
+                "[REQUEST]: ${DateTime.now().toString()} ${requestDart.path}");
           }
           try {
-            ServerUniverseDartFunction? server_universeDartFunction = await getServerUniverseDartFunctionApiByRequest(request: requestDart);
+            ServerUniverseDartFunction? server_universeDartFunction =
+                await getServerUniverseDartFunctionApiByRequest(
+                    request: requestDart);
             if (server_universeDartFunction != null) {
-              Response response = await server_universeDartFunction.onRequest(requestDart, ServerUniverseDartFunctionResponse());
+              Response response = await server_universeDartFunction.onRequest(
+                  requestDart, ServerUniverseDartFunctionResponse());
               return response.delegate;
             }
-            Response response = await onNotFound(requestDart, ServerUniverseDartFunctionResponse());
+            Response response = await onNotFound(
+                requestDart, ServerUniverseDartFunctionResponse());
             return response.delegate;
           } catch (e, stack) {
-            if (server_universeDartLogLevelType == ServerUniverseDartLogLevelType.error || server_universeDartLogLevelType == ServerUniverseDartLogLevelType.all) {
+            if (server_universeDartLogLevelType ==
+                    ServerUniverseDartLogLevelType.error ||
+                server_universeDartLogLevelType ==
+                    ServerUniverseDartLogLevelType.all) {
               print("""
 ---
 ---
@@ -90,10 +104,14 @@ ${stack}
                   .trim());
             }
             try {
-              Response response = await onError(requestDart, ServerUniverseDartFunctionResponse(), e, stack);
+              Response response = await onError(
+                  requestDart, ServerUniverseDartFunctionResponse(), e, stack);
               return response.delegate;
             } catch (e) {
-              return ServerUniverseDartFunctionResponse().status(500).send("crash").delegate;
+              return ServerUniverseDartFunctionResponse()
+                  .status(500)
+                  .send("crash")
+                  .delegate;
             }
           }
         }));
@@ -101,11 +119,14 @@ ${stack}
     }
   }
 
-  FutureOr<ServerUniverseDartFunction?> getServerUniverseDartFunctionApiByRequest({
+  FutureOr<ServerUniverseDartFunction?>
+      getServerUniverseDartFunctionApiByRequest({
     required Request request,
   }) async {
-    for (ServerUniverseDartFunction server_universeDartFunction in server_universeDartFunctions) {
-      if (RegExp(server_universeDartFunction.path, caseSensitive: false).hasMatch(request.path)) {
+    for (ServerUniverseDartFunction server_universeDartFunction
+        in server_universeDartFunctions) {
+      if (RegExp(server_universeDartFunction.path, caseSensitive: false)
+          .hasMatch(request.path)) {
         if (server_universeDartFunction.method.hasMatch(request.method)) {
           return server_universeDartFunction;
         }
@@ -133,7 +154,8 @@ ${stack}
     required RegExp method,
     required RequestHandler onRequest,
   }) {
-    ServerUniverseDartFunction server_universeDartFunction = ServerUniverseDartFunction(
+    ServerUniverseDartFunction server_universeDartFunction =
+        ServerUniverseDartFunction(
       path: parsePattern(path),
       method: method,
       onRequest: onRequest,

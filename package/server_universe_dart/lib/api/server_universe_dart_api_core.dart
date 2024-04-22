@@ -66,7 +66,10 @@ class ServerUniverseDartApi {
     required Directory directoryBase,
   }) async {
     Directory directory_project = await Future(() async {
-      return Directory(Directory(path.join(directoryBase.uri.toFilePath(), newName.trim())).uri.toFilePath());
+      return Directory(
+          Directory(path.join(directoryBase.uri.toFilePath(), newName.trim()))
+              .uri
+              .toFilePath());
     });
     String project_name = path.basename(directory_project.path);
 
@@ -90,37 +93,46 @@ class ServerUniverseDartApi {
       });
       int exit_code = await (process.exitCode);
     }
-    Map yaml_code = (yaml.loadYaml(file_pubspec.readAsStringSync(), recover: true) as Map);
-    PubspecServerUniverse pubspec_server_universe = PubspecServerUniverse(yaml_code.clone());
+    Map yaml_code =
+        (yaml.loadYaml(file_pubspec.readAsStringSync(), recover: true) as Map);
+    PubspecServerUniverse pubspec_server_universe =
+        PubspecServerUniverse(yaml_code.clone());
 
-    File file_guide = File(path.join(directory_project.path, "guide-server-universe.md"));
+    File file_guide =
+        File(path.join(directory_project.path, "guide-server-universe.md"));
 
     await file_guide.writeAsString(guide_server_universe_markdown(
       name_project: project_name,
     ));
     // supabase file script
-    File file_script_native = File(path.join(directory_project.path, "bin", "${project_name}_native.dart"));
+    File file_script_native = File(path.join(
+        directory_project.path, "bin", "${project_name}_native.dart"));
 
     if (!file_script_native.existsSync()) {
-      await file_script_native.writeAsString(script_server_universe_dart_native());
+      await file_script_native
+          .writeAsString(script_server_universe_dart_native());
     }
 
     // supabase file script
-    File file_script_supabase = File(path.join(directory_project.path, "bin", "${project_name}_supabase.dart"));
+    File file_script_supabase = File(path.join(
+        directory_project.path, "bin", "${project_name}_supabase.dart"));
 
     if (!file_script_supabase.existsSync()) {
-      await file_script_supabase.writeAsString(script_server_universe_dart_supabase());
+      await file_script_supabase
+          .writeAsString(script_server_universe_dart_supabase());
     }
 
     // supabase directory deploy
-    Directory directory_script_supabase = Directory(path.join(directory_project.path, "supabase", "functions", project_name));
+    Directory directory_script_supabase = Directory(path.join(
+        directory_project.path, "supabase", "functions", project_name));
 
     // default configuration pubspec
     PubspecServerUniverse pubspec_server_default = PubspecServerUniverse.create(
       repository: "https://github.com/azkadev/server_universe",
       homepage: "https://github.com/azkadev/server_universe",
       issue_tracker: "https://github.com/azkadev/server_universe/issues",
-      documentation: "https://github.com/azkadev/server_universe/tree/main/docs",
+      documentation:
+          "https://github.com/azkadev/server_universe/tree/main/docs",
       funding: [
         "https://github.com/sponsors/azkadev",
       ],
@@ -144,13 +156,15 @@ class ServerUniverseDartApi {
     );
 
     // update pubspec default
-    pubspec_server_universe.rawData.server_universe_dart_updateMapIfNotSameOrEmptyOrNull(
+    pubspec_server_universe.rawData
+        .server_universe_dart_updateMapIfNotSameOrEmptyOrNull(
       data: pubspec_server_default.toJson(),
       ignoreKeys: [
         "@type",
       ],
     );
-    String yaml_documents_new = YamlWriter().write(pubspec_server_universe.toJson());
+    String yaml_documents_new =
+        YamlWriter().write(pubspec_server_universe.toJson());
     await file_pubspec.writeAsString(yaml_documents_new);
     // finished update pubspec
   }
@@ -171,7 +185,8 @@ class ServerUniverseDartApi {
       return 1;
     }
     // build platform supabase
-    if (server_universeDartPlatformType == ServerUniverseDartPlatformType.supabase) {
+    if (server_universeDartPlatformType ==
+        ServerUniverseDartPlatformType.supabase) {
       Process? procces = await Future(() async {
         if (Dart.isLinux) {
           return await Process.start(
@@ -201,7 +216,8 @@ class ServerUniverseDartApi {
       bool is_pending_update = false;
       DateTime dateTime_expired = DateTime.now();
       void onUpdate(FileSystemEvent event) async {
-        if (RegExp(r"([.]dart)$", caseSensitive: false).hasMatch(path.basename(event.path))) {
+        if (RegExp(r"([.]dart)$", caseSensitive: false)
+            .hasMatch(path.basename(event.path))) {
           if (is_pending_update) {
             if (dateTime_expired.isExpired() == false) {
               return;
@@ -213,7 +229,8 @@ class ServerUniverseDartApi {
           await build(
             directoryBase: directoryBase,
             inputFileName: inputFileName,
-            directoryOutputBuildServerUniverse: directoryOutputBuildServerUniverse,
+            directoryOutputBuildServerUniverse:
+                directoryOutputBuildServerUniverse,
             server_universeDartBuildType: server_universeDartBuildType,
             server_universeDartPlatformType: server_universeDartPlatformType,
           );
@@ -242,16 +259,21 @@ class ServerUniverseDartApi {
       print("pubspec not found");
       return;
     }
-    Map yaml_code = (yaml.loadYaml(file_pubspec.readAsStringSync(), recover: true) as Map);
-    PubspecServerUniverse pubspec_server_universe = PubspecServerUniverse(yaml_code.clone());
-    Directory directory_script = Directory(path.join(directoryBase.path, "bin"));
-    Directory directory_build = Directory(path.join(directoryBase.path, "build"));
+    Map yaml_code =
+        (yaml.loadYaml(file_pubspec.readAsStringSync(), recover: true) as Map);
+    PubspecServerUniverse pubspec_server_universe =
+        PubspecServerUniverse(yaml_code.clone());
+    Directory directory_script =
+        Directory(path.join(directoryBase.path, "bin"));
+    Directory directory_build =
+        Directory(path.join(directoryBase.path, "build"));
     if (directory_build.existsSync() == false) {
       directory_build.createSync(
         recursive: true,
       );
     }
-    Directory directory_build_server_universe = Directory(path.join(directory_build.path, "server_universe"));
+    Directory directory_build_server_universe =
+        Directory(path.join(directory_build.path, "server_universe"));
     if (directory_build_server_universe.existsSync() == false) {
       directory_build_server_universe.createSync(
         recursive: true,
@@ -259,17 +281,24 @@ class ServerUniverseDartApi {
     }
 
     // build platform supabase
-    if (server_universeDartPlatformType == ServerUniverseDartPlatformType.supabase) {
-      Directory directory_build_server_universe_supabase = await Future(() async {
-        Directory? directory_output_procces = directoryOutputBuildServerUniverse;
+    if (server_universeDartPlatformType ==
+        ServerUniverseDartPlatformType.supabase) {
+      Directory directory_build_server_universe_supabase =
+          await Future(() async {
+        Directory? directory_output_procces =
+            directoryOutputBuildServerUniverse;
         if (directory_output_procces != null) {
           return directory_output_procces;
         }
-        String output_by_condif_projge = (pubspec_server_universe.server_universe.supabase.output_directory ?? "").trim();
+        String output_by_condif_projge = (pubspec_server_universe
+                    .server_universe.supabase.output_directory ??
+                "")
+            .trim();
         if (output_by_condif_projge.isNotEmpty) {
           return Directory(output_by_condif_projge);
         }
-        return Directory(path.join(directory_build_server_universe.path, "supabase"));
+        return Directory(
+            path.join(directory_build_server_universe.path, "supabase"));
       });
 
       if (directory_build_server_universe_supabase.existsSync() == false) {
@@ -280,24 +309,32 @@ class ServerUniverseDartApi {
       File file_supabase_server_universe_script = await Future(() async {
         String supabase_script_path = (inputFileName ?? "").trim();
         if (supabase_script_path.isEmpty) {
-          supabase_script_path = path.basename((pubspec_server_universe.server_universe.supabase.input_file ?? "").trim());
+          supabase_script_path = path.basename(
+              (pubspec_server_universe.server_universe.supabase.input_file ??
+                      "")
+                  .trim());
           if (supabase_script_path.isEmpty) {
-            supabase_script_path = "${pubspec_server_universe.name}_server_universe_supabase";
+            supabase_script_path =
+                "${pubspec_server_universe.name}_server_universe_supabase";
           }
-          if (!RegExp(r"([.]dart)$", caseSensitive: false).hasMatch(supabase_script_path)) {
+          if (!RegExp(r"([.]dart)$", caseSensitive: false)
+              .hasMatch(supabase_script_path)) {
             supabase_script_path = "${supabase_script_path}.dart";
           }
-          return File(path.join(directory_script.path, "${supabase_script_path}"));
+          return File(
+              path.join(directory_script.path, "${supabase_script_path}"));
         } else {
           return File(supabase_script_path);
         }
       });
       if (file_supabase_server_universe_script.existsSync() == false) {
-        print("Supabase Script not found: ${path.basename(file_supabase_server_universe_script.path)}");
+        print(
+            "Supabase Script not found: ${path.basename(file_supabase_server_universe_script.path)}");
         return;
       }
       String outputFileName = "main.dart.js";
-      print("Starting Build: ${server_universeDartBuildType.name.toUpperCaseFirstData()} Platform ${server_universeDartPlatformType.name.toUpperCaseFirstData()}: ${path.relative(file_supabase_server_universe_script.path, from: directoryBase.path)}");
+      print(
+          "Starting Build: ${server_universeDartBuildType.name.toUpperCaseFirstData()} Platform ${server_universeDartPlatformType.name.toUpperCaseFirstData()}: ${path.relative(file_supabase_server_universe_script.path, from: directoryBase.path)}");
       //
       await compile(
         pubspecServerUniverse: pubspec_server_universe,
@@ -307,15 +344,20 @@ class ServerUniverseDartApi {
         outputFileName: outputFileName,
       );
 
-      File file_index_ts = File(path.join(directory_build_server_universe_supabase.path, "index.ts"));
-      await file_index_ts.writeAsString(script_server_universe_functions_supabase(
+      File file_index_ts = File(
+          path.join(directory_build_server_universe_supabase.path, "index.ts"));
+      await file_index_ts
+          .writeAsString(script_server_universe_functions_supabase(
         fileName: outputFileName,
       ));
-      print("Finished Compiled: ${directory_build_server_universe_supabase.path}");
+      print(
+          "Finished Compiled: ${directory_build_server_universe_supabase.path}");
     }
 
-    if (server_universeDartPlatformType == ServerUniverseDartPlatformType.netlify) {}
-    if (server_universeDartPlatformType == ServerUniverseDartPlatformType.vercel) {}
+    if (server_universeDartPlatformType ==
+        ServerUniverseDartPlatformType.netlify) {}
+    if (server_universeDartPlatformType ==
+        ServerUniverseDartPlatformType.vercel) {}
   }
 
   Future<int> compile({

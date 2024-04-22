@@ -133,8 +133,8 @@ Future _respondWithFile(HttpResponse res, File file,
 }
 
 extension _Logger on HttpRequest {
-  void log(String Function() msgFn) =>
-      server_universe_dart.logWriter(() => 'DirectoryTypeHandler: ${msgFn()}', LogType.debug);
+  void log(String Function() msgFn) => server_universe_dart.logWriter(
+      () => 'DirectoryTypeHandler: ${msgFn()}', LogType.debug);
 
   void preventTraversal(String filePath, Directory absDir) {
     final check = File(filePath).absolute;

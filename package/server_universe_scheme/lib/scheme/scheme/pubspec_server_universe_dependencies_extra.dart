@@ -34,21 +34,19 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 import "package:general_lib/general_lib.dart";
 // import "dart:convert";
 
-
- 
 class PubspecServerUniverseDependenciesExtra extends JsonScheme {
-
-  
   PubspecServerUniverseDependenciesExtra(super.rawData);
-   
+
   static Map get defaultData {
-    return {"@type":"pubspecServerUniverseDependenciesExtra","sdk":"flutter"};
+    return {
+      "@type": "pubspecServerUniverseDependenciesExtra",
+      "sdk": "flutter"
+    };
   }
 
-  
   String? get special_type {
     try {
-      if (rawData["@type"] is String == false){
+      if (rawData["@type"] is String == false) {
         return null;
       }
       return rawData["@type"] as String;
@@ -57,16 +55,13 @@ class PubspecServerUniverseDependenciesExtra extends JsonScheme {
     }
   }
 
-  
   set special_type(String? value) {
     rawData["@type"] = value;
   }
 
-
-  
   String? get sdk {
     try {
-      if (rawData["sdk"] is String == false){
+      if (rawData["sdk"] is String == false) {
         return null;
       }
       return rawData["sdk"] as String;
@@ -75,34 +70,27 @@ class PubspecServerUniverseDependenciesExtra extends JsonScheme {
     }
   }
 
-  
   set sdk(String? value) {
     rawData["sdk"] = value;
   }
 
-
-  
   static PubspecServerUniverseDependenciesExtra create({
-
     String special_type = "pubspecServerUniverseDependenciesExtra",
     String? sdk,
-})  {
+  }) {
     // PubspecServerUniverseDependenciesExtra pubspecServerUniverseDependenciesExtra = PubspecServerUniverseDependenciesExtra({
-Map pubspecServerUniverseDependenciesExtra_data_create_json = {
-  
+    Map pubspecServerUniverseDependenciesExtra_data_create_json = {
       "@type": special_type,
       "sdk": sdk,
+    };
 
+    pubspecServerUniverseDependenciesExtra_data_create_json
+        .removeWhere((key, value) => value == null);
+    PubspecServerUniverseDependenciesExtra
+        pubspecServerUniverseDependenciesExtra_data_create =
+        PubspecServerUniverseDependenciesExtra(
+            pubspecServerUniverseDependenciesExtra_data_create_json);
 
-};
-
-
-          pubspecServerUniverseDependenciesExtra_data_create_json.removeWhere((key, value) => value == null);
-PubspecServerUniverseDependenciesExtra pubspecServerUniverseDependenciesExtra_data_create = PubspecServerUniverseDependenciesExtra(pubspecServerUniverseDependenciesExtra_data_create_json);
-
-return pubspecServerUniverseDependenciesExtra_data_create;
-
-
-
-      }
+    return pubspecServerUniverseDependenciesExtra_data_create;
+  }
 }

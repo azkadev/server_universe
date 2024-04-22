@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 /* <!-- START LICENSE -->
 
 
@@ -87,5 +89,6 @@ extension RequestHelpers on HttpRequest {
 
   /// Get ServerUniverseNative instance which is associated with this request
   ///
-  ServerUniverseNative get server_universe_dart => store.get<ServerUniverseNative>('_internal_server_universe_dart');
+  ServerUniverseNative get server_universe_dart =>
+      store.get<ServerUniverseNative>('_internal_server_universe_dart');
 }

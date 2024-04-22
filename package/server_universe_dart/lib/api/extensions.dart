@@ -52,7 +52,9 @@ extension ServerUniverserDartMapExtension on Map {
         if (this[key] == null) {
           this[key] = value;
         } else if (value is Map && this[key] is Map) {
-          (this[key] as Map).server_universe_dart_updateMapIfNotSameOrEmptyOrNull(data: value, ignoreKeys: ignoreKeys);
+          (this[key] as Map)
+              .server_universe_dart_updateMapIfNotSameOrEmptyOrNull(
+                  data: value, ignoreKeys: ignoreKeys);
         } else if (key is List && this[key] is List) {}
       } catch (e) {}
     });

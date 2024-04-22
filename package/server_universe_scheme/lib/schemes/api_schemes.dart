@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 /* <!-- START LICENSE -->
 
 
@@ -41,5 +43,5 @@ List<Map> api_schemes = [
     "is_no_timestamps": false,
     "audio": "./audio.wav",
     "model": "./model.bin",
-  }, 
+  },
 ];

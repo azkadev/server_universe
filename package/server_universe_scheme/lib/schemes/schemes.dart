@@ -40,7 +40,8 @@ List<Map> schemes = [
     "homepage": "https://youtube.com/@azkadev",
     "repository": "https://github.com/azkadev/packagex.git",
     "issue_tracker": "https://github.com/azkadev/server_universe/issues",
-    "documentation": "https://github.com/azkadev/server_universe/tree/main/docs",
+    "documentation":
+        "https://github.com/azkadev/server_universe/tree/main/docs",
     "funding": ["https://github.com/sponsors/azkadev"],
     "platforms": {
       "@type": "pubspecServerUniversePlatforms",
@@ -74,7 +75,7 @@ List<Map> schemes = [
       "msix": "^1.0.6"
     },
     "server_universe": {
-      "@type": "serverUniversePubspecConfig", 
+      "@type": "serverUniversePubspecConfig",
       "native": {
         "@type": "serverUniversePubspecNativeConfig",
         "input_file": "bin/example_server_universe.dart",

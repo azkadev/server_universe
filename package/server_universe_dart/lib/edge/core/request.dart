@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 /* <!-- START LICENSE -->
 
 
@@ -38,8 +40,10 @@ import 'package:server_universe_dart/edge/core/blob.dart';
 import 'package:server_universe_dart/edge/core/body.dart';
 import 'package:typings/core.dart' as interop;
 import 'package:server_universe_dart/edge/core/interop/readable_stream.dart';
-import 'package:server_universe_dart/edge/core/interop/utils_interop.dart' as interop;
-import 'package:server_universe_dart/edge/core/interop/headers.dart' as headers_interop;
+import 'package:server_universe_dart/edge/core/interop/utils_interop.dart'
+    as interop;
+import 'package:server_universe_dart/edge/core/interop/headers.dart'
+    as headers_interop;
 
 import 'package:server_universe_dart/edge/core/form_data.dart';
 import 'package:server_universe_dart/edge/core/headers.dart';
@@ -131,13 +135,12 @@ class Request implements Body {
 
   ReadableStreamDefaultReader? _reader;
 
+  @override
   Stream<List<int>>? get body {
     final body = getProperty<ReadableStream?>(_delegate, 'body');
     if (body == null) return null;
 
-    if (_reader == null) {
-      _reader = body.getReader();
-    }
+    _reader ??= body.getReader();
 
     return streamFromJSReader(_reader!);
   }
@@ -146,7 +149,8 @@ class Request implements Body {
   bool get bodyUsed => _delegate.bodyUsed;
 
   @override
-  Future<FormData> formData() async => formDataFromJsObject(await _delegate.formData());
+  Future<FormData> formData() async =>
+      formDataFromJsObject(await _delegate.formData());
 
   @override
   Future<Object?> json() async =>

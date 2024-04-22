@@ -41,14 +41,14 @@ void main() async {
   int port = int.tryParse(Platform.environment["PORT"] ?? "3000") ?? 3000;
   String host = Platform.environment["HOST"] ?? "0.0.0.0";
   ServerUniverseNative app = ServerUniverseNative(
-    logLevel: LogType.error, 
+    logLevel: LogType.error,
     onNotFound: (request, res) async {
       return res.send(({
         "@type": "error",
         "message": "path_not_found",
         "description": "PATH: Not Found",
       }.toStringifyPretty()));
-    }, 
+    },
   );
   app.all("/", (req, res) {
     return res.send("oke");

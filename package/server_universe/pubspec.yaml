@@ -1,6 +1,6 @@
 name: 'server_universe'
 description: 'Serve Universal Library For Help you make server rest api on cross platform support edge functions Supabase, Vercel, Netlify, cloud Flare and more'
-version: '0.0.1'
+version: '0.0.6'
 repository: 'https://github.com/azkadev/server_universe'
 homepage: 'https://github.com/azkadev/server_universe'
 issue_tracker: 'https://github.com/azkadev/server_universe/issues'
@@ -14,15 +14,15 @@ platforms:
   macos: null
   web: null
   windows: null
+topics: 
+  - 'server'
+  - 'socket'
+  - 'api'
+  - 'backend'
+  - 'network'
 environment: 
   sdk: '^3.3.0'
 dependencies: null
 dev_dependencies: 
   lints: '^3.0.0'
   test: '^1.24.0'
-topics: 
-  - 'server'
-  - 'rest_api'
-  - 'api'
-  - 'backend'
-  - 'network'

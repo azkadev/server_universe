@@ -34,22 +34,39 @@ import 'dart:js';
 
 export 'dart:async' show FutureOr;
 
-export 'package:typings/core.dart' show ReferrerPolicy, ResponseType, RequestCache, RequestCredentials, RequestDestination, RequestMode, RequestRedirect, atob, btoa;
+export 'package:typings/core.dart'
+    show
+        ReferrerPolicy,
+        ResponseType,
+        RequestCache,
+        RequestCredentials,
+        RequestDestination,
+        RequestMode,
+        RequestRedirect,
+        atob,
+        btoa;
 
-export 'package:server_universe_dart/edge/core/abort/abort.dart' show AbortController, AbortSignal;
-export 'package:server_universe_dart/edge/core/blob.dart' show Blob, BlobPropertyBag;
+export 'package:server_universe_dart/edge/core/abort/abort.dart'
+    show AbortController, AbortSignal;
+export 'package:server_universe_dart/edge/core/blob.dart'
+    show Blob, BlobPropertyBag;
 export 'package:server_universe_dart/edge/core/cache/cache.dart' show Cache;
-export 'package:server_universe_dart/edge/core/cache/cache_query_options.dart' show CacheQueryOptions, MultiCacheQueryOptions;
-export 'package:server_universe_dart/edge/core/cache/cache_storage.dart' show CacheStorage, caches;
+export 'package:server_universe_dart/edge/core/cache/cache_query_options.dart'
+    show CacheQueryOptions, MultiCacheQueryOptions;
+export 'package:server_universe_dart/edge/core/cache/cache_storage.dart'
+    show CacheStorage, caches;
 export 'package:server_universe_dart/edge/core/file.dart' show File;
-export 'package:server_universe_dart/edge/core/form_data.dart' show FormData, FormDataEntryValue;
+export 'package:server_universe_dart/edge/core/form_data.dart'
+    show FormData, FormDataEntryValue;
 export 'package:server_universe_dart/edge/core/headers.dart' show Headers;
 export 'package:server_universe_dart/edge/core/io_http_client.dart';
 export 'package:server_universe_dart/edge/core/request.dart' show Request;
 export 'package:server_universe_dart/edge/core/resource.dart' show Resource;
 export 'package:server_universe_dart/edge/core/response.dart' show Response;
-export 'package:server_universe_dart/edge/core/text_decoder.dart' show TextDecoder, TextDecodeOptions, TextDecoderOptions;
-export 'package:server_universe_dart/edge/core/text_encoder.dart' show TextEncoder, TextEncoderEncodeIntoResult;
+export 'package:server_universe_dart/edge/core/text_decoder.dart'
+    show TextDecoder, TextDecodeOptions, TextDecoderOptions;
+export 'package:server_universe_dart/edge/core/text_encoder.dart'
+    show TextEncoder, TextEncoderEncodeIntoResult;
 export 'package:server_universe_dart/edge/core/top.dart';
 
 class ServerUniverseDartLib {

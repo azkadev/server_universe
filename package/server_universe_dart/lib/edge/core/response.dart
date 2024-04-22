@@ -43,7 +43,8 @@ import 'package:server_universe_dart/edge/core/form_data.dart';
 import 'package:server_universe_dart/edge/core/headers.dart';
 import 'package:server_universe_dart/edge/core/interop/readable_stream.dart';
 import 'package:server_universe_dart/edge/core/interop/utils_interop.dart';
-import 'package:server_universe_dart/edge/core/interop/headers.dart' as headers_interop;
+import 'package:server_universe_dart/edge/core/interop/headers.dart'
+    as headers_interop;
 
 class Response implements Body {
   final interop.Response _delegate;
@@ -112,6 +113,7 @@ class Response implements Body {
   @override
   Future<Object> blob() async => blobFromJsObject(await _delegate.blob());
 
+  @override
   Stream<List<int>>? get body {
     final body = getProperty<ReadableStream?>(_delegate, 'body');
     return body == null ? null : streamFromJSReadable(body);
@@ -121,7 +123,8 @@ class Response implements Body {
   bool get bodyUsed => _delegate.bodyUsed;
 
   @override
-  Future<FormData> formData() async => formDataFromJsObject(await _delegate.formData());
+  Future<FormData> formData() async =>
+      formDataFromJsObject(await _delegate.formData());
 
   @override
   Future<Object?> json() async {

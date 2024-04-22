@@ -34,21 +34,19 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 import "package:general_lib/general_lib.dart";
 // import "dart:convert";
 
-
- 
 class PubspecServerUniverseEnvironment extends JsonScheme {
-
-  
   PubspecServerUniverseEnvironment(super.rawData);
-   
+
   static Map get defaultData {
-    return {"@type":"pubspecServerUniverseEnvironment","sdk":">=2.18.5 <3.0.0"};
+    return {
+      "@type": "pubspecServerUniverseEnvironment",
+      "sdk": ">=2.18.5 <3.0.0"
+    };
   }
 
-  
   String? get special_type {
     try {
-      if (rawData["@type"] is String == false){
+      if (rawData["@type"] is String == false) {
         return null;
       }
       return rawData["@type"] as String;
@@ -57,16 +55,13 @@ class PubspecServerUniverseEnvironment extends JsonScheme {
     }
   }
 
-  
   set special_type(String? value) {
     rawData["@type"] = value;
   }
 
-
-  
   String? get sdk {
     try {
-      if (rawData["sdk"] is String == false){
+      if (rawData["sdk"] is String == false) {
         return null;
       }
       return rawData["sdk"] as String;
@@ -75,34 +70,27 @@ class PubspecServerUniverseEnvironment extends JsonScheme {
     }
   }
 
-  
   set sdk(String? value) {
     rawData["sdk"] = value;
   }
 
-
-  
   static PubspecServerUniverseEnvironment create({
-
     String special_type = "pubspecServerUniverseEnvironment",
     String? sdk,
-})  {
+  }) {
     // PubspecServerUniverseEnvironment pubspecServerUniverseEnvironment = PubspecServerUniverseEnvironment({
-Map pubspecServerUniverseEnvironment_data_create_json = {
-  
+    Map pubspecServerUniverseEnvironment_data_create_json = {
       "@type": special_type,
       "sdk": sdk,
+    };
 
+    pubspecServerUniverseEnvironment_data_create_json
+        .removeWhere((key, value) => value == null);
+    PubspecServerUniverseEnvironment
+        pubspecServerUniverseEnvironment_data_create =
+        PubspecServerUniverseEnvironment(
+            pubspecServerUniverseEnvironment_data_create_json);
 
-};
-
-
-          pubspecServerUniverseEnvironment_data_create_json.removeWhere((key, value) => value == null);
-PubspecServerUniverseEnvironment pubspecServerUniverseEnvironment_data_create = PubspecServerUniverseEnvironment(pubspecServerUniverseEnvironment_data_create_json);
-
-return pubspecServerUniverseEnvironment_data_create;
-
-
-
-      }
+    return pubspecServerUniverseEnvironment_data_create;
+  }
 }

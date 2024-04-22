@@ -142,7 +142,8 @@ class ServerUniverseNative with Router {
   /// Typically would be used for logging, benchmarking or cleaning up data
   /// used when writing a plugin.
   ///
-  Function registerOnDoneListener(void Function(HttpRequest, HttpResponse) listener) {
+  Function registerOnDoneListener(
+      void Function(HttpRequest, HttpResponse) listener) {
     _onDoneListeners.add(listener);
     return listener;
   }
@@ -195,11 +196,33 @@ class ServerUniverseNative with Router {
   }
 
   void _registerDefaultTypeHandlers() {
-    typeHandlers.addAll([stringTypeHandler, uint8listTypeHandler, listIntTypeHandler, binaryStreamTypeHandler, jsonListTypeHandler, jsonMapTypeHandler, jsonNumberTypeHandler, jsonBooleanTypeHandler, fileTypeHandler, directoryTypeHandler, websocketTypeHandler, serializableTypeHandler]);
+    typeHandlers.addAll([
+      stringTypeHandler,
+      uint8listTypeHandler,
+      listIntTypeHandler,
+      binaryStreamTypeHandler,
+      jsonListTypeHandler,
+      jsonMapTypeHandler,
+      jsonNumberTypeHandler,
+      jsonBooleanTypeHandler,
+      fileTypeHandler,
+      directoryTypeHandler,
+      websocketTypeHandler,
+      serializableTypeHandler
+    ]);
   }
 
   void _registerDefaultParamTypes() {
-    HttpRouteParam.paramTypes.addAll([IntParamType(), UintParamType(), DoubleParamType(), DateParamType(), TimestampParamType(), HexParamType(), AlphaParamType(), UuidParamType()]);
+    HttpRouteParam.paramTypes.addAll([
+      IntParamType(),
+      UintParamType(),
+      DoubleParamType(),
+      DateParamType(),
+      TimestampParamType(),
+      HexParamType(),
+      AlphaParamType(),
+      UuidParamType()
+    ]);
   }
 
   void _registerPluginListeners() {
@@ -244,7 +267,8 @@ class ServerUniverseNative with Router {
       });
     });
 
-    logWriter(() => 'HTTP Server listening on port ${server.port}', LogType.info);
+    logWriter(
+        () => 'HTTP Server listening on port ${server.port}', LogType.info);
     return this.server = server;
   }
 
@@ -269,7 +293,8 @@ class ServerUniverseNative with Router {
       requestQueue.add(() => _incomingRequest(request));
     });
 
-    logWriter(() => 'HTTP Server listening on port ${server.port}', LogType.info);
+    logWriter(
+        () => 'HTTP Server listening on port ${server.port}', LogType.info);
     return this.server = server;
   }
 
@@ -282,7 +307,8 @@ class ServerUniverseNative with Router {
     /// Variable to track the close of the response
     var isDone = false;
 
-    logWriter(() => '${request.method} - ${request.uri.toString()}', LogType.info);
+    logWriter(
+        () => '${request.method} - ${request.uri.toString()}', LogType.info);
 
     // We track if the response has been resolved in order to exit out early
     // the list of routes (ie the middleware returned)
@@ -304,7 +330,8 @@ class ServerUniverseNative with Router {
     }
 
     // Work out all the routes we need to process
-    final effectiveMatches = RouteMatcher.match(request.uri.toString(), routes, _parseMethod(request));
+    final effectiveMatches = RouteMatcher.match(
+        request.uri.toString(), routes, _parseMethod(request));
 
     try {
       // If there are no effective routes, that means we need to throw a 404
@@ -324,7 +351,8 @@ class ServerUniverseNative with Router {
           }
           logWriter(() => 'Match route: ${match.route.route}', LogType.debug);
           request.store.set('_internal_match', match);
-          nonWildcardRouteMatch = !match.route.usesWildcardMatcher || nonWildcardRouteMatch;
+          nonWildcardRouteMatch =
+              !match.route.usesWildcardMatcher || nonWildcardRouteMatch;
 
           /// Loop through any middleware
           for (var middleware in match.route.middleware) {
@@ -332,8 +360,10 @@ class ServerUniverseNative with Router {
             if (isDone) {
               break;
             }
-            logWriter(() => 'Apply middleware associated with route', LogType.debug);
-            await _handleResponse(await middleware(request, request.response), request);
+            logWriter(
+                () => 'Apply middleware associated with route', LogType.debug);
+            await _handleResponse(
+                await middleware(request, request.response), request);
           }
 
           /// If the request has already completed, exit early, otherwise process
@@ -347,7 +377,8 @@ class ServerUniverseNative with Router {
           /// catching an error. This fixes it and its in tests, so if you can
           /// remove it and all the tests pass, cool beans.
           // try {
-          await _handleResponse(await match.route.callback(request, request.response), request);
+          await _handleResponse(
+              await match.route.callback(request, request.response), request);
           // } catch (e, s) {
           //   logWriter(() => match.route.toString(), LogType.error);
           //   logWriter(() => e, LogType.error);
@@ -393,7 +424,8 @@ class ServerUniverseNative with Router {
       if (onInternalError != null) {
         // Handle the error with a custom response
         request.store.set('_internal_exception', e);
-        final dynamic result = await onInternalError!(request, request.response);
+        final dynamic result =
+            await onInternalError!(request, request.response);
         if (result != null && !isDone) {
           await _handleResponse(result, request);
         }
@@ -440,8 +472,11 @@ class ServerUniverseNative with Router {
       var handled = false;
       for (var handler in typeHandlers) {
         if (handler.shouldHandle(result)) {
-          logWriter(() => 'Apply TypeHandler for result type: ${result.runtimeType}', LogType.debug);
-          dynamic handlerResult = await handler.handler(request, request.response, result);
+          logWriter(
+              () => 'Apply TypeHandler for result type: ${result.runtimeType}',
+              LogType.debug);
+          dynamic handlerResult =
+              await handler.handler(request, request.response, result);
           if (handlerResult != false) {
             handled = true;
             break;
@@ -538,7 +573,8 @@ class NoTypeHandlerError extends Error {
   NoTypeHandlerError(this.object, this.request);
 
   @override
-  String toString() => 'No type handler found for ${object.runtimeType} / ${object.toString()} \nRoute: ${request.route}\nIf the app is running in production mode, the type name may be minified. Run it in debug mode to resolve';
+  String toString() =>
+      'No type handler found for ${object.runtimeType} / ${object.toString()} \nRoute: ${request.route}\nIf the app is running in production mode, the type name may be minified. Run it in debug mode to resolve';
 }
 
 /// Error used by middleware, utils or type handler to elevate

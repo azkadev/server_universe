@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 /* <!-- START LICENSE -->
 
 
@@ -42,7 +44,10 @@ extension NestedRouteExtension on ServerUniverseNative {
   NestedRoute route(String path,
           {List<FutureOr Function(HttpRequest req, HttpResponse res)>
               middleware = const []}) =>
-      NestedRoute(server_universe_dart: this, basePath: path, baseMiddleware: middleware);
+      NestedRoute(
+          server_universe_dart: this,
+          basePath: path,
+          baseMiddleware: middleware);
 }
 
 class NestedRoute {

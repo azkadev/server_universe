@@ -1,6 +1,6 @@
 name: 'server_universe_flutter'
 description: 'Serve Universal Library For Help you make server rest api on cross platform support edge functions Supabase, Vercel, Netlify, cloud Flare and more'
-version: '0.0.1'
+version: '0.0.6'
 homepage: 'https://github.com/azkadev/server_universe'
 repository: 'https://github.com/azkadev/server_universe'
 issue_tracker: 'https://github.com/azkadev/server_universe/issues'
@@ -27,7 +27,7 @@ dev_dependencies:
 flutter: null
 topics: 
   - 'server'
-  - 'rest_api'
+  - 'socket'
   - 'api'
   - 'backend'
   - 'network'

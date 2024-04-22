@@ -75,7 +75,8 @@ Future<void> server_universeDartCli(List<String> args_raw) async {
     }
   }
 
-  ServerUniverseDartBuildType server_universeDartBuildType = ServerUniverseDartBuildType.release;
+  ServerUniverseDartBuildType server_universeDartBuildType =
+      ServerUniverseDartBuildType.release;
 
   if (args.contains("--debug")) {
     server_universeDartBuildType = ServerUniverseDartBuildType.debug;
@@ -88,7 +89,8 @@ Future<void> server_universeDartCli(List<String> args_raw) async {
   if (command == "create") {
     Directory directory_current = Directory.current;
     String new_project_name = await Future(() async {
-      String new_project_name_from_command = (args.after(command) ?? "").toLowerCase();
+      String new_project_name_from_command =
+          (args.after(command) ?? "").toLowerCase();
       if (new_project_name_from_command.isNotEmpty) {
         return new_project_name_from_command;
       }
@@ -116,19 +118,24 @@ Future<void> server_universeDartCli(List<String> args_raw) async {
     );
   }
   if (["run", "build"].contains(command)) {
-    ServerUniverseDartPlatformType? server_universeDartPlatformType = await Future(() async {
+    ServerUniverseDartPlatformType? server_universeDartPlatformType =
+        await Future(() async {
       String platform_type = (args.after(command) ?? "").toLowerCase();
-      List<ServerUniverseDartPlatformType> server_universeDartPlatformTypes = ServerUniverseDartPlatformType.values.toList();
+      List<ServerUniverseDartPlatformType> server_universeDartPlatformTypes =
+          ServerUniverseDartPlatformType.values.toList();
       server_universeDartPlatformTypes.sort((a, b) => a.name.compareTo(b.name));
-      for (ServerUniverseDartPlatformType server_universeDartPlatformType in server_universeDartPlatformTypes) {
-        if (server_universeDartPlatformType.name.toLowerCase() == platform_type) {
+      for (ServerUniverseDartPlatformType server_universeDartPlatformType
+          in server_universeDartPlatformTypes) {
+        if (server_universeDartPlatformType.name.toLowerCase() ==
+            platform_type) {
           return server_universeDartPlatformType;
         }
       }
       if (is_interactive) {
         while (true) {
           await Future.delayed(Duration(microseconds: 1));
-          ServerUniverseDartPlatformType server_universeDartPlatformType = logger.chooseOne(
+          ServerUniverseDartPlatformType server_universeDartPlatformType =
+              logger.chooseOne(
             "Pilih Platform: ",
             choices: server_universeDartPlatformTypes,
             display: (choice) {
@@ -143,7 +150,8 @@ Future<void> server_universeDartCli(List<String> args_raw) async {
       return null;
     });
     if (server_universeDartPlatformType == null) {
-      print("Please select platform type: ${ServerUniverseDartPlatformType.values.map((e) => e.name).join(", ")}");
+      print(
+          "Please select platform type: ${ServerUniverseDartPlatformType.values.map((e) => e.name).join(", ")}");
       exit(1);
     }
     Directory directory_current = Directory.current;
@@ -153,7 +161,8 @@ Future<void> server_universeDartCli(List<String> args_raw) async {
       "run",
       "deploy",
     ].contains(command)) {
-      Progress progress = logger.progress("Starting ${command.toUpperCaseFirstData()}: ");
+      Progress progress =
+          logger.progress("Starting ${command.toUpperCaseFirstData()}: ");
       String? inputFileName = () {
         String input = (args.after("-i") ?? args.after("--input") ?? "").trim();
         if (input.isNotEmpty) {
@@ -162,7 +171,8 @@ Future<void> server_universeDartCli(List<String> args_raw) async {
         return null;
       }();
       Directory? directoryOutputBuildServerUniverse = () {
-        String output = (args.after("-o") ?? args.after("--output") ?? "").trim();
+        String output =
+            (args.after("-o") ?? args.after("--output") ?? "").trim();
         if (output.isNotEmpty) {
           return Directory(output);
         }
@@ -182,12 +192,14 @@ Future<void> server_universeDartCli(List<String> args_raw) async {
         exit(0);
       }
       if (command == "run") {
-        logger.info("Starting running: ${server_universeDartPlatformType.name}");
+        logger
+            .info("Starting running: ${server_universeDartPlatformType.name}");
 
         int exit_code = await serverUniverseDartApi.run(
           directoryBase: directory_current,
           inputFileName: inputFileName,
-          directoryOutputBuildServerUniverse: directoryOutputBuildServerUniverse,
+          directoryOutputBuildServerUniverse:
+              directoryOutputBuildServerUniverse,
           server_universeDartBuildType: server_universeDartBuildType,
           server_universeDartPlatformType: server_universeDartPlatformType,
         );

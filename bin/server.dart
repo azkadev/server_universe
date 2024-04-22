@@ -59,7 +59,8 @@ void main() async {
       }.toStringifyPretty()));
     },
     onInternalError: (req, res) {
-      return res.send({"@type": "error", "message": "server_crash"}.toStringifyPretty());
+      return res.send(
+          {"@type": "error", "message": "server_crash"}.toStringifyPretty());
     },
   );
   app.all("/", (req, res) {

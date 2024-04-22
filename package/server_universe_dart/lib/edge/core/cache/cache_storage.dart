@@ -33,7 +33,8 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 import 'dart:js_util';
 
 import 'package:typings/core.dart' as interop hide caches;
-import 'package:server_universe_dart/edge/core/interop/cache_interop.dart' as interop;
+import 'package:server_universe_dart/edge/core/interop/cache_interop.dart'
+    as interop;
 import 'package:server_universe_dart/edge/core/request.dart';
 import 'package:server_universe_dart/edge/core/response.dart';
 import 'cache.dart';
@@ -58,8 +59,10 @@ class CacheStorage {
     return _delegate.keys();
   }
 
-  Future<Response?> match(Request request, [MultiCacheQueryOptions? options]) async {
-    final obj = await promiseToFuture<interop.Response?>(_delegate.match(request.delegate, options?.delegate));
+  Future<Response?> match(Request request,
+      [MultiCacheQueryOptions? options]) async {
+    final obj = await promiseToFuture<interop.Response?>(
+        _delegate.match(request.delegate, options?.delegate));
     return obj == null ? null : responseFromJsObject(obj);
   }
 
