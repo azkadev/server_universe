@@ -469,10 +469,10 @@ packages:
     dependency: "direct main"
     description:
       name: server_universe_scheme
-      sha256: fe8ae1919970b8ee66dbdfe47a53f14a01bc42802fa9a1278bee5a2b463168d2
+      sha256: "2c6313ce45bcbbd86322de16d10114128deb5213213c36cd92bb8571c82ebd92"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.0"
+    version: "0.0.1"
   shelf:
     dependency: "direct dev"
     description:

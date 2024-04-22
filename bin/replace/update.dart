@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_brace_in_string_interps
+
 /* <!-- START LICENSE -->
 
 
@@ -46,10 +48,10 @@ Future<void> pubspecUpdate({
   if (filePubspec.existsSync()) {
     Map yaml_code = (yaml.loadYaml(filePubspec.readAsStringSync(), recover: true) as Map);
     Map yaml_code_clone = yaml_code.clone();
-
+    String version_package = "0.0.1";
     yaml_code_clone.addAll({
       "description": "Serve Universal Library For Help you make server rest api on cross platform support edge functions Supabase, Vercel, Netlify, cloud Flare and more",
-      "version": "0.0.0",
+      "version": version_package,
       "repository": "https://github.com/azkadev/server_universe",
       "homepage": "https://github.com/azkadev/server_universe",
       "issue_tracker": "https://github.com/azkadev/server_universe/issues",
@@ -66,6 +68,14 @@ Future<void> pubspecUpdate({
         "windows": null,
       },
     });
+    if (yaml_code_clone["dependencies"] is Map) {
+      (yaml_code_clone["dependencies"] as Map).forEach((key, value) {
+        if (RegExp("^(server_universe)").hashData(key)) {
+          yaml_code_clone["dependencies"][key] = "^${version_package}";
+        }
+      });
+    }
+    // yaml_code_clone[""];
 
     var yamlDoc = YamlWriter().write(yaml_code_clone);
 
