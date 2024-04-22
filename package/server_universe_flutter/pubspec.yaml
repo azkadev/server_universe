@@ -25,3 +25,9 @@ dev_dependencies:
     sdk: 'flutter'
   flutter_lints: '^3.0.0'
 flutter: null
+topics: 
+  - 'server'
+  - 'rest_api'
+  - 'api'
+  - 'backend'
+  - 'network'

@@ -67,6 +67,13 @@ Future<void> pubspecUpdate({
         "web": null,
         "windows": null,
       },
+      "topics": [
+        "server",
+        "rest_api",
+        "api",
+        "backend",
+        "network"
+      ]
     });
     if (yaml_code_clone["dependencies"] is Map) {
       (yaml_code_clone["dependencies"] as Map).forEach((key, value) {

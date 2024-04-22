@@ -26,3 +26,9 @@ server_universe:
   supabase: 
     input_file: 'bin/example_supabase.dart'
     output_directory: 'supabase/functions/example'
+topics: 
+  - 'server'
+  - 'rest_api'
+  - 'api'
+  - 'backend'
+  - 'network'
