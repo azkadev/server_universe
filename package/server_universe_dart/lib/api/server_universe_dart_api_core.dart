@@ -38,29 +38,30 @@ import 'dart:io';
 import 'package:general_lib/general_lib.dart';
 import 'package:general_lib/watch/watch.dart';
 import 'package:server_universe_dart/api/extensions.dart';
-import 'package:server_universe_scheme/scheme/scheme/pubspec_server_universe.dart';
+import 'package:server_universe_dart/scheme/scheme/scheme.dart';
 import "package:path/path.dart" as path;
-import 'package:server_universe_scheme/scheme/scheme/pubspec_server_universe_dependencies.dart';
-import 'package:server_universe_scheme/scheme/scheme/server_universe_pubspec_config.dart';
-import 'package:server_universe_scheme/scheme/scheme/server_universe_pubspec_supabase_config.dart';
-
 import "package:yaml/yaml.dart" as yaml;
 import 'package:yaml_writer/yaml_writer.dart';
 
+/// build type server
 enum ServerUniverseDartBuildType {
   debug,
   release,
 }
 
+/// build platfomr type
 enum ServerUniverseDartPlatformType {
   supabase,
   vercel,
   netlify,
 }
 
+/// server universe dart api
 class ServerUniverseDartApi {
+  /// server universe dart
   ServerUniverseDartApi();
 
+  /// server universe dart
   FutureOr<dynamic> create({
     required String newName,
     required Directory directoryBase,
@@ -169,6 +170,7 @@ class ServerUniverseDartApi {
     // finished update pubspec
   }
 
+  /// server universe dart
   FutureOr<int> run({
     required Directory directoryBase,
     required Directory? directoryOutputBuildServerUniverse,
@@ -247,6 +249,7 @@ class ServerUniverseDartApi {
     return 1;
   }
 
+  /// server universe dart
   FutureOr<dynamic> build({
     required Directory directoryBase,
     required Directory? directoryOutputBuildServerUniverse,
@@ -360,6 +363,7 @@ class ServerUniverseDartApi {
         ServerUniverseDartPlatformType.vercel) {}
   }
 
+  /// server universe dart
   Future<int> compile({
     required PubspecServerUniverse pubspecServerUniverse,
     required ServerUniverseDartBuildType server_universeDartBuildType,
@@ -395,6 +399,7 @@ class ServerUniverseDartApi {
     return await shell.exitCode;
   }
 
+  /// server universe dart
   static String script_server_universe_dart_native() {
     return r"""
 import 'dart:io';
@@ -432,6 +437,7 @@ void main() async {
         .trim();
   }
 
+  /// server universe dart
   static String script_server_universe_dart_supabase() {
     return r"""
 import 'package:server_universe_dart/edge/edge.dart';
@@ -461,6 +467,7 @@ void main() async {
         .trim();
   }
 
+  /// server universe dart
   static String script_server_universe_functions_supabase({
     required String fileName,
   }) {
@@ -484,6 +491,7 @@ declare global {
 ''';
   }
 
+  /// server universe dart
   static String guide_server_universe_markdown({required String name_project}) {
     return """
 # Guide Server Universe

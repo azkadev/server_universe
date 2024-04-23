@@ -1,7 +1,12 @@
 name: 'example'
-description: 'Serve Universal Library For Help you make server rest api on cross platform support edge functions Supabase, Vercel, Netlify, cloud Flare and more'
-publish_to: 'none'
-version: '0.0.6'
+description: 'Serve Universe Library For Help you make server rest api on cross platform support edge functions Supabase, Vercel, Netlify, cloud Flare and more'
+version: '0.0.9'
+environment: 
+  sdk: '^3.3.3'
+dependencies: null
+dev_dependencies: 
+  lints: '^3.0.0'
+  test: '^1.24.0'
 repository: 'https://github.com/azkadev/server_universe'
 homepage: 'https://github.com/azkadev/server_universe'
 issue_tracker: 'https://github.com/azkadev/server_universe/issues'
@@ -15,17 +20,6 @@ platforms:
   macos: null
   web: null
   windows: null
-environment: 
-  sdk: '>=2.18.5 <3.0.0'
-dependencies: 
-  server_universe_dart: '^0.0.6'
-  xendit: '^0.0.23'
-  server_universe_dart_http_client: '^0.0.6'
-  general_lib: '^0.0.34'
-server_universe: 
-  supabase: 
-    input_file: 'bin/example_supabase.dart'
-    output_directory: 'supabase/functions/example'
 topics: 
   - 'server'
   - 'socket'

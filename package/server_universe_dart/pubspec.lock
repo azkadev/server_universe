@@ -457,14 +457,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.0"
-  server_universe_scheme:
-    dependency: "direct main"
-    description:
-      name: server_universe_scheme
-      sha256: "51d7b828f6586f05f59e3ade0a81d7a38dcf6749bfa22445c2846984782840ca"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.6"
   shelf:
     dependency: "direct dev"
     description:

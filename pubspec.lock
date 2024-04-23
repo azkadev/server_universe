@@ -141,10 +141,10 @@ packages:
     dependency: "direct main"
     description:
       name: general_lib
-      sha256: f9fe2744149c4490d971c151a657ae40a27d2df2cc7c62faa2f0fc70e93d8a93
+      sha256: e87cc176641947c2c94cfcb93178658146ce7b0a2940b5eb4e53f0768311f929
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.34"
+    version: "0.0.36"
   github:
     dependency: transitive
     description:
