@@ -61,10 +61,8 @@ flutter pub add server_universe_flutter
 - from pub
 
 ```bash
-
+dart pub global activate server_universe
 ```
-
-- from github
 
 ## 🚀️ Quick Start
 
@@ -72,7 +70,21 @@ Example Quickstart script minimal for insight you or make you use this library b
 
 ### Api
 
+```dart
+import 'dart:io';
+import 'package:server_universe_dart/api/server_universe_dart_api.dart';
+void main(List<String> args) async {
+  ServerUniverseDartApi serverUniverseDartApi = ServerUniverseDartApi();
+  await serverUniverseDartApi.create(newName: "hi", directoryBase: Directory("path_to_dir/slebew"));
+  await serverUniverseDartApi.build(directoryBase: Directory("path_to_dir/slebew"), directoryOutputBuildServerUniverse: Directory("path_to_dir/slebew/build"), inputFileName: "path_to_dir/slebew/bin/server.dart", server_universeDartBuildType: ServerUniverseDartBuildType.release, server_universeDartPlatformType: ServerUniverseDartPlatformType.supabase);
+}
+```
+
 ### Cli
+
+```dart
+dart run server_universe_dart
+```
 
 ### Edge
 
@@ -109,7 +121,9 @@ void main() async {
 if you want deploy on device or server or vps, or flutter app try this script
 
 ```dart
+
 import 'dart:io';
+import 'package:general_lib/extension/dynamic.dart';
 import 'package:server_universe_dart/native/native.dart';
 
 void main() async {
@@ -117,21 +131,23 @@ void main() async {
   int port = int.tryParse(Platform.environment["PORT"] ?? "3000") ?? 3000;
   String host = Platform.environment["HOST"] ?? "0.0.0.0";
   ServerUniverseNative app = ServerUniverseNative(
+    logLevel: LogType.error,
     onNotFound: (request, res) async {
-      return res.json({"@type": "error", "message": "path_not_found", "description": "PATH: Not Found"});
-    },
-    onInternalError: (req, res) {
-      return res.json({"@type": "error", "message": "server_crash"});
+      return res.status(400).send(({
+        "@type": "error",
+        "message": "path_not_found",
+        "description": "PATH: Not Found",
+      }.toStringifyPretty()));
     },
   );
   app.all("/", (req, res) {
-    return res.send("oke");
+    return res.status(200).send("oke");
   });
-  app.all("/version", (req, res) {
-    return res.json({
-      "@type": "version",
-      "version": "0.0.0",
-    });
+
+  int count = 0;
+  app.all("/version", (req, res) async {
+    count++;
+    return await res.status(200).send("\nCOUNT: ${count}");
   });
   await app.listen(port, host);
   print("Server on");

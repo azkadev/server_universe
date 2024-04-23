@@ -32,3 +32,5 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 
 export "package:server_universe_dart/server_universe_dart.dart";
+
+export "server_universe_core.dart";

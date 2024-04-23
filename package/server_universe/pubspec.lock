@@ -381,10 +381,10 @@ packages:
     dependency: "direct main"
     description:
       name: server_universe_dart
-      sha256: "614cc68ca71af15e72d979b0ea6edc9964b56041bd33f6da2fed81edcc0cbd7b"
+      sha256: a9aba5c69558a0de8aee60a8d850ccbacf4f5c14d90de6f098bc1a37a2af2589
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.9"
+    version: "0.0.10"
   shelf:
     dependency: transitive
     description:
