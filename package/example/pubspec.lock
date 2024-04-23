@@ -194,7 +194,7 @@ packages:
     source: hosted
     version: "3.2.0"
   general_lib:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: general_lib
       sha256: e87cc176641947c2c94cfcb93178658146ce7b0a2940b5eb4e53f0768311f929
@@ -330,7 +330,7 @@ packages:
     source: hosted
     version: "2.1.0"
   path:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: path
       sha256: "087ce49c3f0dc39180befefc60fdb4acd8f8620e5682fe2476afd0b3688bb4af"
@@ -378,12 +378,12 @@ packages:
     source: hosted
     version: "4.1.0"
   server_universe_dart:
-    dependency: "direct overridden"
+    dependency: "direct main"
     description:
       path: "../server_universe_dart"
       relative: true
     source: path
-    version: "0.0.8"
+    version: "0.0.9"
   shelf:
     dependency: transitive
     description:

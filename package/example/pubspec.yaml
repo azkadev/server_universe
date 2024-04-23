@@ -1,16 +1,11 @@
 name: 'example'
 description: 'Serve Universe Library For Help you make server rest api on cross platform support edge functions Supabase, Vercel, Netlify, cloud Flare and more'
 version: '0.0.9'
-environment: 
-  sdk: '^3.3.3'
-dependencies: null
-dev_dependencies: 
-  lints: '^3.0.0'
-  test: '^1.24.0'
 repository: 'https://github.com/azkadev/server_universe'
 homepage: 'https://github.com/azkadev/server_universe'
 issue_tracker: 'https://github.com/azkadev/server_universe/issues'
 documentation: 'https://github.com/azkadev/server_universe/tree/main/docs'
+publish_to: none
 funding: 
   - 'https://github.com/sponsors/azkadev'
 platforms: 
@@ -26,3 +21,14 @@ topics:
   - 'api'
   - 'backend'
   - 'network'
+
+environment: 
+  sdk: '^3.3.3'
+dependencies:
+  general_lib: ^0.0.36
+  path: ^1.9.0
+  server_universe_dart:
+    path: ../server_universe_dart
+dev_dependencies: 
+  lints: '^3.0.0'
+  test: '^1.24.0'

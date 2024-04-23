@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_brace_in_string_interps
+
 /* <!-- START LICENSE -->
 
 
@@ -43,7 +45,7 @@ void main() async {
   ServerUniverseNative app = ServerUniverseNative(
     logLevel: LogType.error,
     onNotFound: (request, res) async {
-      return res.send(({
+      return res.status(400).send(({
         "@type": "error",
         "message": "path_not_found",
         "description": "PATH: Not Found",
@@ -51,7 +53,7 @@ void main() async {
     },
   );
   app.all("/", (req, res) {
-    return res.send("oke");
+    return res.status(200).send("oke");
   });
 
   int count = 0;
