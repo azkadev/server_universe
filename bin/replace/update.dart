@@ -42,13 +42,12 @@ import "package:path/path.dart" as path;
 import "package:yaml/yaml.dart" as yaml;
 import "package:yaml_writer/yaml_writer.dart";
 
-String version_package = "0.0.9";
+String version_package = "0.0.10";
 
 Future<void> pubspecUpdate({
   required File filePubspec,
 }) async {
   if (filePubspec.existsSync()) {
-    
     Map yaml_code = (yaml.loadYaml(filePubspec.readAsStringSync(), recover: true) as Map);
     Map yaml_code_clone = yaml_code.clone();
     yaml_code_clone.addAll({
@@ -69,7 +68,13 @@ Future<void> pubspecUpdate({
         "web": null,
         "windows": null,
       },
-      "topics": ["server", "socket", "api", "backend", "network"]
+      "topics": [
+        "server",
+        "socket",
+        "api",
+        "backend",
+        "network",
+      ]
     });
     if (yaml_code_clone["dependencies"] is Map) {
       (yaml_code_clone["dependencies"] as Map).forEach((key, value) {
@@ -108,7 +113,7 @@ void main(List<String> args) async {
       await file_changelog.writeAsString("""
 ## ${version_package}
 
-- Update Example.
+- Update Topics.
 """);
 
       File file_pubspec = File(path.join(fileSystemEntity.path, "pubspec.yaml"));

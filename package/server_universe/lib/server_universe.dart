@@ -30,6 +30,5 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
-int calculate() {
-  return 6 * 7;
-}
+
+export "package:server_universe_dart/server_universe_dart.dart";
