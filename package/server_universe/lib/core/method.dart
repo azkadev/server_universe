@@ -1,4 +1,3 @@
-
 enum Method {
   get,
   post,
@@ -22,4 +21,3 @@ enum Method {
         orElse: () => this,
       );
 }
-

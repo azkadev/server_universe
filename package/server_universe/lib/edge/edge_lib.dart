@@ -48,8 +48,7 @@ export 'package:typings/core.dart'
 
 export 'package:server_universe/edge/core/abort/abort.dart'
     show AbortController, AbortSignal;
-export 'package:server_universe/edge/core/blob.dart'
-    show Blob, BlobPropertyBag;
+export 'package:server_universe/edge/core/blob.dart' show Blob, BlobPropertyBag;
 export 'package:server_universe/edge/core/cache/cache.dart' show Cache;
 export 'package:server_universe/edge/core/cache/cache_query_options.dart'
     show CacheQueryOptions, MultiCacheQueryOptions;

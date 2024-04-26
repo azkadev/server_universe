@@ -47,9 +47,7 @@ extension NestedRouteExtension on ServerUniverseNative {
           {List<FutureOr Function(HttpRequest req, HttpResponse res)>
               middleware = const []}) =>
       NestedRoute(
-          server_universe: this,
-          basePath: path,
-          baseMiddleware: middleware);
+          server_universe: this, basePath: path, baseMiddleware: middleware);
 }
 
 class NestedRoute {

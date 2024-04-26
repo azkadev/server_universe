@@ -38,7 +38,8 @@ class TypeHandler<T> {
 
   final FutureOr Function(HttpRequest, HttpResponse, T) _handler;
 
-  FutureOr handler(HttpRequest req, HttpResponse res, dynamic item) => _handler(req, res, item as T);
+  FutureOr handler(HttpRequest req, HttpResponse res, dynamic item) =>
+      _handler(req, res, item as T);
 
   bool shouldHandle(dynamic item) => item is T;
 }

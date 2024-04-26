@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_brace_in_string_interps, no_leading_underscores_for_local_identifiers
+// ignore_for_file: unnecessary_brace_in_string_interps, no_leading_underscores_for_local_identifiers, overridden_fields
 
 /* <!-- START LICENSE -->
 
@@ -90,6 +90,7 @@ class ServerUniverseNative extends ServerUniverse {
   /// Optional path prefix to apply to all routes and route groups
   ///
   // @override
+  @override
   String pathPrefix;
 
   /// Optional handler for when a route is not found
@@ -123,7 +124,8 @@ class ServerUniverseNative extends ServerUniverse {
   /// Typically would be used for logging, benchmarking or cleaning up data
   /// used when writing a plugin.
   ///
-  Function registerOnDoneListener(void Function(HttpRequest, HttpResponse) listener) {
+  Function registerOnDoneListener(
+      void Function(HttpRequest, HttpResponse) listener) {
     _onDoneListeners.add(listener);
     return listener;
   }
@@ -178,11 +180,33 @@ class ServerUniverseNative extends ServerUniverse {
   }
 
   void _registerDefaultTypeHandlers() {
-    typeHandlers.addAll([stringTypeHandler, uint8listTypeHandler, listIntTypeHandler, binaryStreamTypeHandler, jsonListTypeHandler, jsonMapTypeHandler, jsonNumberTypeHandler, jsonBooleanTypeHandler, fileTypeHandler, directoryTypeHandler, websocketTypeHandler, serializableTypeHandler]);
+    typeHandlers.addAll([
+      stringTypeHandler,
+      uint8listTypeHandler,
+      listIntTypeHandler,
+      binaryStreamTypeHandler,
+      jsonListTypeHandler,
+      jsonMapTypeHandler,
+      jsonNumberTypeHandler,
+      jsonBooleanTypeHandler,
+      fileTypeHandler,
+      directoryTypeHandler,
+      websocketTypeHandler,
+      serializableTypeHandler
+    ]);
   }
 
   void _registerDefaultParamTypes() {
-    HttpRouteParam.paramTypes.addAll([IntParamType(), UintParamType(), DoubleParamType(), DateParamType(), TimestampParamType(), HexParamType(), AlphaParamType(), UuidParamType()]);
+    HttpRouteParam.paramTypes.addAll([
+      IntParamType(),
+      UintParamType(),
+      DoubleParamType(),
+      DateParamType(),
+      TimestampParamType(),
+      HexParamType(),
+      AlphaParamType(),
+      UuidParamType()
+    ]);
   }
 
   void _registerPluginListeners() {
@@ -228,7 +252,8 @@ class ServerUniverseNative extends ServerUniverse {
       });
     });
 
-    logWriter(() => 'HTTP Server listening on port ${server.port}', LogType.info);
+    logWriter(
+        () => 'HTTP Server listening on port ${server.port}', LogType.info);
     return this.server = server;
   }
 
@@ -253,7 +278,8 @@ class ServerUniverseNative extends ServerUniverse {
       requestQueue.add(() => _incomingRequest(request));
     });
 
-    logWriter(() => 'HTTP Server listening on port ${server.port}', LogType.info);
+    logWriter(
+        () => 'HTTP Server listening on port ${server.port}', LogType.info);
     return this.server = server;
   }
 
@@ -266,7 +292,8 @@ class ServerUniverseNative extends ServerUniverse {
     /// Variable to track the close of the response
     var isDone = false;
 
-    logWriter(() => '${request.method} - ${request.uri.toString()}', LogType.info);
+    logWriter(
+        () => '${request.method} - ${request.uri.toString()}', LogType.info);
 
     // We track if the response has been resolved in order to exit out early
     // the list of routes (ie the middleware returned)
@@ -288,7 +315,8 @@ class ServerUniverseNative extends ServerUniverse {
     }
 
     // Work out all the routes we need to process
-    final effectiveMatches = RouteMatcher.match(request.uri.toString(), routes, _parseMethod(request));
+    final effectiveMatches = RouteMatcher.match(
+        request.uri.toString(), routes, _parseMethod(request));
 
     try {
       // If there are no effective routes, that means we need to throw a 404
@@ -308,7 +336,8 @@ class ServerUniverseNative extends ServerUniverse {
           }
           logWriter(() => 'Match route: ${match.route.route}', LogType.debug);
           request.store.set('_internal_match', match);
-          nonWildcardRouteMatch = !match.route.usesWildcardMatcher || nonWildcardRouteMatch;
+          nonWildcardRouteMatch =
+              !match.route.usesWildcardMatcher || nonWildcardRouteMatch;
 
           /// Loop through any middleware
           for (var middleware in match.route.middleware) {
@@ -316,8 +345,10 @@ class ServerUniverseNative extends ServerUniverse {
             if (isDone) {
               break;
             }
-            logWriter(() => 'Apply middleware associated with route', LogType.debug);
-            await _handleResponse(await middleware(request, request.response), request);
+            logWriter(
+                () => 'Apply middleware associated with route', LogType.debug);
+            await _handleResponse(
+                await middleware(request, request.response), request);
           }
 
           /// If the request has already completed, exit early, otherwise process
@@ -331,7 +362,8 @@ class ServerUniverseNative extends ServerUniverse {
           /// catching an error. This fixes it and its in tests, so if you can
           /// remove it and all the tests pass, cool beans.
           // try {
-          await _handleResponse(await match.route.callback(request, request.response), request);
+          await _handleResponse(
+              await match.route.callback(request, request.response), request);
           // } catch (e, s) {
           //   logWriter(() => match.route.toString(), LogType.error);
           //   logWriter(() => e, LogType.error);
@@ -425,8 +457,11 @@ class ServerUniverseNative extends ServerUniverse {
       var handled = false;
       for (var handler in typeHandlers) {
         if (handler.shouldHandle(result)) {
-          logWriter(() => 'Apply TypeHandler for result type: ${result.runtimeType}', LogType.debug);
-          dynamic handlerResult = await handler.handler(request, request.response, result);
+          logWriter(
+              () => 'Apply TypeHandler for result type: ${result.runtimeType}',
+              LogType.debug);
+          dynamic handlerResult =
+              await handler.handler(request, request.response, result);
           // print(handlerResult == false);
           // set false to old
           if (handlerResult != null) {
@@ -516,7 +551,8 @@ class ServerUniverseNative extends ServerUniverse {
   HttpRoute get(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
+        const [],
   }) {
     return createRoute(Method.get, path, callback, middleware);
   }
@@ -526,7 +562,8 @@ class ServerUniverseNative extends ServerUniverse {
   HttpRoute head(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
+        const [],
   }) {
     return createRoute(Method.head, path, callback, middleware);
   }
@@ -536,7 +573,8 @@ class ServerUniverseNative extends ServerUniverse {
   HttpRoute post(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
+        const [],
   }) {
     return createRoute(Method.post, path, callback, middleware);
   }
@@ -545,7 +583,8 @@ class ServerUniverseNative extends ServerUniverse {
   HttpRoute put(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
+        const [],
   }) {
     return createRoute(Method.put, path, callback, middleware);
   }
@@ -555,7 +594,8 @@ class ServerUniverseNative extends ServerUniverse {
   HttpRoute delete(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
+        const [],
   }) {
     return createRoute(Method.delete, path, callback, middleware);
   }
@@ -565,7 +605,8 @@ class ServerUniverseNative extends ServerUniverse {
   HttpRoute patch(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
+        const [],
   }) {
     return createRoute(Method.patch, path, callback, middleware);
   }
@@ -575,7 +616,8 @@ class ServerUniverseNative extends ServerUniverse {
   HttpRoute options(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
+        const [],
   }) {
     return createRoute(Method.options, path, callback, middleware);
   }
@@ -585,7 +627,8 @@ class ServerUniverseNative extends ServerUniverse {
   HttpRoute all(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
+        const [],
   }) {
     return createRoute(Method.all, path, callback, middleware);
   }
@@ -594,9 +637,12 @@ class ServerUniverseNative extends ServerUniverse {
     Method method,
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, [
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
+        const [],
   ]) {
-    final route = HttpRoute('${pathPrefix == '' ? '' : '${pathPrefix}/'}$path', callback, method, middleware: middleware);
+    final route = HttpRoute(
+        '${pathPrefix == '' ? '' : '${pathPrefix}/'}$path', callback, method,
+        middleware: middleware);
     addRoute(route);
     return route;
   }
@@ -619,7 +665,8 @@ class NoTypeHandlerError extends Error {
   NoTypeHandlerError(this.object, this.request);
 
   @override
-  String toString() => 'No type handler found for ${object.runtimeType} / ${object.toString()} \nRoute: ${request.route}\nIf the app is running in production mode, the type name may be minified. Run it in debug mode to resolve';
+  String toString() =>
+      'No type handler found for ${object.runtimeType} / ${object.toString()} \nRoute: ${request.route}\nIf the app is running in production mode, the type name may be minified. Run it in debug mode to resolve';
 }
 
 /// Error used by middleware, utils or type handler to elevate
