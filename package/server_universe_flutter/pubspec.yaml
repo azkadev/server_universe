@@ -20,6 +20,7 @@ environment:
 dependencies: 
   flutter: 
     sdk: 'flutter'
+  server_universe: ^0.0.10 
 dev_dependencies: 
   flutter_test: 
     sdk: 'flutter'
@@ -31,3 +32,6 @@ topics:
   - 'api'
   - 'backend'
   - 'network'
+
+executables: 
+  server_universe_flutter: 'server_universe_flutter'

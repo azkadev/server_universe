@@ -24,20 +24,7 @@ topics:
 environment: 
   sdk: '>3.2.0 <4.0.0'
 dependencies: 
-  freezed_annotation: '^2.4.1'
-  js: '^0.6.7'
-  typings: '>=0.0.6+2 <=0.0.6+3'
-  mime: '^1.0.5'
-  mime_type: '^1.0.0'
-  queue: '^3.1.0+2'
-  meta: '>=1.11.0 <=1.14.0'
-  path: '^1.9.0'
-  general_lib: '^0.0.36'
-  mason_logger: '^0.2.15'
-  collection: '^1.18.0'
-  yaml: '^3.1.2'
-  yaml_writer: '^2.0.0'
-  http: '^1.2.1'
+  server_universe: ^0.0.10 
 dependency_overrides: 
   pointycastle: '3.8.0'
 dev_dependencies: 

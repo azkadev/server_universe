@@ -33,7 +33,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 <!-- END LICENSE --> */
 
-import "package:server_universe_dart/cli/server_universe_dart_cli.dart";
+import "package:server_universe/cli/server_universe_cli.dart";
 
 void main(List<String> args_raw) async {
   await server_universeDartCli(args_raw);

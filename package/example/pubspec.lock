@@ -383,7 +383,15 @@ packages:
       path: "../server_universe_dart"
       relative: true
     source: path
-    version: "0.0.9"
+    version: "0.0.10"
+  server_universe_dart_http_client:
+    dependency: "direct main"
+    description:
+      name: server_universe_dart_http_client
+      sha256: f214066db8eb5bbe29fe1eaf67af749d5784117f7a4f27935232239e931ad0d0
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1"
   shelf:
     dependency: transitive
     description:

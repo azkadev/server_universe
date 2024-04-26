@@ -47,7 +47,7 @@ This library created by poor programmers, i need more sponsor for make this libr
 1. **Dart**
 
 ```bash
-dart pub add server_universe_dart
+dart pub add server_universe
 ```
 
 2. **Flutter**
@@ -72,18 +72,18 @@ Example Quickstart script minimal for insight you or make you use this library b
 
 ```dart
 import 'dart:io';
-import 'package:server_universe_dart/api/server_universe_dart_api.dart';
+import 'package:server_universe/api/server_universe_api.dart';
 void main(List<String> args) async {
-  ServerUniverseDartApi serverUniverseDartApi = ServerUniverseDartApi();
-  await serverUniverseDartApi.create(newName: "hi", directoryBase: Directory("path_to_dir/slebew"));
-  await serverUniverseDartApi.build(directoryBase: Directory("path_to_dir/slebew"), directoryOutputBuildServerUniverse: Directory("path_to_dir/slebew/build"), inputFileName: "path_to_dir/slebew/bin/server.dart", server_universeDartBuildType: ServerUniverseDartBuildType.release, server_universeDartPlatformType: ServerUniverseDartPlatformType.supabase);
+  ServerUniverseApi serverUniverseApi = ServerUniverseApi();
+  await serverUniverseApi.create(newName: "hi", directoryBase: Directory("path_to_dir/slebew"));
+  await serverUniverseApi.build(directoryBase: Directory("path_to_dir/slebew"), directoryOutputBuildServerUniverse: Directory("path_to_dir/slebew/build"), inputFileName: "path_to_dir/slebew/bin/server.dart", server_universeDartBuildType: ServerUniverseBuildType.release, server_universeDartPlatformType: ServerUniversePlatformType.supabase);
 }
 ```
 
 ### Cli
 
 ```dart
-dart run server_universe_dart
+dart run server_universe
 ```
 
 ### Edge
@@ -91,7 +91,7 @@ dart run server_universe_dart
 if you want deploy server rest api on Severless functions Like (Supabase, Cloud Flare, Deno Deploy, Vercel, Netlify)
 
 ```dart
-import 'package:server_universe_dart/edge/edge.dart';
+import 'package:server_universe/edge/edge.dart';
 void main() async {
   print("start");
   ServerUniverseEdge app = ServerUniverseEdge(
@@ -124,7 +124,7 @@ if you want deploy on device or server or vps, or flutter app try this script
 
 import 'dart:io';
 import 'package:general_lib/extension/dynamic.dart';
-import 'package:server_universe_dart/native/native.dart';
+import 'package:server_universe/native/native.dart';
 
 void main() async {
   print("start");

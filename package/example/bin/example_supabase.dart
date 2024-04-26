@@ -32,7 +32,6 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 
 import 'package:server_universe_dart/edge/edge.dart';
-
 void main() async {
   print("start");
   ServerUniverseEdge app = ServerUniverseEdge(
@@ -44,6 +43,7 @@ void main() async {
     },
   );
   app.ensureInitialized();
+  
   app.all("/", (req, res) {
     return res.send("oke");
   });

@@ -36,14 +36,13 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 import 'dart:io';
 import 'package:general_lib/extension/dynamic.dart';
-import 'package:server_universe_dart/native/native.dart';
-
+import 'package:server_universe_dart/native.dart'; 
 void main() async {
   print("start");
   int port = int.tryParse(Platform.environment["PORT"] ?? "3000") ?? 3000;
   String host = Platform.environment["HOST"] ?? "0.0.0.0";
   ServerUniverseNative app = ServerUniverseNative(
-    logLevel: LogType.error,
+    logLevel: LogType.debug,
     onNotFound: (request, res) async {
       return res.status(400).send(({
         "@type": "error",
@@ -61,6 +60,6 @@ void main() async {
     count++;
     return await res.status(200).send("\nCOUNT: ${count}");
   });
-  await app.listen(port, host);
+  await app.listen(port:port, bindIp: host); 
   print("Server on");
 }
