@@ -12,4 +12,4 @@ sudo supabase functions new example
 
 Run
 
-dart run server_universe_dart run supabase
+dart run server_universe run supabase

@@ -73,10 +73,15 @@ Example Quickstart script minimal for insight you or make you use this library b
 ```dart
 import 'dart:io';
 import 'package:server_universe/api/server_universe_api.dart';
+
 void main(List<String> args) async {
   ServerUniverseApi serverUniverseApi = ServerUniverseApi();
-  await serverUniverseApi.create(newName: "hi", directoryBase: Directory("path_to_dir/slebew"));
-  await serverUniverseApi.build(directoryBase: Directory("path_to_dir/slebew"), directoryOutputBuildServerUniverse: Directory("path_to_dir/slebew/build"), inputFileName: "path_to_dir/slebew/bin/server.dart", server_universeDartBuildType: ServerUniverseBuildType.release, server_universeDartPlatformType: ServerUniversePlatformType.supabase);
+  serverUniverseApi.create(newName: "hi", directoryBase: Directory("path_to_dir/slebew")).listen((event) {
+    print(event.value);
+  });
+  serverUniverseApi.build(directoryBase: Directory("path_to_dir/slebew"), directoryOutputBuildServerUniverse: Directory("path_to_dir/slebew/build"), inputFileName: "path_to_dir/slebew/bin/server.dart", server_universeDartBuildType: ServerUniverseBuildType.release, server_universeDartPlatformType: ServerUniversePlatformType.supabase).listen((event) {
+    print(event.value);
+  });
 }
 ```
 
@@ -103,13 +108,14 @@ void main() async {
     },
   );
   app.ensureInitialized();
+  
   app.all("/", (req, res) {
     return res.send("oke");
   });
   app.all("/version", (req, res) {
     return res.json({
       "@type": "version",
-      "version": "0.0.0",
+      "version": "new update",
     });
   });
 }
@@ -121,17 +127,15 @@ void main() async {
 if you want deploy on device or server or vps, or flutter app try this script
 
 ```dart
-
 import 'dart:io';
 import 'package:general_lib/extension/dynamic.dart';
-import 'package:server_universe/native/native.dart';
-
+import 'package:server_universe/native.dart'; 
 void main() async {
   print("start");
   int port = int.tryParse(Platform.environment["PORT"] ?? "3000") ?? 3000;
   String host = Platform.environment["HOST"] ?? "0.0.0.0";
   ServerUniverseNative app = ServerUniverseNative(
-    logLevel: LogType.error,
+    logLevel: LogType.debug,
     onNotFound: (request, res) async {
       return res.status(400).send(({
         "@type": "error",
@@ -149,7 +153,7 @@ void main() async {
     count++;
     return await res.status(200).send("\nCOUNT: ${count}");
   });
-  await app.listen(port, host);
+  await app.listen(port:port, bindIp: host); 
   print("Server on");
 }
 ```
