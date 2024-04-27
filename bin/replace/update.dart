@@ -42,7 +42,7 @@ import "package:path/path.dart" as path;
 import "package:yaml/yaml.dart" as yaml;
 import "package:yaml_writer/yaml_writer.dart";
 
-String version_package = "0.0.10";
+String version_package = "0.0.12";
 
 Future<void> pubspecUpdate({
   required File filePubspec,

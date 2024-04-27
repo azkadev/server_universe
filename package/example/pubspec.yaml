@@ -1,11 +1,11 @@
 name: 'example'
-description: 'A sample command-line application.'
-version: '1.0.0'
+description: 'Serve Universe Library For Help you make server rest api on cross platform support edge functions Supabase, Vercel, Netlify, cloud Flare and more'
+version: '0.0.12'
 environment: 
   sdk: '^3.3.3'
 dependencies: 
-  server_universe: '^0.0.10'
-  server_universe_http_client: 'any'
+  server_universe: '^0.0.12'
+  server_universe_http_client: '^0.0.12'
   general_lib: '^0.0.34'
 dependency_overrides: 
   pointycastle: '3.8.0'
@@ -22,3 +22,16 @@ server_universe:
   supabase: 
     input_file: 'bin/example_supabase.dart'
     output_directory: 'supabase/functions/example'
+platforms: 
+  android: null
+  ios: null
+  linux: null
+  macos: null
+  web: null
+  windows: null
+topics: 
+  - 'server'
+  - 'socket'
+  - 'api'
+  - 'backend'
+  - 'network'

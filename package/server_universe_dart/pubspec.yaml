@@ -2,12 +2,11 @@ name: 'server_universe_dart'
 description: 'Serve Universe Library For Help you make server rest api on cross platform support edge functions Supabase, Vercel, Netlify, cloud Flare and more'
 homepage: 'https://github.com/azkadev/server_universe'
 repository: 'https://github.com/azkadev/server_universe'
-version: '0.0.10'
+version: '0.0.12'
 issue_tracker: 'https://github.com/azkadev/server_universe/issues'
 documentation: 'https://github.com/azkadev/server_universe/tree/main/docs'
 funding: 
   - 'https://github.com/sponsors/azkadev'
-  
 platforms: 
   android: null
   ios: null
@@ -24,7 +23,7 @@ topics:
 environment: 
   sdk: '>3.2.0 <4.0.0'
 dependencies: 
-  server_universe: ^0.0.10 
+  server_universe: '^0.0.12'
 dependency_overrides: 
   pointycastle: '3.8.0'
 dev_dependencies: 
