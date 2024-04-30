@@ -197,10 +197,10 @@ packages:
     dependency: "direct main"
     description:
       name: general_lib
-      sha256: e87cc176641947c2c94cfcb93178658146ce7b0a2940b5eb4e53f0768311f929
+      sha256: "0a7f8153446681257ba5cd4b03fbe8eb3495270f70ec04f00bc600f0eacdef4c"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.36"
+    version: "0.0.38"
   github:
     dependency: transitive
     description:
@@ -397,9 +397,10 @@ packages:
     dependency: "direct main"
     description:
       name: server_universe
+      sha256: f916bb99ca050533f573eb6c2e3dc11ececd8556df1f1cf4df555d1746f24e3f
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.10"
+    version: "0.0.12"
   shelf:
     dependency: transitive
     description:

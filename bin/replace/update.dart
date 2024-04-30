@@ -42,7 +42,7 @@ import "package:path/path.dart" as path;
 import "package:yaml/yaml.dart" as yaml;
 import "package:yaml_writer/yaml_writer.dart";
 
-String version_package = "0.0.12";
+String version_package = "0.0.13";
 
 Future<void> pubspecUpdate({
   required File filePubspec,
@@ -51,7 +51,7 @@ Future<void> pubspecUpdate({
     Map yaml_code = (yaml.loadYaml(filePubspec.readAsStringSync(), recover: true) as Map);
     Map yaml_code_clone = yaml_code.clone();
     yaml_code_clone.addAll({
-      "description": "Serve Universe Library For Help you make server rest api on cross platform support edge functions Supabase, Vercel, Netlify, cloud Flare and more",
+      "description": "Server Universe Library For Help you make server rest api on cross platform support edge functions Supabase, Vercel, Netlify, cloud Flare and more",
       "version": version_package,
       "repository": "https://github.com/azkadev/server_universe",
       "homepage": "https://github.com/azkadev/server_universe",
