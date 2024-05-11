@@ -397,10 +397,10 @@ packages:
     dependency: "direct main"
     description:
       name: server_universe
-      sha256: f916bb99ca050533f573eb6c2e3dc11ececd8556df1f1cf4df555d1746f24e3f
+      sha256: f0f87e963e89262b02565c430d4b97c449d85ef2ec289db0bd8a68a75965d2c1
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.12"
+    version: "0.0.13"
   shelf:
     dependency: transitive
     description:
