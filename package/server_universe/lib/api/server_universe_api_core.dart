@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names, unnecessary_string_interpolations, unnecessary_brace_in_string_interps, unused_local_variable, constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, unnecessary_string_interpolations, unnecessary_brace_in_string_interp, constant_identifier_names, unnecessary_brace_in_string_interps
 
 /* <!-- START LICENSE -->
 
@@ -360,7 +360,7 @@ class ServerUniverseApi {
 
       // print("Starting Build: ${server_universeDartBuildType.name.toUpperCaseFirstData()} Platform ${server_universeDartPlatformType.name.toUpperCaseFirstData()}: ${path.relative(file_supabase_server_universe_script.path, from: directoryBase.path)}");
       //
-      int exit_code = await compile(
+      await compile(
         pubspecServerUniverse: pubspec_server_universe,
         server_universeDartBuildType: server_universeDartBuildType,
         file_script: file_supabase_server_universe_script,
@@ -494,7 +494,8 @@ void main() async {
     required String fileName,
     bool is_use_old = false,
   }) {
-    String old_script = '''
+    if (is_use_old) {
+      return '''
 import { serve } from "https://deno.land/std@0.131.0/http/server.ts";
 import "./${fileName}";
 
@@ -512,6 +513,7 @@ declare global {
   }
 }
 ''';
+    }
     String new_script = '''
 // import { serve } from "https://deno.land/std@0.131.0/http/server.ts"; 
 import "./${fileName}";
