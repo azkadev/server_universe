@@ -85,13 +85,18 @@ class ServerUniverseApi {
     required Directory directoryBase,
   }) async* {
     Directory directory_project = await Future(() async {
-      return Directory(Directory(path.join(directoryBase.uri.toFilePath(), newName.trim())).uri.toFilePath());
+      return Directory(
+          Directory(path.join(directoryBase.uri.toFilePath(), newName.trim()))
+              .uri
+              .toFilePath());
     });
     String project_name = path.basename(directory_project.path);
 
     File file_pubspec = File(path.join(directory_project.path, "pubspec.yaml"));
     if (!file_pubspec.existsSync()) {
-      yield ServerUniverseApiStatus(serverUniverseApiStatusType: ServerUniverseApiStatusType.info, value: "Start Create Project: ${newName}");
+      yield ServerUniverseApiStatus(
+          serverUniverseApiStatusType: ServerUniverseApiStatusType.info,
+          value: "Start Create Project: ${newName}");
 
       Process process = await Process.start(
         "dart",
@@ -111,53 +116,73 @@ class ServerUniverseApi {
       });
       int exit_code = await (process.exitCode);
       if (exit_code != 0) {
-        yield ServerUniverseApiStatus(serverUniverseApiStatusType: ServerUniverseApiStatusType.failed, value: "Failed Create Project: ${newName}");
+        yield ServerUniverseApiStatus(
+            serverUniverseApiStatusType: ServerUniverseApiStatusType.failed,
+            value: "Failed Create Project: ${newName}");
         return;
       } else {
-        yield ServerUniverseApiStatus(serverUniverseApiStatusType: ServerUniverseApiStatusType.succes, value: "Succes Create Project: ${newName}");
+        yield ServerUniverseApiStatus(
+            serverUniverseApiStatusType: ServerUniverseApiStatusType.succes,
+            value: "Succes Create Project: ${newName}");
       }
     }
-    Map yaml_code = (yaml.loadYaml(file_pubspec.readAsStringSync(), recover: true) as Map);
-    PubspecServerUniverse pubspec_server_universe = PubspecServerUniverse(yaml_code.clone());
+    Map yaml_code =
+        (yaml.loadYaml(file_pubspec.readAsStringSync(), recover: true) as Map);
+    PubspecServerUniverse pubspec_server_universe =
+        PubspecServerUniverse(yaml_code.clone());
 
-    File file_guide = File(path.join(directory_project.path, "guide-server-universe.md"));
+    File file_guide =
+        File(path.join(directory_project.path, "guide-server-universe.md"));
     if (file_guide.existsSync()) {
-      yield ServerUniverseApiStatus(serverUniverseApiStatusType: ServerUniverseApiStatusType.info, value: "Rewrite: ${path.basename(file_guide.path)}");
+      yield ServerUniverseApiStatus(
+          serverUniverseApiStatusType: ServerUniverseApiStatusType.info,
+          value: "Rewrite: ${path.basename(file_guide.path)}");
     } else {
-      yield ServerUniverseApiStatus(serverUniverseApiStatusType: ServerUniverseApiStatusType.info, value: "Create: ${path.basename(file_guide.path)}");
+      yield ServerUniverseApiStatus(
+          serverUniverseApiStatusType: ServerUniverseApiStatusType.info,
+          value: "Create: ${path.basename(file_guide.path)}");
     }
 
     await file_guide.writeAsString(guide_server_universe_markdown(
       name_project: project_name,
     ));
     // supabase file script
-    File file_script_native = File(path.join(directory_project.path, "bin", "${project_name}_native.dart"));
+    File file_script_native = File(path.join(
+        directory_project.path, "bin", "${project_name}_native.dart"));
     if (file_script_native.parent.existsSync() == false) {
       file_script_native.parent.createSync(recursive: true);
     }
     if (!file_script_native.existsSync()) {
-      yield ServerUniverseApiStatus(serverUniverseApiStatusType: ServerUniverseApiStatusType.info, value: "Create: ${path.basename(file_script_native.path)}");
+      yield ServerUniverseApiStatus(
+          serverUniverseApiStatusType: ServerUniverseApiStatusType.info,
+          value: "Create: ${path.basename(file_script_native.path)}");
 
       await file_script_native.writeAsString(script_server_universe_native());
     }
 
     // supabase file script
-    File file_script_supabase = File(path.join(directory_project.path, "bin", "${project_name}_supabase.dart"));
+    File file_script_supabase = File(path.join(
+        directory_project.path, "bin", "${project_name}_supabase.dart"));
 
     if (!file_script_supabase.existsSync()) {
-      yield ServerUniverseApiStatus(serverUniverseApiStatusType: ServerUniverseApiStatusType.info, value: "Create: ${path.basename(file_script_supabase.path)}");
-      await file_script_supabase.writeAsString(script_server_universe_supabase());
+      yield ServerUniverseApiStatus(
+          serverUniverseApiStatusType: ServerUniverseApiStatusType.info,
+          value: "Create: ${path.basename(file_script_supabase.path)}");
+      await file_script_supabase
+          .writeAsString(script_server_universe_supabase());
     }
 
     // supabase directory deploy
-    Directory directory_script_supabase = Directory(path.join(directory_project.path, "supabase", "functions", project_name));
+    Directory directory_script_supabase = Directory(path.join(
+        directory_project.path, "supabase", "functions", project_name));
 
     // default configuration pubspec
     PubspecServerUniverse pubspec_server_default = PubspecServerUniverse.create(
       repository: "https://github.com/azkadev/server_universe",
       homepage: "https://github.com/azkadev/server_universe",
       issue_tracker: "https://github.com/azkadev/server_universe/issues",
-      documentation: "https://github.com/azkadev/server_universe/tree/main/docs",
+      documentation:
+          "https://github.com/azkadev/server_universe/tree/main/docs",
       funding: [
         "https://github.com/sponsors/azkadev",
       ],
@@ -181,9 +206,12 @@ class ServerUniverseApi {
     );
 
     // update pubspec default
-    yield ServerUniverseApiStatus(serverUniverseApiStatusType: ServerUniverseApiStatusType.info, value: "Start Update Pubspec: ${path.basename(file_pubspec.path)}");
+    yield ServerUniverseApiStatus(
+        serverUniverseApiStatusType: ServerUniverseApiStatusType.info,
+        value: "Start Update Pubspec: ${path.basename(file_pubspec.path)}");
 
-    pubspec_server_universe.rawData.general_lib_utils_updateMapIfNotSameOrEmptyOrNull(
+    pubspec_server_universe.rawData
+        .general_lib_utils_updateMapIfNotSameOrEmptyOrNull(
       data: pubspec_server_default.toJson(),
       ignoreKeys: [
         "@type",
@@ -194,14 +222,23 @@ class ServerUniverseApi {
         "@type",
       ],
     );
-    yield ServerUniverseApiStatus(serverUniverseApiStatusType: ServerUniverseApiStatusType.succes, value: "Succes Update Pubspec: ${path.basename(file_pubspec.path)}");
-    yield ServerUniverseApiStatus(serverUniverseApiStatusType: ServerUniverseApiStatusType.info, value: "Start Save Pubspec: ${path.basename(file_pubspec.path)}");
+    yield ServerUniverseApiStatus(
+        serverUniverseApiStatusType: ServerUniverseApiStatusType.succes,
+        value: "Succes Update Pubspec: ${path.basename(file_pubspec.path)}");
+    yield ServerUniverseApiStatus(
+        serverUniverseApiStatusType: ServerUniverseApiStatusType.info,
+        value: "Start Save Pubspec: ${path.basename(file_pubspec.path)}");
 
-    String yaml_documents_new = YamlWriter().write(pubspec_server_universe.toJson());
+    String yaml_documents_new =
+        YamlWriter().write(pubspec_server_universe.toJson());
 
     await file_pubspec.writeAsString(yaml_documents_new);
-    yield ServerUniverseApiStatus(serverUniverseApiStatusType: ServerUniverseApiStatusType.succes, value: "Succes Save Pubspec: ${path.basename(file_pubspec.path)}");
-    yield ServerUniverseApiStatus(serverUniverseApiStatusType: ServerUniverseApiStatusType.succes, value: "Finished Create Project: ${newName}");
+    yield ServerUniverseApiStatus(
+        serverUniverseApiStatusType: ServerUniverseApiStatusType.succes,
+        value: "Succes Save Pubspec: ${path.basename(file_pubspec.path)}");
+    yield ServerUniverseApiStatus(
+        serverUniverseApiStatusType: ServerUniverseApiStatusType.succes,
+        value: "Finished Create Project: ${newName}");
 
     // finished update pubspec
   }
@@ -213,7 +250,9 @@ class ServerUniverseApi {
     required String? inputFileName,
     required ServerUniverseBuildType server_universeDartBuildType,
     required ServerUniversePlatformType server_universeDartPlatformType,
-    required FutureOr<void> Function(ServerUniverseApiStatus serverUniverseApiStatus) onBuild,
+    required FutureOr<void> Function(
+            ServerUniverseApiStatus serverUniverseApiStatus)
+        onBuild,
   }) async {
     if (Dart.isWeb) {
       return 1;
@@ -224,7 +263,8 @@ class ServerUniverseApi {
       return 1;
     }
     // build platform supabase
-    if (server_universeDartPlatformType == ServerUniversePlatformType.supabase) {
+    if (server_universeDartPlatformType ==
+        ServerUniversePlatformType.supabase) {
       Process? procces = await Future(() async {
         if (Dart.isLinux) {
           return await Process.start(
@@ -254,7 +294,8 @@ class ServerUniverseApi {
       bool is_pending_update = false;
       DateTime dateTime_expired = DateTime.now();
       void onUpdate(FileSystemEvent event) async {
-        if (RegExp(r"([.]dart)$", caseSensitive: false).hasMatch(path.basename(event.path))) {
+        if (RegExp(r"([.]dart)$", caseSensitive: false)
+            .hasMatch(path.basename(event.path))) {
           if (is_pending_update) {
             if (dateTime_expired.isExpired() == false) {
               return;
@@ -265,7 +306,8 @@ class ServerUniverseApi {
           var strm = build(
             directoryBase: directoryBase,
             inputFileName: inputFileName,
-            directoryOutputBuildServerUniverse: directoryOutputBuildServerUniverse,
+            directoryOutputBuildServerUniverse:
+                directoryOutputBuildServerUniverse,
             server_universeDartBuildType: server_universeDartBuildType,
             server_universeDartPlatformType: server_universeDartPlatformType,
           );
@@ -297,19 +339,27 @@ class ServerUniverseApi {
     File file_pubspec = File(path.join(directoryBase.path, "pubspec.yaml"));
 
     if (!file_pubspec.existsSync()) {
-      yield ServerUniverseApiStatus(serverUniverseApiStatusType: ServerUniverseApiStatusType.failed, value: "Failed Build Because File: ${path.basename(file_pubspec.path)} not Found");
+      yield ServerUniverseApiStatus(
+          serverUniverseApiStatusType: ServerUniverseApiStatusType.failed,
+          value:
+              "Failed Build Because File: ${path.basename(file_pubspec.path)} not Found");
       return;
     }
-    Map yaml_code = (yaml.loadYaml(file_pubspec.readAsStringSync(), recover: true) as Map);
-    PubspecServerUniverse pubspec_server_universe = PubspecServerUniverse(yaml_code.clone());
-    Directory directory_script = Directory(path.join(directoryBase.path, "bin"));
-    Directory directory_build = Directory(path.join(directoryBase.path, "build"));
+    Map yaml_code =
+        (yaml.loadYaml(file_pubspec.readAsStringSync(), recover: true) as Map);
+    PubspecServerUniverse pubspec_server_universe =
+        PubspecServerUniverse(yaml_code.clone());
+    Directory directory_script =
+        Directory(path.join(directoryBase.path, "bin"));
+    Directory directory_build =
+        Directory(path.join(directoryBase.path, "build"));
     if (directory_build.existsSync() == false) {
       directory_build.createSync(
         recursive: true,
       );
     }
-    Directory directory_build_server_universe = Directory(path.join(directory_build.path, "server_universe"));
+    Directory directory_build_server_universe =
+        Directory(path.join(directory_build.path, "server_universe"));
     if (directory_build_server_universe.existsSync() == false) {
       directory_build_server_universe.createSync(
         recursive: true,
@@ -317,17 +367,24 @@ class ServerUniverseApi {
     }
 
     // build platform supabase
-    if (server_universeDartPlatformType == ServerUniversePlatformType.supabase) {
-      Directory directory_build_server_universe_supabase = await Future(() async {
-        Directory? directory_output_procces = directoryOutputBuildServerUniverse;
+    if (server_universeDartPlatformType ==
+        ServerUniversePlatformType.supabase) {
+      Directory directory_build_server_universe_supabase =
+          await Future(() async {
+        Directory? directory_output_procces =
+            directoryOutputBuildServerUniverse;
         if (directory_output_procces != null) {
           return directory_output_procces;
         }
-        String output_by_condif_projge = (pubspec_server_universe.server_universe.supabase.output_directory ?? "").trim();
+        String output_by_condif_projge = (pubspec_server_universe
+                    .server_universe.supabase.output_directory ??
+                "")
+            .trim();
         if (output_by_condif_projge.isNotEmpty) {
           return Directory(output_by_condif_projge);
         }
-        return Directory(path.join(directory_build_server_universe.path, "supabase"));
+        return Directory(
+            path.join(directory_build_server_universe.path, "supabase"));
       });
 
       if (directory_build_server_universe_supabase.existsSync() == false) {
@@ -338,25 +395,37 @@ class ServerUniverseApi {
       File file_supabase_server_universe_script = await Future(() async {
         String supabase_script_path = (inputFileName ?? "").trim();
         if (supabase_script_path.isEmpty) {
-          supabase_script_path = path.basename((pubspec_server_universe.server_universe.supabase.input_file ?? "").trim());
+          supabase_script_path = path.basename(
+              (pubspec_server_universe.server_universe.supabase.input_file ??
+                      "")
+                  .trim());
           if (supabase_script_path.isEmpty) {
-            supabase_script_path = "${pubspec_server_universe.name}_server_universe_supabase";
+            supabase_script_path =
+                "${pubspec_server_universe.name}_server_universe_supabase";
           }
-          if (!RegExp(r"([.]dart)$", caseSensitive: false).hasMatch(supabase_script_path)) {
+          if (!RegExp(r"([.]dart)$", caseSensitive: false)
+              .hasMatch(supabase_script_path)) {
             supabase_script_path = "${supabase_script_path}.dart";
           }
-          return File(path.join(directory_script.path, "${supabase_script_path}"));
+          return File(
+              path.join(directory_script.path, "${supabase_script_path}"));
         } else {
           return File(supabase_script_path);
         }
       });
       if (file_supabase_server_universe_script.existsSync() == false) {
-        yield ServerUniverseApiStatus(serverUniverseApiStatusType: ServerUniverseApiStatusType.failed, value: "Supabase Script not found: ${path.basename(file_supabase_server_universe_script.path)}");
+        yield ServerUniverseApiStatus(
+            serverUniverseApiStatusType: ServerUniverseApiStatusType.failed,
+            value:
+                "Supabase Script not found: ${path.basename(file_supabase_server_universe_script.path)}");
 
         return;
       }
       String outputFileName = "main.dart.js";
-      yield ServerUniverseApiStatus(serverUniverseApiStatusType: ServerUniverseApiStatusType.info, value: "Starting Build: ${server_universeDartBuildType.name.toUpperCaseFirstData()} Platform ${server_universeDartPlatformType.name.toUpperCaseFirstData()}: ${path.relative(file_supabase_server_universe_script.path, from: directoryBase.path)}");
+      yield ServerUniverseApiStatus(
+          serverUniverseApiStatusType: ServerUniverseApiStatusType.info,
+          value:
+              "Starting Build: ${server_universeDartBuildType.name.toUpperCaseFirstData()} Platform ${server_universeDartPlatformType.name.toUpperCaseFirstData()}: ${path.relative(file_supabase_server_universe_script.path, from: directoryBase.path)}");
 
       // print("Starting Build: ${server_universeDartBuildType.name.toUpperCaseFirstData()} Platform ${server_universeDartPlatformType.name.toUpperCaseFirstData()}: ${path.relative(file_supabase_server_universe_script.path, from: directoryBase.path)}");
       //
@@ -368,21 +437,32 @@ class ServerUniverseApi {
         outputFileName: outputFileName,
       );
 
-      File file_index_ts = File(path.join(directory_build_server_universe_supabase.path, "index.ts"));
-      yield ServerUniverseApiStatus(serverUniverseApiStatusType: ServerUniverseApiStatusType.info, value: "Write: ${path.basename(file_index_ts.path)}");
+      File file_index_ts = File(
+          path.join(directory_build_server_universe_supabase.path, "index.ts"));
+      yield ServerUniverseApiStatus(
+          serverUniverseApiStatusType: ServerUniverseApiStatusType.info,
+          value: "Write: ${path.basename(file_index_ts.path)}");
 
-      await file_index_ts.writeAsString(script_server_universe_functions_supabase(
+      await file_index_ts
+          .writeAsString(script_server_universe_functions_supabase(
         fileName: outputFileName,
       ));
 
-      yield ServerUniverseApiStatus(serverUniverseApiStatusType: ServerUniverseApiStatusType.succes, value: "Finished Build: ${directory_build_server_universe_supabase.path}");
+      yield ServerUniverseApiStatus(
+          serverUniverseApiStatusType: ServerUniverseApiStatusType.succes,
+          value:
+              "Finished Build: ${directory_build_server_universe_supabase.path}");
 
       return;
     }
 
-    if (server_universeDartPlatformType == ServerUniversePlatformType.netlify) {}
+    if (server_universeDartPlatformType ==
+        ServerUniversePlatformType.netlify) {}
     if (server_universeDartPlatformType == ServerUniversePlatformType.vercel) {}
-    yield ServerUniverseApiStatus(serverUniverseApiStatusType: ServerUniverseApiStatusType.info, value: "Failed Build Because: ${server_universeDartPlatformType.name} not implemented");
+    yield ServerUniverseApiStatus(
+        serverUniverseApiStatusType: ServerUniverseApiStatusType.info,
+        value:
+            "Failed Build Because: ${server_universeDartPlatformType.name} not implemented");
   }
 
   /// Server Universe
