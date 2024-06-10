@@ -5,7 +5,7 @@ environment:
   sdk: '^3.3.3'
 dependencies: 
   server_universe: '^0.0.14'
-  server_universe_http_client: '^0.0.14'
+  # server_universe_http_client: '^0.0.14'
   general_lib: '^0.0.34'
 dependency_overrides: 
   pointycastle: '3.8.0'

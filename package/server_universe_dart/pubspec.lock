@@ -253,10 +253,10 @@ packages:
     dependency: transitive
     description:
       name: general_lib
-      sha256: "0a7f8153446681257ba5cd4b03fbe8eb3495270f70ec04f00bc600f0eacdef4c"
+      sha256: "1dd01fdeeb8f1dfd04bfe9aa28dbcd56f563fb42b124dc7ecade4c7ab8c56a6b"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.38"
+    version: "0.0.41"
   glob:
     dependency: transitive
     description:
@@ -461,10 +461,10 @@ packages:
     dependency: "direct main"
     description:
       name: server_universe
-      sha256: f0f87e963e89262b02565c430d4b97c449d85ef2ec289db0bd8a68a75965d2c1
+      sha256: c48d3a2d3e1e280464f99c38c7c5afca56aa5cc4fe4d347f95e5649108f025bf
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.13"
+    version: "0.0.16"
   shelf:
     dependency: "direct dev"
     description:
@@ -714,4 +714,4 @@ packages:
     source: hosted
     version: "2.0.0"
 sdks:
-  dart: ">=3.3.0 <4.0.0"
+  dart: ">=3.3.3 <4.0.0"
