@@ -1,12 +1,11 @@
 name: 'example'
 description: 'Server Universe Library For Help you make server rest api on cross platform support edge functions Supabase, Vercel, Netlify, cloud Flare and more'
-version: '0.0.14'
+version: '0.0.0'
 environment: 
-  sdk: '^3.3.3'
+  sdk: '>=3.3.3 <4.0.0'
 dependencies: 
   server_universe: '^0.0.14'
-  # server_universe_http_client: '^0.0.14'
-  general_lib: '^0.0.34'
+  general_lib: '^0.0.42'
 dependency_overrides: 
   pointycastle: '3.8.0'
 dev_dependencies: 
@@ -35,3 +34,4 @@ topics:
   - 'api'
   - 'backend'
   - 'network'
+publish_to: 'none'
