@@ -20,7 +20,7 @@ environment:
 dependencies: 
   flutter: 
     sdk: 'flutter'
-  server_universe: '^0.0.14'
+  server_universe: '^0.0.17'
 dev_dependencies: 
   flutter_test: 
     sdk: 'flutter'

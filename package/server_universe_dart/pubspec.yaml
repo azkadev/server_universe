@@ -23,7 +23,7 @@ topics:
 environment: 
   sdk: '>=3.3.3 <4.0.0'
 dependencies: 
-  server_universe: '^0.0.14'
+  server_universe: '^0.0.17'
 dependency_overrides: 
   pointycastle: '3.8.0'
 dev_dependencies: 

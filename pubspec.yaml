@@ -25,7 +25,7 @@ dependencies:
   yaml: '^3.1.2'
   yaml_edit: '^2.2.0'
   yaml_writer: '^2.0.0'
-  server_universe: '^0.0.14'
+  server_universe: '^0.0.17'
 dev_dependencies: 
   lints: '^2.1.0'
   test: '^1.24.0'

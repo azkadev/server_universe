@@ -4,7 +4,7 @@ version: '0.0.0'
 environment: 
   sdk: '>=3.3.3 <4.0.0'
 dependencies: 
-  server_universe: '^0.0.14'
+  server_universe: '^0.0.17'
   general_lib: '^0.0.42'
 dependency_overrides: 
   pointycastle: '3.8.0'
