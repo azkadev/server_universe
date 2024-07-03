@@ -3,3 +3,10 @@
 .dart_tool/
 
 templates/
+*.exe
+*.deb
+*.sqlite-*
+*.sqlite
+docs/canvaskit
+*/canvaskit
+/build/

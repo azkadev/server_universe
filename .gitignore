@@ -6,3 +6,8 @@ command_*.sh
 
 *.exe
 *.deb
+*.sqlite-*
+*.sqlite
+docs/canvaskit
+*/canvaskit
+/build/
