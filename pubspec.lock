@@ -197,10 +197,10 @@ packages:
     dependency: "direct main"
     description:
       name: general_lib
-      sha256: "0a7f8153446681257ba5cd4b03fbe8eb3495270f70ec04f00bc600f0eacdef4c"
+      sha256: f968f3bee797cbdd3b3282b1842e3674f7a0e07cad6326996982d1b1bd56f5ac
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.38"
+    version: "0.0.43"
   github:
     dependency: transitive
     description:
@@ -341,10 +341,10 @@ packages:
     dependency: "direct main"
     description:
       name: packagex
-      sha256: e8df6e41bde31823282864d84cd342311cb0aabe079b111a6880551d4a58a8f9
+      sha256: "89368e19112ffe14c0c0dff39b43b8e9f6b4414a9677d201758b35fd804ff5a7"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.50"
+    version: "0.0.58"
   path:
     dependency: "direct main"
     description:
@@ -354,13 +354,13 @@ packages:
     source: hosted
     version: "1.9.0"
   pointycastle:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: pointycastle
-      sha256: "43ac87de6e10afabc85c445745a7b799e04de84cebaa4fd7bf55a5e1e9604d29"
+      sha256: "70fe966348fe08c34bf929582f1d8247d9d9408130723206472b4687227e4333"
       url: "https://pub.dev"
     source: hosted
-    version: "3.7.4"
+    version: "3.8.0"
   pool:
     dependency: transitive
     description:
@@ -397,10 +397,10 @@ packages:
     dependency: "direct main"
     description:
       name: server_universe
-      sha256: f0f87e963e89262b02565c430d4b97c449d85ef2ec289db0bd8a68a75965d2c1
+      sha256: c347518d82365c9d38e8704c06de74d1ca2109498a95a410591c45f1aa9b804d
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.13"
+    version: "0.0.18"
   shelf:
     dependency: transitive
     description:
@@ -489,6 +489,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  system_info_fetch:
+    dependency: transitive
+    description:
+      name: system_info_fetch
+      sha256: "7746a9e89708d42696af38fbddb06f07919217591069e3949c5eefc664d6dd95"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.22"
   term_glyph:
     dependency: transitive
     description:
@@ -634,4 +642,4 @@ packages:
     source: hosted
     version: "2.0.0"
 sdks:
-  dart: ">=3.3.0 <4.0.0"
+  dart: ">=3.3.3 <4.0.0"

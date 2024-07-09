@@ -2,7 +2,7 @@
 
 import 'dart:io';
 import 'package:general_lib/extension/dynamic.dart';
-import 'package:server_universe_dart/native.dart'; 
+import 'package:server_universe_dart/native.dart';
 
 void main() async {
   print("start");
@@ -27,6 +27,6 @@ void main() async {
     count++;
     return await res.status(200).send("\nCOUNT: ${count}");
   });
-  await app.listen(port:port, bindIp: host);
+  await app.listen(port: port, bindIp: host);
   print("Server on");
 }

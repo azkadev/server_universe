@@ -42,21 +42,24 @@ import "package:path/path.dart" as path;
 import "package:yaml/yaml.dart" as yaml;
 import "package:yaml_writer/yaml_writer.dart";
 
-String version_package = "0.0.14";
+String version_package = "0.0.18";
 
 Future<void> pubspecUpdate({
   required File filePubspec,
 }) async {
   if (filePubspec.existsSync()) {
-    Map yaml_code = (yaml.loadYaml(filePubspec.readAsStringSync(), recover: true) as Map);
+    Map yaml_code =
+        (yaml.loadYaml(filePubspec.readAsStringSync(), recover: true) as Map);
     Map yaml_code_clone = yaml_code.clone();
     yaml_code_clone.addAll({
-      "description": "Server Universe Library For Help you make server rest api on cross platform support edge functions Supabase, Vercel, Netlify, cloud Flare and more",
+      "description":
+          "Server Universe Library For Help you make server rest api on cross platform support edge functions Supabase, Vercel, Netlify, cloud Flare and more",
       "version": version_package,
       "repository": "https://github.com/azkadev/server_universe",
       "homepage": "https://github.com/azkadev/server_universe",
       "issue_tracker": "https://github.com/azkadev/server_universe/issues",
-      "documentation": "https://github.com/azkadev/server_universe/tree/main/docs",
+      "documentation":
+          "https://github.com/azkadev/server_universe/tree/main/docs",
       "funding": [
         "https://github.com/sponsors/azkadev",
       ],
@@ -97,26 +100,30 @@ void main(List<String> args) async {
 
   File file_pubspec_home = File(path.join(directory_home.path, "pubspec.yaml"));
   await pubspecUpdate(filePubspec: file_pubspec_home);
-  Directory directory_packages = Directory(path.join(directory.path, "package"));
+  Directory directory_packages =
+      Directory(path.join(directory.path, "package"));
 
   if (!directory_packages.existsSync()) {
     print("Directory Packages Not Found: ${directory_packages.path}");
     exit(1);
   }
 
-  List<FileSystemEntity> file_system_entity_packages = directory_packages.listSync();
+  List<FileSystemEntity> file_system_entity_packages =
+      directory_packages.listSync();
 
   for (var i = 0; i < file_system_entity_packages.length; i++) {
     FileSystemEntity fileSystemEntity = file_system_entity_packages[i];
     if (fileSystemEntity is Directory) {
-      File file_changelog = File(path.join(fileSystemEntity.path, "CHANGELOG.md"));
+      File file_changelog =
+          File(path.join(fileSystemEntity.path, "CHANGELOG.md"));
       await file_changelog.writeAsString("""
 ## ${version_package}
 
 - Update Topics.
 """);
 
-      File file_pubspec = File(path.join(fileSystemEntity.path, "pubspec.yaml"));
+      File file_pubspec =
+          File(path.join(fileSystemEntity.path, "pubspec.yaml"));
 
       await pubspecUpdate(filePubspec: file_pubspec);
     }

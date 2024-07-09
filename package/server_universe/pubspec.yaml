@@ -48,4 +48,3 @@ dev_dependencies:
   shelf_router: '^1.1.3'
 executables: 
   server_universe: 'server_universe'
-# publish_to: 'none'
