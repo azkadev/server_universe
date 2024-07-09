@@ -253,10 +253,10 @@ packages:
     dependency: "direct main"
     description:
       name: general_lib
-      sha256: "31a7b5d3ddecf4f2cbec40f63343dac1394a6d66354ec95f82c6e2aa70a4237d"
+      sha256: f968f3bee797cbdd3b3282b1842e3674f7a0e07cad6326996982d1b1bd56f5ac
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.42"
+    version: "0.0.43"
   glob:
     dependency: transitive
     description:

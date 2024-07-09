@@ -190,8 +190,7 @@ class ServerUniverseApi {
       ],
       dependencies: PubspecServerUniverseDependencies({
         "server_universe": "any",
-        "server_universe_http_client": "any",
-        "general_lib": "^0.0.34",
+        "general_lib": "^0.0.43",
       }),
       server_universe: ServerUniversePubspecConfig.create(
         supabase: ServerUniversePubspecSupabaseConfig.create(
