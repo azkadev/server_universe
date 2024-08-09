@@ -81,6 +81,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "8.9.2"
+  charcode:
+    dependency: transitive
+    description:
+      name: charcode
+      sha256: fb98c0f6d12c920a02ee2d998da788bca066ca5f148492b7085ee23372b12306
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.3.1"
   clock:
     dependency: transitive
     description:
@@ -197,10 +205,10 @@ packages:
     dependency: "direct main"
     description:
       name: general_lib
-      sha256: "1dd01fdeeb8f1dfd04bfe9aa28dbcd56f563fb42b124dc7ecade4c7ab8c56a6b"
+      sha256: "305e986f76f6f222297d6be1952e25a4d042618cf509886c4f7c688b13b5dceb"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.41"
+    version: "0.0.44"
   glob:
     dependency: transitive
     description:
@@ -233,6 +241,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+  image:
+    dependency: transitive
+    description:
+      name: image
+      sha256: "2237616a36c0d69aef7549ab439b833fb7f9fb9fc861af2cc9ac3eedddd69ca8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.2.0"
   io:
     dependency: transitive
     description:
@@ -337,6 +353,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.0"
+  petitparser:
+    dependency: transitive
+    description:
+      name: petitparser
+      sha256: c15605cd28af66339f8eb6fbe0e541bfe2d1b72d5825efc6598f3e0a31b9ad27
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.2"
   pointycastle:
     dependency: "direct overridden"
     description:
@@ -361,6 +385,21 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  qr:
+    dependency: transitive
+    description:
+      name: qr
+      sha256: "5a1d2586170e172b8a8c8470bbbffd5eb0cd38a66c0d77155ea138d3af3a4445"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.2"
+  qr_lib:
+    dependency: "direct main"
+    description:
+      path: "/home/galaxeus/.pub-cache/hosted/pub.dev/qr_lib-0.0.0"
+      relative: false
+    source: path
+    version: "0.0.0"
   queue:
     dependency: transitive
     description:
@@ -381,10 +420,10 @@ packages:
     dependency: "direct main"
     description:
       name: server_universe
-      sha256: c48d3a2d3e1e280464f99c38c7c5afca56aa5cc4fe4d347f95e5649108f025bf
+      sha256: "5389839bbbef9e4d27528ba699b01b9563b75810761384a095453f6710c9ebcb"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.16"
+    version: "0.0.19"
   shelf:
     dependency: transitive
     description:
@@ -593,6 +632,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.4.0"
+  xml:
+    dependency: transitive
+    description:
+      name: xml
+      sha256: b015a8ad1c488f66851d762d3090a21c600e479dc75e68328c52774040cf9226
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.5.0"
   yaml:
     dependency: transitive
     description:
@@ -609,5 +656,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+  zxing2:
+    dependency: transitive
+    description:
+      name: zxing2
+      sha256: "6cf995abd3c86f01ba882968dedffa7bc130185e382f2300239d2e857fc7912c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.3"
 sdks:
-  dart: ">=3.3.3 <4.0.0"
+  dart: ">=3.4.4 <4.0.0"

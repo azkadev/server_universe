@@ -4,8 +4,10 @@ version: '0.0.18'
 environment: 
   sdk: '>=3.3.3 <4.0.0'
 dependencies: 
-  server_universe: '^0.0.17'
-  general_lib: '^0.0.43'
+  server_universe: '^0.0.19'
+  general_lib: '^0.0.44'
+  qr_lib: 
+    path: '/home/galaxeus/.pub-cache/hosted/pub.dev/qr_lib-0.0.0'
 dependency_overrides: 
   pointycastle: '3.8.0'
 dev_dependencies: 

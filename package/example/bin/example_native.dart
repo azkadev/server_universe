@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:general_lib/extension/dynamic.dart';
+import 'package:qr_lib/qr_lib_core.dart';
 import 'package:server_universe/native.dart';
 
 void main() async {
@@ -27,4 +28,5 @@ void main() async {
   });
   await app.listen(port: port, bindIp: host);
   print("Server on");
+  QrLib.qrPrintToTerminal(input: "http://${host}:${port}");
 }
