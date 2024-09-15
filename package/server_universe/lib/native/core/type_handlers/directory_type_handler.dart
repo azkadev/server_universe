@@ -37,29 +37,25 @@ import 'dart:math';
 
 import 'package:path/path.dart' as p;
 import 'package:server_universe/core/log_level.dart';
+import 'package:server_universe/native/core/body_parser/http_body.dart';
+import 'package:server_universe/native/core/extensions/request_helpers.dart';
+import 'package:server_universe/native/core/extensions/response_helpers.dart';
+import 'package:server_universe/native/core/server_universe_native_exception.dart';
 
-import '../server_universe_native_exception.dart';
-import '../body_parser/http_body.dart';
-import '../extensions/request_helpers.dart';
-import '../extensions/response_helpers.dart';
 import 'type_handler.dart';
 
-TypeHandler get directoryTypeHandler =>
-    TypeHandler<Directory>((req, res, Directory directory) async {
+TypeHandler get directoryTypeHandler => TypeHandler<Directory>((req, res, Directory directory) async {
       directory = directory.absolute;
       final usedRoute = req.route;
       String? virtualPath;
       if (usedRoute.contains('*')) {
-        virtualPath = req.uri.path
-            .substring(min(req.uri.path.length, usedRoute.indexOf('*')));
+        virtualPath = req.uri.path.substring(min(req.uri.path.length, usedRoute.indexOf('*')));
       }
 
       if (req.method == 'GET' || req.method == 'HEAD') {
-        assert(usedRoute.contains('*'),
-            'TypeHandler of type Directory  GET request needs a route declaration that contains a wildcard (*). Found: $usedRoute');
+        assert(usedRoute.contains('*'), 'TypeHandler of type Directory  GET request needs a route declaration that contains a wildcard (*). Found: $usedRoute');
 
-        final filePath =
-            '${directory.path}/${Uri.decodeComponent(virtualPath!)}';
+        final filePath = '${directory.path}/${Uri.decodeComponent(virtualPath!)}';
 
         req.preventTraversal(filePath, directory);
 
@@ -76,8 +72,7 @@ TypeHandler get directoryTypeHandler =>
           req.log(() => 'Respond with file: ${match.path}');
           await _respondWithFile(res, match, headerOnly: req.method == 'HEAD');
         } on StateError {
-          req.log(() =>
-              'Could not match with any file. Expected file at: $filePath');
+          req.log(() => 'Could not match with any file. Expected file at: $filePath');
         }
       }
       if (req.method == 'POST' || req.method == 'PUT') {
@@ -98,18 +93,15 @@ TypeHandler get directoryTypeHandler =>
 
           req.preventTraversal(fileToWrite.path, directory);
 
-          await fileToWrite.writeAsBytes(
-              (body['file'] as HttpBodyFileUpload).content as List<int>);
-          final publicPath =
-              "${req.requestedUri.toString() + (virtualPath != null ? '/$virtualPath' : '')}/$fileName";
+          await fileToWrite.writeAsBytes((body['file'] as HttpBodyFileUpload).content as List<int>);
+          final publicPath = "${req.requestedUri.toString() + (virtualPath != null ? '/$virtualPath' : '')}/$fileName";
           req.log(() => 'Uploaded file $publicPath');
 
           await res.json({'path': publicPath});
         }
       }
       if (req.method == 'DELETE') {
-        final fileToDelete =
-            File('${directory.path}/${Uri.decodeComponent(virtualPath!)}');
+        final fileToDelete = File('${directory.path}/${Uri.decodeComponent(virtualPath!)}');
 
         req.preventTraversal(fileToDelete.path, directory);
 
@@ -123,8 +115,7 @@ TypeHandler get directoryTypeHandler =>
       }
     });
 
-Future _respondWithFile(HttpResponse res, File file,
-    {bool headerOnly = false}) async {
+Future _respondWithFile(HttpResponse res, File file, {bool headerOnly = false}) async {
   res.setContentTypeFromFile(file);
 
   // This is necessary to deal with 'HEAD' requests
@@ -135,8 +126,7 @@ Future _respondWithFile(HttpResponse res, File file,
 }
 
 extension _Logger on HttpRequest {
-  void log(String Function() msgFn) => server_universe.logWriter(
-      () => 'DirectoryTypeHandler: ${msgFn()}', LogType.debug);
+  void log(String Function() msgFn) => server_universe.logWriter(() => 'DirectoryTypeHandler: ${msgFn()}', ServerUniverseLogType.debug);
 
   void preventTraversal(String filePath, Directory absDir) {
     final check = File(filePath).absolute;

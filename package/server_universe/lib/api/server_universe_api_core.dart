@@ -167,8 +167,8 @@ class ServerUniverseApi {
         "server_universe": "any",
         "general_lib": "^0.0.43",
       }),
-      server_universe: ServerUniversePubspecConfig.create(
-        supabase: ServerUniversePubspecSupabaseConfig.create(
+      server_universe: PubspecServerUniverseConfiguration.create(
+        supabase: PubspecServerUniverseConfigurationSupabase.create(
           input_file: path.relative(
             file_script_supabase.path,
             from: directory_project.path,
@@ -434,7 +434,7 @@ void main() async {
   int port = int.tryParse(Platform.environment["PORT"] ?? "3000") ?? 3000;
   String host = Platform.environment["HOST"] ?? "0.0.0.0";
   ServerUniverseNative app = ServerUniverseNative(
-    logLevel: LogType.debug,
+    logLevel: ServerUniverseLogType.debug,
     onNotFound: (request, res) async {
       return res.status(400).send(({
         "@type": "error",

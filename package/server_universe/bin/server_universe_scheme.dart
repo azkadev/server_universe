@@ -36,17 +36,19 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 import 'package:general_lib/json_to_script_dart/json_to_script.dart';
 import 'package:path/path.dart';
-import 'dart:io';
-
-import 'package:server_universe/scheme/schemes/api_schemes.dart';
-import 'package:server_universe/scheme/schemes/respond_schemes.dart';
-import 'package:server_universe/scheme/schemes/schemes.dart';
+import 'dart:io'; 
+import 'package:server_universe/schemes/api_schemes.dart';
+import 'package:server_universe/schemes/respond_schemes.dart';
+import 'package:server_universe/schemes/schemes.dart';
 
 void main(List<String> args) async {
   Directory directory_scheme = Directory(
     join(Directory.current.path, "lib", "scheme"),
   );
-
+  if (directory_scheme.existsSync()) {
+    directory_scheme.deleteSync(recursive: true);
+  }
+  directory_scheme.createSync(recursive: true);
   await jsonToScripts(
     api_schemes,
     directory: Directory(

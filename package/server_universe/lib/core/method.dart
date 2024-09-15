@@ -32,7 +32,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
-enum Method {
+enum ServerUniverseMethodType {
   get,
   post,
   put,
@@ -50,8 +50,15 @@ enum Method {
   view,
   all;
 
-  Method methodFromString(String str) => Method.values.firstWhere(
-        (method) => method.name == str,
-        orElse: () => this,
-      );
+  ServerUniverseMethodType methodFromString(String str) {
+    
+    return ServerUniverseMethodType.values.firstWhere(
+      (method) {
+        return method.name == str;
+      },
+      orElse: () {
+        return this;
+      },
+    );
+  }
 }

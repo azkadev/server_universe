@@ -34,8 +34,9 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 import 'dart:io';
 
-import '../server_universe_native.dart';
-import '../extensions/response_helpers.dart';
+import 'package:server_universe/native/core/extensions/response_helpers.dart';
+import 'package:server_universe/native/core/server_universe_native.dart';
+
 import 'type_handler.dart';
 
 TypeHandler get fileTypeHandler =>

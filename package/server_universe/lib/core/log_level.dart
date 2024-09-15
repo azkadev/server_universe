@@ -33,4 +33,12 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 <!-- END LICENSE --> */
 /// Indicates the severity of logged message
-enum LogType { debug, info, warn, error, none }
+enum ServerUniverseLogType {
+  debug,
+  info,
+  warn,
+  error, 
+  all, 
+  none;
+}
+ 
