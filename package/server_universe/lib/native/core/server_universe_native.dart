@@ -39,14 +39,13 @@ import 'dart:io';
 
 import 'package:queue/queue.dart';
 import 'package:server_universe/core/core.dart';
-import 'package:server_universe/core/log_level.dart';
-import 'package:server_universe/core/method.dart';
-import 'package:server_universe/core/platform_type.dart';
+import 'package:server_universe/native/core/extensions/request_helpers.dart';
+import 'package:server_universe/native/core/http_route.dart';
+import 'package:server_universe/native/core/plugins/store_plugin.dart';
+import 'package:server_universe/native/core/server_universe_native_exception.dart';
+import 'package:server_universe/native/core/type_handlers/type_handler.dart';
+// import 'package:server_universe/native.dart';
 
-import 'server_universe_native_exception.dart';
-import 'extensions/request_helpers.dart';
-import 'http_route.dart';
-import 'plugins/store_plugin.dart';
 import 'route_matcher.dart';
 import 'route_param_types/alpha_param_type.dart';
 import 'route_param_types/date_param_type.dart';
@@ -62,7 +61,6 @@ import 'type_handlers/file_type_handler.dart';
 import 'type_handlers/json_type_handlers.dart';
 import 'type_handlers/serializable_type_handler.dart';
 import 'type_handlers/string_type_handler.dart';
-import 'type_handlers/type_handler.dart';
 import 'type_handlers/websocket_type_handler.dart';
 
 /// Server application class
@@ -89,7 +87,6 @@ class ServerUniverseNative extends ServerUniverseBase {
   // @override
   @override
   ServerUniverseNative get app => this;
-
 
   /// Optional handler for when a route is not found
   ///
@@ -152,7 +149,7 @@ class ServerUniverseNative extends ServerUniverseBase {
     super.serverUniversePlatformType = ServerUniversePlatformType.io,
     super.simultaneousProcessing,
     this.onNotFound,
-    this.onError, 
+    this.onError,
   }) : requestQueue = Queue(parallel: simultaneousProcessing) {
     onError = null;
     _registerDefaultParamTypes();
@@ -599,10 +596,79 @@ class ServerUniverseNative extends ServerUniverseBase {
     return route;
   }
 
+  HttpRoute websocket({
+    required String path,
+    required FutureOr<ServerUniverseWebSocketConnection> Function() onWebSocket,
+  }) {
+    return get(
+      path,
+      (HttpRequest req, HttpResponse res) async {
+        final ServerUniverseWebSocketConnection serverUniverseWebSocketConnection = await onWebSocket();
+        return WebSocketSession(
+          onOpen: (webSocket) async {
+            await serverUniverseWebSocketConnection.onOpen(webSocket, req, res);
+          },
+          onClose: (webSocket) async {
+            await serverUniverseWebSocketConnection.onClose(webSocket, req, res);
+          },
+          onError: (webSocket, error) async {
+            await serverUniverseWebSocketConnection.onError(error, webSocket, req, res);
+          },
+          onMessage: (webSocket, data) async {
+            await serverUniverseWebSocketConnection.onMessage(data, webSocket, req, res);
+          },
+        );
+      },
+    );
+  }
+  void tcpSocket({ 
+    required FutureOr<ServerUniverseTcpSocketConnection> Function() onTcpSocket,
+  }) { 
+
+  }
+ 
+ 
   // RouteGroup createRouteGroup(String path) {
   //   return RouteGroup(app, '${pathPrefix == '' ? '' : '$pathPrefix/'}$path');
   // }
 }
+
+typedef ServerUniverseWebSocketFunction = FutureOr<dynamic> Function(
+  WebSocket webSocket,
+  HttpRequest httpRequest,
+  HttpResponse httpResponse,
+);
+
+typedef ServerUniverseWebSocketUpdateFunction = FutureOr<dynamic> Function(
+  dynamic update,
+  WebSocket webSocket,
+  HttpRequest httpRequest,
+  HttpResponse httpResponse,
+);
+
+typedef ServerUniverseWebSocketErrorFunction = FutureOr<dynamic> Function(
+  dynamic error,
+  WebSocket webSocket,
+  HttpRequest httpRequest,
+  HttpResponse httpResponse,
+);
+
+class ServerUniverseWebSocketConnection {
+  final ServerUniverseWebSocketFunction onOpen;
+  final ServerUniverseWebSocketFunction onClose;
+  final ServerUniverseWebSocketUpdateFunction onMessage;
+  final ServerUniverseWebSocketErrorFunction onError;
+  ServerUniverseWebSocketConnection({
+    required this.onClose,
+    required this.onError,
+    required this.onMessage,
+    required this.onOpen,
+  });
+}
+class ServerUniverseTcpSocketConnection { 
+  ServerUniverseTcpSocketConnection();
+}
+
 
 /// Function to prevent linting errors.
 ///

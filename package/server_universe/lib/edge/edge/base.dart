@@ -36,7 +36,6 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 
 import 'package:server_universe/core/core.dart';
-import 'package:server_universe/core/platform_type.dart';
 import 'package:server_universe/edge/request/request.dart';
 
 abstract class ServerUniverseEdgeBaseCore {

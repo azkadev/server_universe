@@ -21,7 +21,8 @@ void main() async {
       );
     },
   );
-  
+
+  app.all("*", cors());
 
   app.all("/", (req, res) {
     return res.status(200).send("oke");
