@@ -6,20 +6,21 @@ environment:
 dependencies: 
   server_universe: 
     path: '../'
-  general_lib: '^0.0.44'
+  general_lib: '^0.0.45'
   qr_lib: 
     path: '/home/galaxeus/.pub-cache/hosted/pub.dev/qr_lib-0.0.0'
 dependency_overrides: 
   pointycastle: '3.8.0'
 dev_dependencies: 
-  lints: '^3.0.0'
-  test: '^1.24.0'
+  lints: '^4.0.0'
+  test: 'any'
 homepage: 'https://github.com/azkadev/server_universe'
 repository: 'https://github.com/azkadev/server_universe'
 issue_tracker: 'https://github.com/azkadev/server_universe/issues'
 documentation: 'https://github.com/azkadev/server_universe/tree/main/docs'
 funding: 
   - 'https://github.com/sponsors/azkadev'
+  - 'https://github.com/sponsors/generalfoss'
 server_universe: 
   supabase: 
     input_file: 'bin/example_supabase.dart'
