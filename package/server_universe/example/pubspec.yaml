@@ -1,41 +1,21 @@
 name: 'example'
-description: 'Server Universe Library For Help you make server rest api on cross platform support edge functions Supabase, Vercel, Netlify, cloud Flare and more'
-version: '0.0.18'
+description: 'A new Flutter project.'
+publish_to: 'none'
+version: '1.0.0+1'
 environment: 
   sdk: '>=3.3.3 <4.0.0'
 dependencies: 
+  flutter: 
+    sdk: 'flutter'
+  cupertino_icons: '^1.0.8'
   server_universe: 
     path: '../'
-  general_lib: '^0.0.45'
-  qr_lib: 
-    path: '/home/galaxeus/.pub-cache/hosted/pub.dev/qr_lib-0.0.0'
+dev_dependencies: 
+  flutter_test: 
+    sdk: 'flutter'
+  flutter_lints: '^4.0.0'
+flutter: 
+  uses-material-design: true
 dependency_overrides: 
   pointycastle: '3.8.0'
-dev_dependencies: 
-  lints: '^4.0.0'
-  test: 'any'
-homepage: 'https://github.com/azkadev/server_universe'
-repository: 'https://github.com/azkadev/server_universe'
-issue_tracker: 'https://github.com/azkadev/server_universe/issues'
-documentation: 'https://github.com/azkadev/server_universe/tree/main/docs'
-funding: 
-  - 'https://github.com/sponsors/azkadev'
-  - 'https://github.com/sponsors/generalfoss'
-server_universe: 
-  supabase: 
-    input_file: 'bin/example_supabase.dart'
-    output_directory: 'supabase/functions/example'
-platforms: 
-  android: null
-  ios: null
-  linux: null
-  macos: null
-  web: null
-  windows: null
-topics: 
-  - 'server'
-  - 'socket'
-  - 'api'
-  - 'backend'
-  - 'network'
-publish_to: 'none'
+funding: []
