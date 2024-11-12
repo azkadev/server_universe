@@ -41,7 +41,7 @@ import 'package:server_universe/native.dart';
 void main() async {
   print("start");
   int port = int.tryParse(Platform.environment["PORT"] ?? "3000") ?? 3000;
-  String host = Platform.environment["HOST"] ?? "0.0.0.0";
+  String host = "0.0.0.10";
   ServerUniverseNative app = ServerUniverseNative(
     serverUniverseLogType: ServerUniverseLogType.error,
     onNotFound: (request, res) async {
@@ -52,9 +52,6 @@ void main() async {
       }.toStringifyPretty()));
     },
   );
-  app.all("*", (req, res) {
-    print("port: ${port}");
-  });
   app.all("/", (req, res) {
     return res.send("oke");
   });
@@ -64,10 +61,22 @@ void main() async {
     count++;
     return await res.status(200).send("\nCOUNT: ${count}");
   });
-  await app.listen(
+  // await app.listen(
+  //   // securityContext: salpa(),
+  //   port: port,
+  //   bindIp: host,
+  // );
+
+ final res = await app.listenSecure(
+    securityContext: salpa(),
     port: port,
     bindIp: host,
   );
 
-  print("Server on");
+  print("Server on: ${res.address.host}");
+}
+
+SecurityContext salpa() {
+  final SecurityContext securityContext = SecurityContext(withTrustedRoots: true);
+  return securityContext;
 }
