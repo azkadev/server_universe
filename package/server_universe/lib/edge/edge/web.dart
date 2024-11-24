@@ -34,7 +34,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
- 
+
 import 'package:server_universe/core/log_level.dart';
 import 'package:server_universe/core/platform_type.dart';
 import 'package:server_universe/edge/core/request.dart';
@@ -42,46 +42,53 @@ import 'package:server_universe/edge/core/response.dart';
 import 'package:server_universe/edge/function/function.dart';
 import 'package:server_universe/edge/edge_lib.dart';
 import 'package:server_universe/edge/response/response.dart';
-import 'package:server_universe/edge/request/request.dart'; 
-import 'package:server_universe/edge/supabase/supabase.dart'; 
+import 'package:server_universe/edge/request/request.dart';
+import 'package:server_universe/edge/supabase/supabase.dart';
 
 import 'package:js/js.dart';
-import 'package:server_universe/edge/core/interop/promise_interop.dart'; 
+import 'package:server_universe/edge/core/interop/promise_interop.dart';
 
 import 'package:typings/core.dart' as interop;
- 
-class ServerUniverseEdge extends ServerUniverseEdgeBase { 
-  final List<ServerUniverseFunction> functions = [];
 
+class ServerUniverseEdge extends ServerUniverseEdgeBase {
+  final List<ServerUniverseFunction> functions = [];
 
   ServerUniverseEdge({
     required super.onError,
     required super.onNotFound,
     super.serverUniverseLogType,
     super.pathPrefix,
-    super.simultaneousProcessing, 
+    super.simultaneousProcessing,
     super.serverUniversePlatformType = ServerUniversePlatformType.supabase,
   });
   @override
   void ensureInitialized() {
     ServerUniverseEdgeLib.ensureInitialized();
     if (serverUniversePlatformType == ServerUniversePlatformType.supabase) {
-      server_universeDartSupabaseFetchHandler = allowInterop((interop.Request request) {
+      server_universeDartSupabaseFetchHandler =
+          allowInterop((interop.Request request) {
         return futureToPromise(Future(() async {
           Request requestDart = requestFromJsObject(request);
-          if (serverUniverseLogType == ServerUniverseLogType.info || serverUniverseLogType == ServerUniverseLogType.all) {
-            print("[REQUEST]: ${DateTime.now().toString()} ${requestDart.path}");
+          if (serverUniverseLogType == ServerUniverseLogType.info ||
+              serverUniverseLogType == ServerUniverseLogType.all) {
+            print(
+                "[REQUEST]: ${DateTime.now().toString()} ${requestDart.path}");
           }
           try {
-            ServerUniverseFunction? server_universeDartFunction = await getServerUniverseFunctionApiByRequest(request: requestDart);
+            ServerUniverseFunction? server_universeDartFunction =
+                await getServerUniverseFunctionApiByRequest(
+                    request: requestDart);
             if (server_universeDartFunction != null) {
-              Response response = await server_universeDartFunction.onRequest(requestDart, ServerUniverseFunctionResponse());
+              Response response = await server_universeDartFunction.onRequest(
+                  requestDart, ServerUniverseFunctionResponse());
               return response.delegate;
             }
-            Response response = await onNotFound(requestDart, ServerUniverseFunctionResponse());
+            Response response =
+                await onNotFound(requestDart, ServerUniverseFunctionResponse());
             return response.delegate;
           } catch (e, stack) {
-            if (serverUniverseLogType == ServerUniverseLogType.error || serverUniverseLogType == ServerUniverseLogType.all) {
+            if (serverUniverseLogType == ServerUniverseLogType.error ||
+                serverUniverseLogType == ServerUniverseLogType.all) {
               print("""
 ---
 ---
@@ -94,10 +101,14 @@ ${stack}
                   .trim());
             }
             try {
-              Response response = await onError(requestDart, ServerUniverseFunctionResponse(), e, stack);
+              Response response = await onError(
+                  requestDart, ServerUniverseFunctionResponse(), e, stack);
               return response.delegate;
             } catch (e) {
-              return ServerUniverseFunctionResponse().status(500).send("crash").delegate;
+              return ServerUniverseFunctionResponse()
+                  .status(500)
+                  .send("crash")
+                  .delegate;
             }
           }
         }));
@@ -109,16 +120,17 @@ ${stack}
     required Request request,
   }) async {
     for (ServerUniverseFunction server_universeDartFunction in functions) {
-      if (RegExp(server_universeDartFunction.path, caseSensitive: false).hasMatch(request.path)) {
+      if (RegExp(server_universeDartFunction.path, caseSensitive: false)
+          .hasMatch(request.path)) {
         if (server_universeDartFunction.method.hasMatch(request.method)) {
           return server_universeDartFunction;
         }
       }
     }
     return null;
-  } 
+  }
 
-  @override 
+  @override
   ServerUniverseEdge get app => this;
 
   @override
@@ -127,12 +139,12 @@ ${stack}
     required RegExp method,
     required RequestHandler onRequest,
   }) {
-    final ServerUniverseFunction server_universeDartFunction = ServerUniverseFunction(
+    final ServerUniverseFunction server_universeDartFunction =
+        ServerUniverseFunction(
       path: parsePattern(path),
       method: method,
       onRequest: onRequest,
     );
     functions.add(server_universeDartFunction);
   }
-
 }

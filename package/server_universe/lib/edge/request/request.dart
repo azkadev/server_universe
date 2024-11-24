@@ -33,7 +33,7 @@ jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesu
 Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
 
 
-<!-- END LICENSE --> */ 
+<!-- END LICENSE --> */
 import 'dart:async';
 
 import 'package:server_universe/edge/core/request.dart';

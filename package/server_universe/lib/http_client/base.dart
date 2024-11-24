@@ -6,6 +6,7 @@ abstract class ServerUniverseHttpClientBaseCore {
   }
 }
 
-abstract class ServerUniverseHttpClientBase implements ServerUniverseHttpClientBaseCore {
+abstract class ServerUniverseHttpClientBase
+    implements ServerUniverseHttpClientBaseCore {
   ServerUniverseHttpClientBase();
 }

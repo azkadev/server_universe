@@ -37,8 +37,7 @@ enum ServerUniverseLogType {
   debug,
   info,
   warn,
-  error, 
-  all, 
+  error,
+  all,
   none;
 }
- 

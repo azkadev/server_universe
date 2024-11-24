@@ -51,7 +51,6 @@ enum ServerUniverseMethodType {
   all;
 
   ServerUniverseMethodType methodFromString(String str) {
-    
     return ServerUniverseMethodType.values.firstWhere(
       (method) {
         return method.name == str;

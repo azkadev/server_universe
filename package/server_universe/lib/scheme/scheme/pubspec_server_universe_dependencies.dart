@@ -2,21 +2,17 @@
 import "package:general_lib/general_lib.dart";
 // import "dart:convert";
 
-
- 
 class PubspecServerUniverseDependencies extends JsonScheme {
-
-  
   PubspecServerUniverseDependencies(super.rawData);
-  
+
   /// return default data
-  /// 
+  ///
   static Map get defaultData {
-    return {"@type":"PubspecServerUniverseDependencies"};
+    return {"@type": "PubspecServerUniverseDependencies"};
   }
 
-  /// check data 
-  /// if raw data 
+  /// check data
+  /// if raw data
   /// - rawData["@type"] == PubspecServerUniverseDependencies
   /// if same return true
   bool json_scheme_utils_checkDataIsSameBySpecialType() {
@@ -30,20 +26,15 @@ class PubspecServerUniverseDependencies extends JsonScheme {
     return onResult(rawData["@type"], defaultData["@type"]);
   }
 
-  
-
   /// create [PubspecServerUniverseDependencies]
-  /// Empty  
+  /// Empty
   static PubspecServerUniverseDependencies empty() {
     return PubspecServerUniverseDependencies({});
   }
 
-  
-
-  
   String? get special_type {
     try {
-      if (rawData["@type"] is String == false){
+      if (rawData["@type"] is String == false) {
         return null;
       }
       return rawData["@type"] as String;
@@ -52,38 +43,32 @@ class PubspecServerUniverseDependencies extends JsonScheme {
     }
   }
 
-  
   set special_type(String? value) {
     rawData["@type"] = value;
   }
 
-
-  
   static PubspecServerUniverseDependencies create({
-              bool schemeUtilsIsSetDefaultData = false,
-
+    bool schemeUtilsIsSetDefaultData = false,
     String special_type = "PubspecServerUniverseDependencies",
-})  {
+  }) {
     // PubspecServerUniverseDependencies pubspecServerUniverseDependencies = PubspecServerUniverseDependencies({
-final Map pubspecServerUniverseDependencies_data_create_json = {
-  
+    final Map pubspecServerUniverseDependencies_data_create_json = {
       "@type": special_type,
+    };
 
-
-};
-
-
-          pubspecServerUniverseDependencies_data_create_json.removeWhere((key, value) => value == null);
+    pubspecServerUniverseDependencies_data_create_json
+        .removeWhere((key, value) => value == null);
 
     if (schemeUtilsIsSetDefaultData) {
       defaultData.forEach((key, value) {
-        if (pubspecServerUniverseDependencies_data_create_json.containsKey(key) == false) {
+        if (pubspecServerUniverseDependencies_data_create_json
+                .containsKey(key) ==
+            false) {
           pubspecServerUniverseDependencies_data_create_json[key] = value;
         }
       });
     }
-return PubspecServerUniverseDependencies(pubspecServerUniverseDependencies_data_create_json);
-
-
-      }
+    return PubspecServerUniverseDependencies(
+        pubspecServerUniverseDependencies_data_create_json);
+  }
 }

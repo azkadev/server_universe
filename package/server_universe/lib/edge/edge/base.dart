@@ -43,13 +43,11 @@ abstract class ServerUniverseEdgeBaseCore {
     required String path,
     required RegExp method,
     required RequestHandler onRequest,
-  }) {
-    
-  }
-
+  }) {}
 }
 
-abstract class ServerUniverseEdgeBase extends ServerUniverseBase implements ServerUniverseEdgeBaseCore {
+abstract class ServerUniverseEdgeBase extends ServerUniverseBase
+    implements ServerUniverseEdgeBaseCore {
   final RequestHandlerMore onError;
   final RequestHandler onNotFound;
   ServerUniverseEdgeBase({

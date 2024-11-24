@@ -2,16 +2,14 @@ final List<Map<String, dynamic>> schemes = [
   {
     "@type": "PubspecServerUniverse",
     "name": "",
-
-      "repository": "",
-      "homepage": "",
-      "issue_tracker": "",
-      "documentation": "",
+    "repository": "",
+    "homepage": "",
+    "issue_tracker": "",
+    "documentation": "",
     "funding": [
       "",
     ],
     "dependencies": {
-
       "@type": "PubspecServerUniverseDependencies",
     },
     "server_universe": {

@@ -39,11 +39,10 @@ import 'dart:convert';
 // todo: this should come from server_universe_io
 // import 'package:server_universe/edge/edge_lib.dart' show HttpClient;
 import 'package:http/http.dart' as http;
-import 'package:server_universe/edge/core/io_http_client.dart'  show HttpClient;
+import 'package:server_universe/edge/core/io_http_client.dart' show HttpClient;
 import 'base.dart';
 
 class ServerUniverseHttpClient extends ServerUniverseHttpClientBase {
-  
   @override
   http.Client client() {
     return _ServerUniverseHttpClient();
@@ -227,7 +226,8 @@ class _ServerUniverseHttpClient implements http.Client {
       req = http.StreamedRequest(method, url);
       req.headers.addAll(headers ?? {});
 
-      encoding.encoder.startChunkedConversion((req as http.StreamedRequest).sink)
+      encoding.encoder
+          .startChunkedConversion((req as http.StreamedRequest).sink)
         ..add(body)
         ..close();
     } else if (body is List<int>) {

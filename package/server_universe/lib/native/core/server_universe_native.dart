@@ -82,7 +82,8 @@ class ServerUniverseNative extends ServerUniverseBase {
   /// Writer to handle internal logging.
   ///
   /// It can optionally exchanged with your own logging solution.
-  late void Function(dynamic Function() messageFn, ServerUniverseLogType type) logWriter;
+  late void Function(dynamic Function() messageFn, ServerUniverseLogType type)
+      logWriter;
 
   // @override
   @override
@@ -119,7 +120,8 @@ class ServerUniverseNative extends ServerUniverseBase {
   /// Typically would be used for logging, benchmarking or cleaning up data
   /// used when writing a plugin.
   ///
-  Function registerOnDoneListener(void Function(HttpRequest, HttpResponse) listener) {
+  Function registerOnDoneListener(
+      void Function(HttpRequest, HttpResponse) listener) {
     _onDoneListeners.add(listener);
     return listener;
   }
@@ -173,11 +175,33 @@ class ServerUniverseNative extends ServerUniverseBase {
   }
 
   void _registerDefaultTypeHandlers() {
-    typeHandlers.addAll([stringTypeHandler, uint8listTypeHandler, listIntTypeHandler, binaryStreamTypeHandler, jsonListTypeHandler, jsonMapTypeHandler, jsonNumberTypeHandler, jsonBooleanTypeHandler, fileTypeHandler, directoryTypeHandler, websocketTypeHandler, serializableTypeHandler]);
+    typeHandlers.addAll([
+      stringTypeHandler,
+      uint8listTypeHandler,
+      listIntTypeHandler,
+      binaryStreamTypeHandler,
+      jsonListTypeHandler,
+      jsonMapTypeHandler,
+      jsonNumberTypeHandler,
+      jsonBooleanTypeHandler,
+      fileTypeHandler,
+      directoryTypeHandler,
+      websocketTypeHandler,
+      serializableTypeHandler
+    ]);
   }
 
   void _registerDefaultParamTypes() {
-    HttpRouteParam.paramTypes.addAll([IntParamType(), UintParamType(), DoubleParamType(), DateParamType(), TimestampParamType(), HexParamType(), AlphaParamType(), UuidParamType()]);
+    HttpRouteParam.paramTypes.addAll([
+      IntParamType(),
+      UintParamType(),
+      DoubleParamType(),
+      DateParamType(),
+      TimestampParamType(),
+      HexParamType(),
+      AlphaParamType(),
+      UuidParamType()
+    ]);
   }
 
   void _registerPluginListeners() {
@@ -215,7 +239,8 @@ class ServerUniverseNative extends ServerUniverseBase {
             return _incomingRequest(request);
           },
           (error, stack) {
-            logWriter(() => 'Unhandled Error: $error', ServerUniverseLogType.error);
+            logWriter(
+                () => 'Unhandled Error: $error', ServerUniverseLogType.error);
             logWriter(() => '${stack}', ServerUniverseLogType.error);
           },
         );
@@ -223,7 +248,8 @@ class ServerUniverseNative extends ServerUniverseBase {
       });
     });
 
-    logWriter(() => 'HTTP Server listening on port ${server.port}', ServerUniverseLogType.info);
+    logWriter(() => 'HTTP Server listening on port ${server.port}',
+        ServerUniverseLogType.info);
     return this.server = server;
   }
 
@@ -248,7 +274,8 @@ class ServerUniverseNative extends ServerUniverseBase {
       requestQueue.add(() => _incomingRequest(request));
     });
 
-    logWriter(() => 'HTTP Server listening on port ${server.port}', ServerUniverseLogType.info);
+    logWriter(() => 'HTTP Server listening on port ${server.port}',
+        ServerUniverseLogType.info);
     return this.server = server;
   }
 
@@ -261,7 +288,8 @@ class ServerUniverseNative extends ServerUniverseBase {
     /// Variable to track the close of the response
     var isDone = false;
 
-    logWriter(() => '${request.method} - ${request.uri.toString()}', ServerUniverseLogType.info);
+    logWriter(() => '${request.method} - ${request.uri.toString()}',
+        ServerUniverseLogType.info);
 
     // We track if the response has been resolved in order to exit out early
     // the list of routes (ie the middleware returned)
@@ -276,21 +304,24 @@ class ServerUniverseNative extends ServerUniverseBase {
     /// Parse request to ServerUniverseMethodType enum value.
     ServerUniverseMethodType _parseMethod(HttpRequest request) {
       try {
-        return ServerUniverseMethodType.values.byName(request.method.toLowerCase());
+        return ServerUniverseMethodType.values
+            .byName(request.method.toLowerCase());
       } on ArgumentError {
         return ServerUniverseMethodType.get;
       }
     }
 
     // Work out all the routes we need to process
-    final effectiveMatches = RouteMatcher.match(request.uri.toString(), routes, _parseMethod(request));
+    final effectiveMatches = RouteMatcher.match(
+        request.uri.toString(), routes, _parseMethod(request));
 
     try {
       // If there are no effective routes, that means we need to throw a 404
       // or see if there are any static routes to fall back to, otherwise
       // continue and process the routes
       if (effectiveMatches.isEmpty) {
-        logWriter(() => 'No matching route found.', ServerUniverseLogType.debug);
+        logWriter(
+            () => 'No matching route found.', ServerUniverseLogType.debug);
         await _respondNotFound(request, isDone);
       } else {
         /// Tracks if one route is using a wildcard
@@ -301,9 +332,11 @@ class ServerUniverseNative extends ServerUniverseBase {
           if (isDone) {
             break;
           }
-          logWriter(() => 'Match route: ${match.route.route}', ServerUniverseLogType.debug);
+          logWriter(() => 'Match route: ${match.route.route}',
+              ServerUniverseLogType.debug);
           request.store.set('_internal_match', match);
-          nonWildcardRouteMatch = !match.route.usesWildcardMatcher || nonWildcardRouteMatch;
+          nonWildcardRouteMatch =
+              !match.route.usesWildcardMatcher || nonWildcardRouteMatch;
 
           /// Loop through any middleware
           for (var middleware in match.route.middleware) {
@@ -311,8 +344,10 @@ class ServerUniverseNative extends ServerUniverseBase {
             if (isDone) {
               break;
             }
-            logWriter(() => 'Apply middleware associated with route', ServerUniverseLogType.debug);
-            await _handleResponse(await middleware(request, request.response), request);
+            logWriter(() => 'Apply middleware associated with route',
+                ServerUniverseLogType.debug);
+            await _handleResponse(
+                await middleware(request, request.response), request);
           }
 
           /// If the request has already completed, exit early, otherwise process
@@ -320,13 +355,15 @@ class ServerUniverseNative extends ServerUniverseBase {
           if (isDone) {
             break;
           }
-          logWriter(() => 'Execute route callback function', ServerUniverseLogType.debug);
+          logWriter(() => 'Execute route callback function',
+              ServerUniverseLogType.debug);
 
           /// Nested try catch because if you set the header twice it wasn't
           /// catching an error. This fixes it and its in tests, so if you can
           /// remove it and all the tests pass, cool beans.
           // try {
-          await _handleResponse(await match.route.callback(request, request.response), request);
+          await _handleResponse(
+              await match.route.callback(request, request.response), request);
           // } catch (e, s) {
           //   logWriter(() => match.route.toString(), ServerUniverseLogType.error);
           //   logWriter(() => e, ServerUniverseLogType.error);
@@ -420,8 +457,11 @@ class ServerUniverseNative extends ServerUniverseBase {
       var handled = false;
       for (var handler in typeHandlers) {
         if (handler.shouldHandle(result)) {
-          logWriter(() => 'Apply TypeHandler for result type: ${result.runtimeType}', ServerUniverseLogType.debug);
-          dynamic handlerResult = await handler.handler(request, request.response, result);
+          logWriter(
+              () => 'Apply TypeHandler for result type: ${result.runtimeType}',
+              ServerUniverseLogType.debug);
+          dynamic handlerResult =
+              await handler.handler(request, request.response, result);
           // print(handlerResult == false);
           // set false to old
           if (handlerResult != null) {
@@ -511,9 +551,11 @@ class ServerUniverseNative extends ServerUniverseBase {
   HttpRoute get(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
+        const [],
   }) {
-    return createRoute(ServerUniverseMethodType.get, path, callback, middleware);
+    return createRoute(
+        ServerUniverseMethodType.get, path, callback, middleware);
   }
 
   /// Create a head route
@@ -521,9 +563,11 @@ class ServerUniverseNative extends ServerUniverseBase {
   HttpRoute head(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
+        const [],
   }) {
-    return createRoute(ServerUniverseMethodType.head, path, callback, middleware);
+    return createRoute(
+        ServerUniverseMethodType.head, path, callback, middleware);
   }
 
   /// Create a post route
@@ -531,18 +575,22 @@ class ServerUniverseNative extends ServerUniverseBase {
   HttpRoute post(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
+        const [],
   }) {
-    return createRoute(ServerUniverseMethodType.post, path, callback, middleware);
+    return createRoute(
+        ServerUniverseMethodType.post, path, callback, middleware);
   }
 
   /// Create a put route
   HttpRoute put(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
+        const [],
   }) {
-    return createRoute(ServerUniverseMethodType.put, path, callback, middleware);
+    return createRoute(
+        ServerUniverseMethodType.put, path, callback, middleware);
   }
 
   /// Create a delete route
@@ -550,9 +598,11 @@ class ServerUniverseNative extends ServerUniverseBase {
   HttpRoute delete(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
+        const [],
   }) {
-    return createRoute(ServerUniverseMethodType.delete, path, callback, middleware);
+    return createRoute(
+        ServerUniverseMethodType.delete, path, callback, middleware);
   }
 
   /// Create a patch route
@@ -560,9 +610,11 @@ class ServerUniverseNative extends ServerUniverseBase {
   HttpRoute patch(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
+        const [],
   }) {
-    return createRoute(ServerUniverseMethodType.patch, path, callback, middleware);
+    return createRoute(
+        ServerUniverseMethodType.patch, path, callback, middleware);
   }
 
   /// Create an options route
@@ -570,9 +622,11 @@ class ServerUniverseNative extends ServerUniverseBase {
   HttpRoute options(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
+        const [],
   }) {
-    return createRoute(ServerUniverseMethodType.options, path, callback, middleware);
+    return createRoute(
+        ServerUniverseMethodType.options, path, callback, middleware);
   }
 
   /// Create a route that listens on all methods
@@ -580,18 +634,23 @@ class ServerUniverseNative extends ServerUniverseBase {
   HttpRoute all(
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, {
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
+        const [],
   }) {
-    return createRoute(ServerUniverseMethodType.all, path, callback, middleware);
+    return createRoute(
+        ServerUniverseMethodType.all, path, callback, middleware);
   }
 
   HttpRoute createRoute(
     ServerUniverseMethodType method,
     String path,
     FutureOr Function(HttpRequest req, HttpResponse res) callback, [
-    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware = const [],
+    List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware =
+        const [],
   ]) {
-    final route = HttpRoute('${pathPrefix == '' ? '' : '${pathPrefix}/'}$path', callback, method, middleware: middleware);
+    final route = HttpRoute(
+        '${pathPrefix == '' ? '' : '${pathPrefix}/'}$path', callback, method,
+        middleware: middleware);
     addRoute(route);
     return route;
   }
@@ -603,31 +662,33 @@ class ServerUniverseNative extends ServerUniverseBase {
     return get(
       path,
       (HttpRequest req, HttpResponse res) async {
-        final ServerUniverseWebSocketConnection serverUniverseWebSocketConnection = await onWebSocket();
+        final ServerUniverseWebSocketConnection
+            serverUniverseWebSocketConnection = await onWebSocket();
         return WebSocketSession(
           onOpen: (webSocket) async {
             await serverUniverseWebSocketConnection.onOpen(webSocket, req, res);
           },
           onClose: (webSocket) async {
-            await serverUniverseWebSocketConnection.onClose(webSocket, req, res);
+            await serverUniverseWebSocketConnection.onClose(
+                webSocket, req, res);
           },
           onError: (webSocket, error) async {
-            await serverUniverseWebSocketConnection.onError(error, webSocket, req, res);
+            await serverUniverseWebSocketConnection.onError(
+                error, webSocket, req, res);
           },
           onMessage: (webSocket, data) async {
-            await serverUniverseWebSocketConnection.onMessage(data, webSocket, req, res);
+            await serverUniverseWebSocketConnection.onMessage(
+                data, webSocket, req, res);
           },
         );
       },
     );
   }
-  void tcpSocket({ 
-    required FutureOr<ServerUniverseTcpSocketConnection> Function() onTcpSocket,
-  }) { 
 
-  }
- 
- 
+  void tcpSocket({
+    required FutureOr<ServerUniverseTcpSocketConnection> Function() onTcpSocket,
+  }) {}
+
   // RouteGroup createRouteGroup(String path) {
   //   return RouteGroup(app, '${pathPrefix == '' ? '' : '$pathPrefix/'}$path');
   // }
@@ -665,10 +726,10 @@ class ServerUniverseWebSocketConnection {
     required this.onOpen,
   });
 }
-class ServerUniverseTcpSocketConnection { 
+
+class ServerUniverseTcpSocketConnection {
   ServerUniverseTcpSocketConnection();
 }
-
 
 /// Function to prevent linting errors.
 ///
@@ -683,7 +744,8 @@ class NoTypeHandlerError extends Error {
   NoTypeHandlerError(this.object, this.request);
 
   @override
-  String toString() => 'No type handler found for ${object.runtimeType} / ${object.toString()} \nRoute: ${request.route}\nIf the app is running in production mode, the type name may be minified. Run it in debug mode to resolve';
+  String toString() =>
+      'No type handler found for ${object.runtimeType} / ${object.toString()} \nRoute: ${request.route}\nIf the app is running in production mode, the type name may be minified. Run it in debug mode to resolve';
 }
 
 /// Error used by middleware, utils or type handler to elevate

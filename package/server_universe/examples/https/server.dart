@@ -67,7 +67,7 @@ void main() async {
   //   bindIp: host,
   // );
 
- final res = await app.listenSecure(
+  final res = await app.listenSecure(
     securityContext: salpa(),
     port: port,
     bindIp: host,
@@ -77,6 +77,7 @@ void main() async {
 }
 
 SecurityContext salpa() {
-  final SecurityContext securityContext = SecurityContext(withTrustedRoots: true);
+  final SecurityContext securityContext =
+      SecurityContext(withTrustedRoots: true);
   return securityContext;
 }

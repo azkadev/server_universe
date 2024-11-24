@@ -4,20 +4,24 @@ import "package:general_lib/general_lib.dart";
 
 import "pubspec_server_universe_configuration_supabase.dart";
 
- 
 class PubspecServerUniverseConfiguration extends JsonScheme {
-
-  
   PubspecServerUniverseConfiguration(super.rawData);
-  
+
   /// return default data
-  /// 
+  ///
   static Map get defaultData {
-    return {"@type":"PubspecServerUniverseConfiguration","supabase":{"@type":"PubspecServerUniverseConfigurationSupabase","input_file":"","output_directory":""}};
+    return {
+      "@type": "PubspecServerUniverseConfiguration",
+      "supabase": {
+        "@type": "PubspecServerUniverseConfigurationSupabase",
+        "input_file": "",
+        "output_directory": ""
+      }
+    };
   }
 
-  /// check data 
-  /// if raw data 
+  /// check data
+  /// if raw data
   /// - rawData["@type"] == PubspecServerUniverseConfiguration
   /// if same return true
   bool json_scheme_utils_checkDataIsSameBySpecialType() {
@@ -31,20 +35,15 @@ class PubspecServerUniverseConfiguration extends JsonScheme {
     return onResult(rawData["@type"], defaultData["@type"]);
   }
 
-  
-
   /// create [PubspecServerUniverseConfiguration]
-  /// Empty  
+  /// Empty
   static PubspecServerUniverseConfiguration empty() {
     return PubspecServerUniverseConfiguration({});
   }
 
-  
-
-  
   String? get special_type {
     try {
-      if (rawData["@type"] is String == false){
+      if (rawData["@type"] is String == false) {
         return null;
       }
       return rawData["@type"] as String;
@@ -53,60 +52,50 @@ class PubspecServerUniverseConfiguration extends JsonScheme {
     }
   }
 
-  
   set special_type(String? value) {
     rawData["@type"] = value;
   }
 
-
-  
   PubspecServerUniverseConfigurationSupabase get supabase {
     try {
-      if (rawData["supabase"] is Map == false){
-        return PubspecServerUniverseConfigurationSupabase({}); 
+      if (rawData["supabase"] is Map == false) {
+        return PubspecServerUniverseConfigurationSupabase({});
       }
-      return PubspecServerUniverseConfigurationSupabase(rawData["supabase"] as Map);
-    } catch (e) {  
-      return PubspecServerUniverseConfigurationSupabase({}); 
+      return PubspecServerUniverseConfigurationSupabase(
+          rawData["supabase"] as Map);
+    } catch (e) {
+      return PubspecServerUniverseConfigurationSupabase({});
     }
   }
 
-
-  
   set supabase(PubspecServerUniverseConfigurationSupabase value) {
     rawData["supabase"] = value.toJson();
   }
 
-
-
-  
   static PubspecServerUniverseConfiguration create({
-              bool schemeUtilsIsSetDefaultData = false,
-
+    bool schemeUtilsIsSetDefaultData = false,
     String special_type = "PubspecServerUniverseConfiguration",
-      PubspecServerUniverseConfigurationSupabase? supabase,
-})  {
+    PubspecServerUniverseConfigurationSupabase? supabase,
+  }) {
     // PubspecServerUniverseConfiguration pubspecServerUniverseConfiguration = PubspecServerUniverseConfiguration({
-final Map pubspecServerUniverseConfiguration_data_create_json = {
-  
+    final Map pubspecServerUniverseConfiguration_data_create_json = {
       "@type": special_type,
-      "supabase": (supabase != null)?supabase.toJson(): null,
+      "supabase": (supabase != null) ? supabase.toJson() : null,
+    };
 
-
-};
-
-
-          pubspecServerUniverseConfiguration_data_create_json.removeWhere((key, value) => value == null);
+    pubspecServerUniverseConfiguration_data_create_json
+        .removeWhere((key, value) => value == null);
 
     if (schemeUtilsIsSetDefaultData) {
       defaultData.forEach((key, value) {
-        if (pubspecServerUniverseConfiguration_data_create_json.containsKey(key) == false) {
+        if (pubspecServerUniverseConfiguration_data_create_json
+                .containsKey(key) ==
+            false) {
           pubspecServerUniverseConfiguration_data_create_json[key] = value;
         }
       });
     }
-return PubspecServerUniverseConfiguration(pubspecServerUniverseConfiguration_data_create_json);
-
-
-      }
+    return PubspecServerUniverseConfiguration(
+        pubspecServerUniverseConfiguration_data_create_json);
+  }
 }

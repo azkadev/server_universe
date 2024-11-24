@@ -34,15 +34,18 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 import 'package:server_universe/core/method.dart';
 import 'package:server_universe/native/native.dart';
- 
+
 class RouteMatcher {
-  static Iterable<HttpRouteMatch> match(String input, List<HttpRoute> options, ServerUniverseMethodType method) sync* {
+  static Iterable<HttpRouteMatch> match(String input, List<HttpRoute> options,
+      ServerUniverseMethodType method) sync* {
     // decode URL path before matching except for "/"
-    final inputPath = Uri.parse(input).path.normalizePath.decodeUri(DecodeMode.AllButSlash);
+    final inputPath =
+        Uri.parse(input).path.normalizePath.decodeUri(DecodeMode.AllButSlash);
 
     for (final option in options) {
       // Check if http method matches
-      if (option.method != method && option.method != ServerUniverseMethodType.all) {
+      if (option.method != method &&
+          option.method != ServerUniverseMethodType.all) {
         continue;
       }
 

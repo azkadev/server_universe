@@ -15,7 +15,8 @@ class MyHttpOverrides extends HttpOverrides {
     // };
 
     // Mengabaikan validasi sertifikat SSL yang tidak valid
-    client.badCertificateCallback = (X509Certificate cert, String host, int port) => true;
+    client.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
     return client;
   }
 }

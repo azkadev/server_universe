@@ -38,7 +38,7 @@ import 'dart:io';
 
 import 'package:server_universe/native/core/route_matcher.dart';
 import 'package:server_universe/native/native.dart';
- 
+
 /// Some convenience methods on the [HttpRequest] object to make the api
 /// more like ExpressJS
 ///

@@ -34,33 +34,31 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
- 
+
 import 'package:server_universe/core/platform_type.dart';
 import 'package:server_universe/edge/request/request.dart';
 
 import 'base.dart';
 
-
- 
-class ServerUniverseEdge extends ServerUniverseEdgeBase { 
-
+class ServerUniverseEdge extends ServerUniverseEdgeBase {
   ServerUniverseEdge({
     required super.onError,
     required super.onNotFound,
     super.serverUniverseLogType,
     super.pathPrefix,
-    super.simultaneousProcessing, 
+    super.simultaneousProcessing,
     super.serverUniversePlatformType = ServerUniversePlatformType.supabase,
-
   });
   @override
-  void ensureInitialized() { 
-  } 
-  @override 
+  void ensureInitialized() {}
+  @override
   ServerUniverseEdge get app => this;
 
   @override
-  void createRoute({required String path, required RegExp method, required RequestHandler onRequest}) {
+  void createRoute(
+      {required String path,
+      required RegExp method,
+      required RequestHandler onRequest}) {
     // TODO: implement createRoute
   }
 }

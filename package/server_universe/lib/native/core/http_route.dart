@@ -38,7 +38,7 @@ import 'dart:async';
 
 import 'package:server_universe/core/method.dart';
 import 'package:server_universe/native/native.dart';
- 
+
 class HttpRoute {
   final ServerUniverseMethodType method;
   final String route;
@@ -57,7 +57,9 @@ class HttpRoute {
 
   Iterable<HttpRouteParam> get params => _params.values;
 
-  HttpRoute(this.route, this.callback, this.method, {this.middleware = const []}) : usesWildcardMatcher = route.contains('*') {
+  HttpRoute(this.route, this.callback, this.method,
+      {this.middleware = const []})
+      : usesWildcardMatcher = route.contains('*') {
     // Split route path into segments
 
     /// Because in dart 2.18 uri parsing is more permissive, using a \ in regex
@@ -66,12 +68,15 @@ class HttpRoute {
     /// sequence.
     const escapeChar = '@@@^';
     var escapedPath = route.normalizePath.replaceAll('\\', escapeChar);
-    var segments = Uri.tryParse('/${escapedPath}')?.pathSegments ?? [route.normalizePath];
+    var segments =
+        Uri.tryParse('/${escapedPath}')?.pathSegments ?? [route.normalizePath];
     segments = segments.map((e) => e.replaceAll(escapeChar, '\\')).toList();
 
     var pattern = '^';
     for (var segment in segments) {
-      if (segment == '*' && segment != segments.first && segment == segments.last) {
+      if (segment == '*' &&
+          segment != segments.first &&
+          segment == segments.last) {
         // Generously match path if last segment is wildcard (*)
         // Example: 'some/path/*' => should match 'some/path', 'some/path/', 'some/path/with/children'
         //                           but not 'some/pathological'
@@ -147,7 +152,9 @@ class HttpRouteParam {
       pattern = name.substring(idx + 1);
       name = name.substring(0, idx);
       final typeName = pattern.toLowerCase();
-      type = paramTypes.cast<HttpRouteParamType?>().firstWhere((t) => t!.name == typeName, orElse: () => null);
+      type = paramTypes
+          .cast<HttpRouteParamType?>()
+          .firstWhere((t) => t!.name == typeName, orElse: () => null);
       if (type != null) {
         // the pattern matches a param type name
         pattern = type.pattern;

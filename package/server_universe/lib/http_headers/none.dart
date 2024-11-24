@@ -1,1 +1,1 @@
-export "dart:io"  show HttpHeaders;
+export "dart:io" show HttpHeaders;

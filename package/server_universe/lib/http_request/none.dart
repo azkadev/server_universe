@@ -1,1 +1,1 @@
-export "dart:io"  show HttpRequest;
+export "dart:io" show HttpRequest;

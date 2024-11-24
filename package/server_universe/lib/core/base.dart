@@ -47,7 +47,8 @@ abstract interface class ServerUniverseBaseCore<T extends ServerUniverseBase> {
   }
 }
 
-abstract class ServerUniverseBase implements ServerUniverseBaseCore<ServerUniverseBase> {
+abstract class ServerUniverseBase
+    implements ServerUniverseBaseCore<ServerUniverseBase> {
   String pathPrefix;
   final ServerUniverseLogType serverUniverseLogType;
   final ServerUniversePlatformType serverUniversePlatformType;
