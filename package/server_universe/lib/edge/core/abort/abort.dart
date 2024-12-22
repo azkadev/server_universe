@@ -34,7 +34,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 import 'dart:js_util' show jsify;
 
-import 'package:typings/core.dart' as interop;
+import 'package:typings_fork/core.dart' as interop;
 import 'package:server_universe/edge/core/interop/utils_interop.dart';
 
 class AbortController {
@@ -42,8 +42,7 @@ class AbortController {
   AbortController() : _delegate = interop.AbortController();
 
   AbortSignal get signal => AbortSignal._(_delegate.signal);
-  void abort([Object? reason]) =>
-      _delegate.abort(reason != null ? jsify(reason) : jsUndefined);
+  void abort([Object? reason]) => _delegate.abort(reason != null ? jsify(reason) : jsUndefined);
 }
 
 class AbortSignal {

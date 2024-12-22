@@ -34,7 +34,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 import 'dart:typed_data';
 
-import 'package:typings/core.dart' as interop;
+import 'package:typings_fork/core.dart' as interop;
 
 final crypto = Crypto._(interop.crypto);
 
@@ -46,8 +46,7 @@ class Crypto {
   SubtleCrypto get subtle => SubtleCrypto._(_delegate.subtle);
 
   // TODO Is this the right way to do this?
-  interop.ArrayBufferView getRandomValues(interop.ArrayBufferView typedArray) =>
-      _delegate.getRandomValues(typedArray);
+  interop.ArrayBufferView getRandomValues(interop.ArrayBufferView typedArray) => _delegate.getRandomValues(typedArray);
 
   String randomUUID() => _delegate.randomUUID();
 }
@@ -78,8 +77,7 @@ abstract class Algorithm {
 class RsaOaepParams extends Algorithm {
   final interop.RsaOaepParams _rsaDelegate;
 
-  RsaOaepParams._(this._rsaDelegate)
-      : super._(interop.Algorithm(name: 'RSA-OAEP'));
+  RsaOaepParams._(this._rsaDelegate) : super._(interop.Algorithm(name: 'RSA-OAEP'));
 
   factory RsaOaepParams({
     ByteBuffer? label,

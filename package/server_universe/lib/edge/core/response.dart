@@ -36,7 +36,7 @@ import 'dart:convert';
 import 'dart:js_util' show jsify, getProperty;
 import 'dart:typed_data';
 
-import 'package:typings/core.dart' as interop;
+import 'package:typings_fork/core.dart' as interop;
 
 import 'package:server_universe/edge/core/utils.dart';
 import 'package:server_universe/edge/core/blob.dart';
@@ -45,8 +45,7 @@ import 'package:server_universe/edge/core/form_data.dart';
 import 'package:server_universe/edge/core/headers.dart';
 import 'package:server_universe/edge/core/interop/readable_stream.dart';
 import 'package:server_universe/edge/core/interop/utils_interop.dart';
-import 'package:server_universe/edge/core/interop/headers.dart'
-    as headers_interop;
+import 'package:server_universe/edge/core/interop/headers.dart' as headers_interop;
 
 class Response implements Body {
   final interop.Response _delegate;
@@ -125,8 +124,7 @@ class Response implements Body {
   bool get bodyUsed => _delegate.bodyUsed;
 
   @override
-  Future<FormData> formData() async =>
-      formDataFromJsObject(await _delegate.formData());
+  Future<FormData> formData() async => formDataFromJsObject(await _delegate.formData());
 
   @override
   Future<Object?> json() async {

@@ -32,7 +32,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
-import 'package:typings/core.dart' as interop;
+import 'package:typings_fork/core.dart' as interop;
 
 class TextDecoder {
   final interop.TextDecoder _delegate;
@@ -40,8 +40,7 @@ class TextDecoder {
   // TextDecoder._(this._delegate);
 
   // TODO: What happens if label is null? do we need to use undefined?
-  TextDecoder([String? label, TextDecoderOptions? options])
-      : _delegate = interop.TextDecoder(label, options?._delegate);
+  TextDecoder([String? label, TextDecoderOptions? options]) : _delegate = interop.TextDecoder(label, options?._delegate);
 
   String get encoding => _delegate.encoding;
 

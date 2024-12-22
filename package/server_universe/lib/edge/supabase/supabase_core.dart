@@ -39,8 +39,7 @@ import 'package:js/js.dart';
 import 'package:server_universe/edge/core/interop/promise_interop.dart';
 export 'package:server_universe/edge/edge.dart';
 
-import 'package:typings/core.dart' as interop;
+import 'package:typings_fork/core.dart' as interop;
 
 @JS('server_universeDartSupabaseFetchHandler')
-external set server_universeDartSupabaseFetchHandler(
-    Promise<interop.Response> Function(interop.Request req) onFunction);
+external set server_universeDartSupabaseFetchHandler(Promise<interop.Response> Function(interop.Request req) onFunction);

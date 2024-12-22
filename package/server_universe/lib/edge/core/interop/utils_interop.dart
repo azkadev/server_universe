@@ -37,7 +37,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 import 'dart:js_util' as js_util;
 import 'package:js/js.dart';
 
-import 'package:typings/core.dart' as interop;
+import 'package:typings_fork/core.dart' as interop;
 
 import 'package:server_universe/edge/core/request.dart';
 import 'package:server_universe/edge/core/resource.dart';

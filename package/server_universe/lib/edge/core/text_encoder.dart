@@ -34,7 +34,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 import 'dart:typed_data' show Uint8List;
 
-import 'package:typings/core.dart' as interop;
+import 'package:typings_fork/core.dart' as interop;
 
 class TextEncoder {
   final interop.TextEncoder _delegate;
@@ -45,8 +45,7 @@ class TextEncoder {
 
   Uint8List encode([String? input]) => _delegate.encode(input);
 
-  TextEncoderEncodeIntoResult encodeInto(String input, Uint8List destination) =>
-      TextEncoderEncodeIntoResult._(
+  TextEncoderEncodeIntoResult encodeInto(String input, Uint8List destination) => TextEncoderEncodeIntoResult._(
         _delegate.encodeInto(input, destination),
       );
 }
@@ -55,8 +54,7 @@ extension TextEncoderExtension on TextEncoder {
   interop.TextEncoder get delegate => _delegate;
 }
 
-TextEncoder textEncoderFromJsObject(interop.TextEncoder jsObject) =>
-    TextEncoder._(jsObject);
+TextEncoder textEncoderFromJsObject(interop.TextEncoder jsObject) => TextEncoder._(jsObject);
 
 class TextEncoderEncodeIntoResult {
   final interop.TextEncoderEncodeIntoResult _delegate;
@@ -80,6 +78,4 @@ extension TextEncoderEncodeIntoResultExtension on TextEncoderEncodeIntoResult {
   interop.TextEncoderEncodeIntoResult get delegate => _delegate;
 }
 
-TextEncoder textEncoderEncodeIntoResultFromJsObject(
-        interop.TextEncoder jsObject) =>
-    TextEncoder._(jsObject);
+TextEncoder textEncoderEncodeIntoResultFromJsObject(interop.TextEncoder jsObject) => TextEncoder._(jsObject);

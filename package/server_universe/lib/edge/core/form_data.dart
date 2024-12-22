@@ -33,7 +33,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 <!-- END LICENSE --> */
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:typings/core.dart' as interop;
+import 'package:typings_fork/core.dart' as interop;
 
 import 'package:server_universe/edge/core/file.dart';
 

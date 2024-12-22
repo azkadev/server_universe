@@ -33,15 +33,14 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 <!-- END LICENSE --> */
 import 'dart:js_util' show jsify;
-import 'package:typings/core.dart' as js_interop;
+import 'package:typings_fork/core.dart' as js_interop;
 
 import 'package:server_universe/edge/core/interop/headers.dart' as interop;
 
 class Headers {
   final interop.Headers _delegate;
 
-  Headers([Map<String, String>? headers])
-      : _delegate = interop.Headers(jsify(headers ?? {}));
+  Headers([Map<String, String>? headers]) : _delegate = interop.Headers(jsify(headers ?? {}));
 
   Headers._(this._delegate);
 

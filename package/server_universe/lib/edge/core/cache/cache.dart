@@ -34,10 +34,9 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 import 'dart:js_util';
 
-import 'package:typings/core.dart' as interop;
+import 'package:typings_fork/core.dart' as interop;
 
-import 'package:server_universe/edge/core/interop/utils_interop.dart'
-    as interop;
+import 'package:server_universe/edge/core/interop/utils_interop.dart' as interop;
 import 'package:server_universe/edge/core/request.dart';
 import 'package:server_universe/edge/core/response.dart';
 import 'cache_query_options.dart';
@@ -55,19 +54,16 @@ class Cache {
     await _delegate.addAll(requests.map((r) => r.delegate).toList());
   }
 
-  Future<void> delete(Request request,
-      [MultiCacheQueryOptions? options]) async {
+  Future<void> delete(Request request, [MultiCacheQueryOptions? options]) async {
     await _delegate.delete(request.delegate, options?.delegate);
   }
 
   Future<Response?> match(Request request, [CacheQueryOptions? options]) async {
-    final obj = await promiseToFuture(
-        _delegate.match(request.delegate, options?.delegate));
+    final obj = await promiseToFuture(_delegate.match(request.delegate, options?.delegate));
     return obj == null ? null : responseFromJsObject(obj);
   }
 
-  Future<Iterable<Response>> matchAll(
-      [Request? request, CacheQueryOptions? options]) async {
+  Future<Iterable<Response>> matchAll([Request? request, CacheQueryOptions? options]) async {
     final matches = await _delegate.matchAll(
       request ?? interop.jsUndefined,
       options?.delegate,

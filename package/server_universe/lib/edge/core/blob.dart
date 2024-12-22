@@ -36,7 +36,7 @@ import 'dart:js_util';
 import 'dart:typed_data';
 
 import 'package:server_universe/edge/core/interop/readable_stream.dart';
-import 'package:typings/core.dart' as interop;
+import 'package:typings_fork/core.dart' as interop;
 
 class Blob {
   final interop.Blob _delegate;

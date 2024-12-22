@@ -40,12 +40,10 @@ import 'dart:typed_data';
 import 'package:server_universe/edge/core/abort/abort.dart';
 import 'package:server_universe/edge/core/blob.dart';
 import 'package:server_universe/edge/core/body.dart';
-import 'package:typings/core.dart' as interop;
+import 'package:typings_fork/core.dart' as interop;
 import 'package:server_universe/edge/core/interop/readable_stream.dart';
-import 'package:server_universe/edge/core/interop/utils_interop.dart'
-    as interop;
-import 'package:server_universe/edge/core/interop/headers.dart'
-    as headers_interop;
+import 'package:server_universe/edge/core/interop/utils_interop.dart' as interop;
+import 'package:server_universe/edge/core/interop/headers.dart' as headers_interop;
 
 import 'package:server_universe/edge/core/form_data.dart';
 import 'package:server_universe/edge/core/headers.dart';
@@ -151,8 +149,7 @@ class Request implements Body {
   bool get bodyUsed => _delegate.bodyUsed;
 
   @override
-  Future<FormData> formData() async =>
-      formDataFromJsObject(await _delegate.formData());
+  Future<FormData> formData() async => formDataFromJsObject(await _delegate.formData());
 
   @override
   Future<Object?> json() async =>

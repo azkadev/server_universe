@@ -33,7 +33,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 <!-- END LICENSE --> */
 import 'package:js/js.dart' as js;
-import 'package:typings/core.dart' as interop;
+import 'package:typings_fork/core.dart' as interop;
 
 @js.JS('caches')
 external interop.CacheStorage get caches;
