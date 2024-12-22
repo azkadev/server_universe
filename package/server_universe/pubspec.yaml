@@ -22,11 +22,11 @@ topics:
   - 'backend'
   - 'network'
 environment:
-  sdk: '>=3.6.0 <4.0.0'
+  sdk: '>=3.3.3 <4.0.0'
 dependencies:
   freezed_annotation: '^2.4.4'
   js: '^0.7.1'
-  typings_fork: "^0.0.1"
+  typings_fork: '^0.0.1'
   mime: '^2.0.0'
   mime_type: '^1.0.1'
   queue: '^3.1.0+2'
