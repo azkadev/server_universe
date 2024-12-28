@@ -40,7 +40,8 @@ class TextDecoder {
   // TextDecoder._(this._delegate);
 
   // TODO: What happens if label is null? do we need to use undefined?
-  TextDecoder([String? label, TextDecoderOptions? options]) : _delegate = interop.TextDecoder(label, options?._delegate);
+  TextDecoder([String? label, TextDecoderOptions? options])
+      : _delegate = interop.TextDecoder(label, options?._delegate);
 
   String get encoding => _delegate.encoding;
 

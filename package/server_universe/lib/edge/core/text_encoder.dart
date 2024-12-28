@@ -45,7 +45,8 @@ class TextEncoder {
 
   Uint8List encode([String? input]) => _delegate.encode(input);
 
-  TextEncoderEncodeIntoResult encodeInto(String input, Uint8List destination) => TextEncoderEncodeIntoResult._(
+  TextEncoderEncodeIntoResult encodeInto(String input, Uint8List destination) =>
+      TextEncoderEncodeIntoResult._(
         _delegate.encodeInto(input, destination),
       );
 }
@@ -54,7 +55,8 @@ extension TextEncoderExtension on TextEncoder {
   interop.TextEncoder get delegate => _delegate;
 }
 
-TextEncoder textEncoderFromJsObject(interop.TextEncoder jsObject) => TextEncoder._(jsObject);
+TextEncoder textEncoderFromJsObject(interop.TextEncoder jsObject) =>
+    TextEncoder._(jsObject);
 
 class TextEncoderEncodeIntoResult {
   final interop.TextEncoderEncodeIntoResult _delegate;
@@ -78,4 +80,6 @@ extension TextEncoderEncodeIntoResultExtension on TextEncoderEncodeIntoResult {
   interop.TextEncoderEncodeIntoResult get delegate => _delegate;
 }
 
-TextEncoder textEncoderEncodeIntoResultFromJsObject(interop.TextEncoder jsObject) => TextEncoder._(jsObject);
+TextEncoder textEncoderEncodeIntoResultFromJsObject(
+        interop.TextEncoder jsObject) =>
+    TextEncoder._(jsObject);
