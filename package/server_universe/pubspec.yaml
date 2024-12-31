@@ -26,7 +26,7 @@ environment:
 dependencies:
   freezed_annotation: '^2.4.4'
   js: '^0.7.1'
-  typings_fork: '^0.0.1'
+  typings_fork: '^0.0.5'
   mime: '^2.0.0'
   mime_type: '^1.0.1'
   queue: '^3.1.0+2'
@@ -34,7 +34,7 @@ dependencies:
   path: '^1.9.0'
   general_lib: '^0.0.51'
   mason_logger: '^0.3.1'
-  collection: '^1.18.0'
+  collection: '^1.19.0'
   yaml: '^3.1.2'
   yaml_writer: '^2.0.0'
   http: '^1.2.2'
@@ -43,7 +43,7 @@ dependency_overrides:
   mime: '^2.0.0'
 dev_dependencies:
   build_runner: '^2.3.3'
-  freezed: '^2.3.2'
+  freezed: '^3.0.0-0.0.dev'
   lints: '^5.0.0'
   test: 'any'
   shelf: '^1.4.0'
