@@ -266,10 +266,10 @@ packages:
     dependency: "direct main"
     description:
       name: general_lib
-      sha256: "410fde426da545b3e3e2aa813d688dd39442ad9741f71ab6a630de1aa34cd95a"
+      sha256: bb10daf66b67e80315ebc19641f241cf2a0d911801c9fe120a24defcd140e99c
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.51"
+    version: "0.0.55"
   glob:
     dependency: transitive
     description:
@@ -334,6 +334,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
+  io_universe:
+    dependency: transitive
+    description:
+      name: io_universe
+      sha256: "18eb40422cfe7f689e75184fc01e91109dd80f4dced47cd54cc8ca314d581002"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   js:
     dependency: "direct main"
     description:
@@ -678,14 +686,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.5"
-  universal_io:
-    dependency: transitive
-    description:
-      name: universal_io
-      sha256: "1722b2dcc462b4b2f3ee7d188dad008b6eb4c40bbd03a3de451d82c78bba9aad"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.2.2"
   vector_math:
     dependency: transitive
     description:
