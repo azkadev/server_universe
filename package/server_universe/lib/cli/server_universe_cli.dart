@@ -42,8 +42,10 @@ import 'package:server_universe/api/server_universe_api_core.dart';
 import 'package:general_lib/args/args.dart';
 import 'package:mason_logger/mason_logger.dart';
 
+/// ServerUniverseUncompleteDocumentation
 Logger logger = Logger();
 
+/// ServerUniverseUncompleteDocumentation
 Future<void> server_universeDartCli(List<String> args_raw) async {
   ServerUniverseApi serverUniverseApi = ServerUniverseApi();
   Args args = Args(args_raw);
@@ -218,7 +220,10 @@ Future<void> server_universeDartCli(List<String> args_raw) async {
   exit(1);
 }
 
+/// ServerUniverseUncompleteDocumentation
 Progress progress = logger.progress("message");
+
+/// ServerUniverseUncompleteDocumentation
 void printed(ServerUniverseApiStatus event) {
   if (event.serverUniverseApiStatusType ==
       ServerUniverseApiStatusType.progress_start) {

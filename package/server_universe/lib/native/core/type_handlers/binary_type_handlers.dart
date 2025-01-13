@@ -48,12 +48,15 @@ FutureOr _binaryTypeHandler(
   await res.close();
 }
 
+/// ServerUniverseUncompleteDocumentation
 TypeHandler get listIntTypeHandler =>
     TypeHandler<List<int>>(_binaryTypeHandler);
 
+/// ServerUniverseUncompleteDocumentation
 TypeHandler get uint8listTypeHandler =>
     TypeHandler<Uint8List>(_binaryTypeHandler);
 
+/// ServerUniverseUncompleteDocumentation
 TypeHandler get binaryStreamTypeHandler =>
     TypeHandler<Stream<List<int>>>((req, res, Stream<List<int>> val) async {
       if (res.headers.contentType == null ||

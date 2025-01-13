@@ -39,6 +39,7 @@ import 'dart:async';
 import 'package:server_universe/core/method.dart';
 import 'package:server_universe/native/native.dart';
 
+/// ServerUniverseUncompleteDocumentation
 extension NestedRouteExtension on ServerUniverseNative {
   /// Creates one or multiple route segments that can be used
   /// as a common base for specifying routes with [get], [post], etc.
@@ -51,12 +52,14 @@ extension NestedRouteExtension on ServerUniverseNative {
           server_universe: this, basePath: path, baseMiddleware: middleware);
 }
 
+/// ServerUniverseUncompleteDocumentation
 class NestedRoute {
   final ServerUniverseNative _server_universe;
   final String _basePath;
   final List<FutureOr Function(HttpRequest req, HttpResponse res)>
       _baseMiddleware;
 
+  /// ServerUniverseUncompleteDocumentation
   NestedRoute(
       {required ServerUniverseNative server_universe,
       required String basePath,

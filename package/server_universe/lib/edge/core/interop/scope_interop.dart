@@ -38,37 +38,53 @@ import 'package:typings_fork/core.dart' as interop;
 import 'promise_interop.dart';
 
 @js.JS()
+
+/// ServerUniverseUncompleteDocumentation
 external void addEventListener(
   String type,
   void Function(interop.Event event) callback,
 );
 
 @js.JS('fetch')
+
+/// ServerUniverseUncompleteDocumentation
 external Promise<interop.Response> fetch(
   interop.Request request, [
   interop.RequestInit? init,
 ]);
 
 @js.JS('atob')
+
+/// ServerUniverseUncompleteDocumentation
 external String atob(String encodedData);
 
 @js.JS('btoa')
+
+/// ServerUniverseUncompleteDocumentation
 external String btoa(String encodedData);
 
 @js.JS('setInterval')
+
+/// ServerUniverseUncompleteDocumentation
 external int setInterval(
   void Function() callback,
   int milliseconds,
 );
 
 @js.JS('clearInterval')
+
+/// ServerUniverseUncompleteDocumentation
 external void clearInterval(int handle);
 
 @js.JS('setTimeout')
+
+/// ServerUniverseUncompleteDocumentation
 external int setTimeout(
   void Function() callback,
   int milliseconds,
 );
 
 @js.JS('clearTimeout')
+
+/// ServerUniverseUncompleteDocumentation
 external void clearTimeout(int handle);

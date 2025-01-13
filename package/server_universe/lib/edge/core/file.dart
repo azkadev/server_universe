@@ -40,13 +40,19 @@ import 'package:typings_fork/core.dart' as interop;
 import 'package:server_universe/edge/core/interop/readable_stream.dart';
 import 'package:server_universe/edge/core/blob.dart';
 
+/// ServerUniverseUncompleteDocumentation
 class File implements Blob {
   final interop.File _delegate;
 
   File._(this._delegate);
 
+  /// ServerUniverseUncompleteDocumentation
   String get name => _delegate.name;
+
+  /// ServerUniverseUncompleteDocumentation
   int get lastModified => _delegate.lastModified.toInt();
+
+  /// ServerUniverseUncompleteDocumentation
   String? get webkitRelativePath {
     try {
       return _delegate.webkitRelativePath;
@@ -81,10 +87,13 @@ class File implements Blob {
   String get type => _delegate.type;
 }
 
+/// ServerUniverseUncompleteDocumentation
 extension FileExtension on File {
+  /// ServerUniverseUncompleteDocumentation
   interop.File get delegate => _delegate;
 }
 
+/// ServerUniverseUncompleteDocumentation
 File fileFromJsObject(interop.File delegate) {
   return File._(delegate);
 }

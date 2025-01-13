@@ -39,12 +39,15 @@ import 'package:server_universe/edge/core/file.dart';
 
 part 'form_data.freezed.dart';
 
+/// ServerUniverseUncompleteDocumentation
 class FormData {
   final interop.FormData _delegate;
   FormData._(this._delegate);
 
+  /// ServerUniverseUncompleteDocumentation
   FormData() : _delegate = interop.FormData();
 
+  /// ServerUniverseUncompleteDocumentation
   void append(String name, FormDataEntryValue value) {
     value.when(file: (value) {
       throw UnimplementedError();
@@ -59,10 +62,13 @@ class FormData {
     });
   }
 
+  /// ServerUniverseUncompleteDocumentation
   void delete(String name) => _delegate.delete(name);
 
+  /// ServerUniverseUncompleteDocumentation
   bool has(String name) => _delegate.has(name);
 
+  /// ServerUniverseUncompleteDocumentation
   FormDataEntryValue? get(String name) {
     final value = _delegate.get(name);
 
@@ -75,6 +81,7 @@ class FormData {
     return null;
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Iterable<FormDataEntryValue> getAll(String name) sync* {
     final values = _delegate.getAll(name);
 
@@ -89,6 +96,7 @@ class FormData {
     }
   }
 
+  /// ServerUniverseUncompleteDocumentation
   operator []=(String name, FormDataEntryValue value) {
     value.when(file: (value) {
       throw UnimplementedError();
@@ -103,11 +111,14 @@ class FormData {
     });
   }
 
+  /// ServerUniverseUncompleteDocumentation
+
   FormDataEntryValue? operator [](String name) {
     return get(name);
   }
 }
 
+/// ServerUniverseUncompleteDocumentation
 FormData formDataFromJsObject(interop.FormData delegate) {
   return FormData._(delegate);
 }
@@ -119,6 +130,7 @@ FormData formDataFromJsObject(interop.FormData delegate) {
   map: FreezedMapOptions.none,
 )
 class FormDataEntryValue with _$FormDataEntryValue {
+  /// ServerUniverseUncompleteDocumentation
   const factory FormDataEntryValue.file(File file) = FileValue;
 
   /// Creates a [FormDataEntryValue] instance from a [String].

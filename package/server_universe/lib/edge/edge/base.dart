@@ -38,7 +38,9 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 import 'package:server_universe/core/core.dart';
 import 'package:server_universe/edge/request/request.dart';
 
+/// ServerUniverseUncompleteDocumentation
 abstract class ServerUniverseEdgeBaseCore {
+  /// ServerUniverseUncompleteDocumentation
   void createRoute({
     required String path,
     required RegExp method,
@@ -46,10 +48,17 @@ abstract class ServerUniverseEdgeBaseCore {
   }) {}
 }
 
+/// ServerUniverseUncompleteDocumentation
 abstract class ServerUniverseEdgeBase extends ServerUniverseBase
     implements ServerUniverseEdgeBaseCore {
+  /// ServerUniverseUncompleteDocumentation
+
   final RequestHandlerMore onError;
+
+  /// ServerUniverseUncompleteDocumentation
   final RequestHandler onNotFound;
+
+  /// ServerUniverseUncompleteDocumentation
   ServerUniverseEdgeBase({
     required this.onError,
     required this.onNotFound,
@@ -62,6 +71,7 @@ abstract class ServerUniverseEdgeBase extends ServerUniverseBase
   @override
   void ensureInitialized() {}
 
+  /// ServerUniverseUncompleteDocumentation
   void all(String path, RequestHandler onRequest) {
     createRoute(
       path: path,
@@ -70,6 +80,7 @@ abstract class ServerUniverseEdgeBase extends ServerUniverseBase
     );
   }
 
+  /// ServerUniverseUncompleteDocumentation
   void get(String path, RequestHandler onRequest) {
     createRoute(
       path: path,
@@ -78,6 +89,7 @@ abstract class ServerUniverseEdgeBase extends ServerUniverseBase
     );
   }
 
+  /// ServerUniverseUncompleteDocumentation
   void post(String path, RequestHandler onRequest) {
     createRoute(
       path: path,
@@ -86,6 +98,7 @@ abstract class ServerUniverseEdgeBase extends ServerUniverseBase
     );
   }
 
+  /// ServerUniverseUncompleteDocumentation
   void put(String path, RequestHandler onRequest) {
     createRoute(
       path: path,
@@ -94,6 +107,7 @@ abstract class ServerUniverseEdgeBase extends ServerUniverseBase
     );
   }
 
+  /// ServerUniverseUncompleteDocumentation
   void delete(String path, RequestHandler onRequest) {
     createRoute(
       path: path,
@@ -102,6 +116,7 @@ abstract class ServerUniverseEdgeBase extends ServerUniverseBase
     );
   }
 
+  /// ServerUniverseUncompleteDocumentation
   void patch(String path, RequestHandler onRequest) {
     createRoute(
       path: path,
@@ -110,6 +125,7 @@ abstract class ServerUniverseEdgeBase extends ServerUniverseBase
     );
   }
 
+  /// ServerUniverseUncompleteDocumentation
   void head(String path, RequestHandler onRequest) {
     createRoute(
       path: path,
@@ -118,6 +134,7 @@ abstract class ServerUniverseEdgeBase extends ServerUniverseBase
     );
   }
 
+  /// ServerUniverseUncompleteDocumentation
   void options(String path, RequestHandler onRequest) {
     createRoute(
       path: path,
@@ -126,6 +143,7 @@ abstract class ServerUniverseEdgeBase extends ServerUniverseBase
     );
   }
 
+  /// ServerUniverseUncompleteDocumentation
   void propfind(String path, RequestHandler onRequest) {
     createRoute(
       path: path,

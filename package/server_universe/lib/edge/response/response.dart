@@ -41,22 +41,31 @@ import 'package:server_universe/edge/edge_lib.dart';
 
 export 'package:server_universe/edge/edge.dart';
 
+/// ServerUniverseUncompleteDocumentation
 class ServerUniverseFunctionResponse {
   int _status_code = 200;
+
   String? _status_text;
+
+  /// ServerUniverseUncompleteDocumentation
   Headers headers = Headers();
+
+  /// ServerUniverseUncompleteDocumentation
   ServerUniverseFunctionResponse();
 
+  /// ServerUniverseUncompleteDocumentation
   ServerUniverseFunctionResponse status(int status) {
     _status_code = status;
     return this;
   }
 
+  /// ServerUniverseUncompleteDocumentation
   ServerUniverseFunctionResponse statusText(String? status) {
     _status_text = status;
     return this;
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Response json(
     Map value,
   ) {
@@ -71,6 +80,7 @@ class ServerUniverseFunctionResponse {
     );
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Response send(
     dynamic value,
   ) {
@@ -86,6 +96,7 @@ class ServerUniverseFunctionResponse {
     }
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Response response({
     required dynamic body,
     required int? status,

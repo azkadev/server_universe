@@ -70,6 +70,7 @@ export 'package:server_universe/edge/core/text_encoder.dart'
     show TextEncoder, TextEncoderEncodeIntoResult;
 export 'package:server_universe/edge/core/top.dart';
 
+/// ServerUniverseUncompleteDocumentation
 class ServerUniverseEdgeLib {
   /// This should be called before any other platform code is run.
   static void ensureInitialized() {

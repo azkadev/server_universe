@@ -2,7 +2,9 @@
 import "package:general_lib/general_lib.dart";
 // import "dart:convert";
 
+/// Generated
 class PubspecServerUniverseConfigurationSupabase extends JsonScheme {
+  /// Generated
   PubspecServerUniverseConfigurationSupabase(super.rawData);
 
   /// return default data
@@ -36,6 +38,7 @@ class PubspecServerUniverseConfigurationSupabase extends JsonScheme {
     return PubspecServerUniverseConfigurationSupabase({});
   }
 
+  /// Generated
   String? get special_type {
     try {
       if (rawData["@type"] is String == false) {
@@ -47,10 +50,12 @@ class PubspecServerUniverseConfigurationSupabase extends JsonScheme {
     }
   }
 
+  /// Generated
   set special_type(String? value) {
     rawData["@type"] = value;
   }
 
+  /// Generated
   String? get input_file {
     try {
       if (rawData["input_file"] is String == false) {
@@ -62,10 +67,12 @@ class PubspecServerUniverseConfigurationSupabase extends JsonScheme {
     }
   }
 
+  /// Generated
   set input_file(String? value) {
     rawData["input_file"] = value;
   }
 
+  /// Generated
   String? get output_directory {
     try {
       if (rawData["output_directory"] is String == false) {
@@ -77,10 +84,12 @@ class PubspecServerUniverseConfigurationSupabase extends JsonScheme {
     }
   }
 
+  /// Generated
   set output_directory(String? value) {
     rawData["output_directory"] = value;
   }
 
+  /// Generated
   static PubspecServerUniverseConfigurationSupabase create({
     bool schemeUtilsIsSetDefaultData = false,
     String special_type = "PubspecServerUniverseConfigurationSupabase",

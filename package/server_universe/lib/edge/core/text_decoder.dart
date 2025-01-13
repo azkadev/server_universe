@@ -34,19 +34,24 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 import 'package:typings_fork/core.dart' as interop;
 
+/// ServerUniverseUncompleteDocumentation
 class TextDecoder {
   final interop.TextDecoder _delegate;
 
   // TextDecoder._(this._delegate);
 
   // TODO: What happens if label is null? do we need to use undefined?
+  /// ServerUniverseUncompleteDocumentation
   TextDecoder([String? label, TextDecoderOptions? options])
       : _delegate = interop.TextDecoder(label, options?._delegate);
 
+  /// ServerUniverseUncompleteDocumentation
   String get encoding => _delegate.encoding;
 
+  /// ServerUniverseUncompleteDocumentation
   bool get fatal => _delegate.fatal;
 
+  /// ServerUniverseUncompleteDocumentation
   bool get ignoreBOM => _delegate.ignoreBOM;
 
   // TODO + TextDecodeOptions
@@ -54,19 +59,24 @@ class TextDecoder {
   //     _delegate.decode(input, options?._delegate);
 }
 
+/// ServerUniverseUncompleteDocumentation
+
 class TextDecodeOptions {}
 
+/// ServerUniverseUncompleteDocumentation
 class TextDecoderOptions {
   final interop.TextDecoderOptions _delegate;
 
   TextDecoderOptions._(this._delegate);
 
+  /// ServerUniverseUncompleteDocumentation
   bool get fatal => _delegate.fatal ?? false;
 
   set fatal(bool newValue) {
     _delegate.fatal = newValue;
   }
 
+  /// ServerUniverseUncompleteDocumentation
   bool get ignoreBOM => _delegate.ignoreBOM ?? false;
 
   set ignoreBOM(bool newValue) {

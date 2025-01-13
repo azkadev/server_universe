@@ -34,11 +34,18 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 import 'package:typings_fork/core.dart' as interop;
 
+/// ServerUniverseUncompleteDocumentation
 class CacheQueryOptions {
+  /// ServerUniverseUncompleteDocumentation
   bool? ignoreSearch;
+
+  /// ServerUniverseUncompleteDocumentation
   bool? ignoreMethod;
+
+  /// ServerUniverseUncompleteDocumentation
   bool? ignoreVary;
 
+  /// ServerUniverseUncompleteDocumentation
   CacheQueryOptions({
     this.ignoreSearch,
     this.ignoreMethod,
@@ -46,7 +53,9 @@ class CacheQueryOptions {
   });
 }
 
+/// ServerUniverseUncompleteDocumentation
 extension CacheQueryOptionsExtension on CacheQueryOptions {
+  /// ServerUniverseUncompleteDocumentation
   interop.CacheQueryOptions get delegate {
     // Only set the properties that are not null.
     interop.CacheQueryOptions delegate = interop.CacheQueryOptions();
@@ -57,9 +66,12 @@ extension CacheQueryOptionsExtension on CacheQueryOptions {
   }
 }
 
+/// ServerUniverseUncompleteDocumentation
 class MultiCacheQueryOptions extends CacheQueryOptions {
+  /// ServerUniverseUncompleteDocumentation
   String? cacheName;
 
+  /// ServerUniverseUncompleteDocumentation
   MultiCacheQueryOptions({
     this.cacheName,
     super.ignoreSearch,
@@ -68,7 +80,9 @@ class MultiCacheQueryOptions extends CacheQueryOptions {
   });
 }
 
+/// ServerUniverseUncompleteDocumentation
 extension MultiCacheQueryOptionsExtension on MultiCacheQueryOptions {
+  /// ServerUniverseUncompleteDocumentation
   interop.MultiCacheQueryOptions get delegate {
     // Only set the properties that are not null.
     interop.MultiCacheQueryOptions delegate = interop.MultiCacheQueryOptions();

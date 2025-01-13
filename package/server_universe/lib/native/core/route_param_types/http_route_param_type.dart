@@ -32,8 +32,14 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
+/// ServerUniverseUncompleteDocumentation
 abstract class HttpRouteParamType {
+  /// ServerUniverseUncompleteDocumentation
   String get name;
+
+  /// ServerUniverseUncompleteDocumentation
   String get pattern;
+
+  /// ServerUniverseUncompleteDocumentation
   dynamic parse(String value);
 }

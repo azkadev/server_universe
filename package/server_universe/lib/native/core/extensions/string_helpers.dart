@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 /* <!-- START LICENSE -->
 
 
@@ -32,9 +34,17 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
-// ignore: constant_identifier_names
-enum DecodeMode { AllButSlash, SlashOnly }
 
+/// ServerUniverseUncompleteDocumentation
+enum DecodeMode {
+  /// ServerUniverseUncompleteDocumentation
+  AllButSlash,
+
+  /// ServerUniverseUncompleteDocumentation
+  SlashOnly,
+}
+
+/// ServerUniverseUncompleteDocumentation
 extension PathNormalizer on String {
   /// Trims all slashes at the start and end
   String get normalizePath {
@@ -84,6 +94,8 @@ extension PathNormalizer on String {
         return codeUnit == _slash;
     }
   }
+
+  /// ServerUniverseUncompleteDocumentation
 
   String decodeUri(DecodeMode mode) {
     var codes = codeUnits;

@@ -42,25 +42,31 @@ import 'package:server_universe/edge/core/response.dart';
 import 'cache.dart';
 import 'cache_query_options.dart';
 
+/// ServerUniverseUncompleteDocumentation
 final caches = CacheStorage._(interop.caches);
 
+/// ServerUniverseUncompleteDocumentation
 class CacheStorage {
   final interop.CacheStorage _delegate;
 
   CacheStorage._(this._delegate);
 
+  /// ServerUniverseUncompleteDocumentation
   Future<bool> delete(String cacheName) async {
     return _delegate.delete(cacheName);
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Future<bool> has(String cacheName) async {
     return _delegate.has(cacheName);
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Future<Iterable<String>> keys() async {
     return _delegate.keys();
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Future<Response?> match(Request request,
       [MultiCacheQueryOptions? options]) async {
     final obj = await promiseToFuture<interop.Response?>(
@@ -68,6 +74,7 @@ class CacheStorage {
     return obj == null ? null : responseFromJsObject(obj);
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Future<Cache> open(String name) async {
     return cacheFromJsObject(await _delegate.open(name));
   }

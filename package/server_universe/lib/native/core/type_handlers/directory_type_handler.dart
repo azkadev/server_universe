@@ -44,6 +44,7 @@ import 'package:server_universe/native/core/server_universe_native_exception.dar
 
 import 'type_handler.dart';
 
+/// ServerUniverseUncompleteDocumentation
 TypeHandler get directoryTypeHandler =>
     TypeHandler<Directory>((req, res, Directory directory) async {
       directory = directory.absolute;

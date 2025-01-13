@@ -50,9 +50,12 @@ import 'package:server_universe/edge/core/interop/promise_interop.dart';
 
 import 'package:typings_fork/core.dart' as interop;
 
+/// ServerUniverseUncompleteDocumentation
 class ServerUniverseEdge extends ServerUniverseEdgeBase {
+  /// ServerUniverseUncompleteDocumentation
   final List<ServerUniverseFunction> functions = [];
 
+  /// ServerUniverseUncompleteDocumentation
   ServerUniverseEdge({
     required super.onError,
     required super.onNotFound,
@@ -116,6 +119,7 @@ ${stack}
     }
   }
 
+  /// ServerUniverseUncompleteDocumentation
   FutureOr<ServerUniverseFunction?> getServerUniverseFunctionApiByRequest({
     required Request request,
   }) async {

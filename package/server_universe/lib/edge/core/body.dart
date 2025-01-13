@@ -36,12 +36,27 @@ import 'dart:typed_data';
 
 import 'package:server_universe/edge/core/form_data.dart';
 
+/// ServerUniverseUncompleteDocumentation
 abstract class Body {
+  /// ServerUniverseUncompleteDocumentation
   Stream<List<int>>? get body;
+
+  /// ServerUniverseUncompleteDocumentation
   bool get bodyUsed;
+
+  /// ServerUniverseUncompleteDocumentation
+
   Future<String> text();
+
+  /// ServerUniverseUncompleteDocumentation
   Future<Object?> json();
+
+  /// ServerUniverseUncompleteDocumentation
   Future<FormData> formData();
+
+  /// ServerUniverseUncompleteDocumentation
   Future<Object> blob();
+
+  /// ServerUniverseUncompleteDocumentation
   Future<ByteBuffer> arrayBuffer();
 }

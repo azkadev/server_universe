@@ -37,6 +37,7 @@ import 'dart:io';
 
 import 'type_handler.dart';
 
+/// ServerUniverseUncompleteDocumentation
 TypeHandler<WebSocketSession> get websocketTypeHandler =>
     TypeHandler<WebSocketSession>(
         (HttpRequest req, HttpResponse res, WebSocketSession value) async {
@@ -46,13 +47,22 @@ TypeHandler<WebSocketSession> get websocketTypeHandler =>
 
 /// Convenience wrapper around Dart IO WebSocket implementation
 class WebSocketSession {
+  /// ServerUniverseUncompleteDocumentation
   late WebSocket socket;
 
+  /// ServerUniverseUncompleteDocumentation
   FutureOr<void> Function(WebSocket webSocket)? onOpen;
+
+  /// ServerUniverseUncompleteDocumentation
   FutureOr<void> Function(WebSocket webSocket, dynamic data)? onMessage;
+
+  /// ServerUniverseUncompleteDocumentation
   FutureOr<void> Function(WebSocket webSocket)? onClose;
+
+  /// ServerUniverseUncompleteDocumentation
   FutureOr<void> Function(WebSocket webSocket, dynamic error)? onError;
 
+  /// ServerUniverseUncompleteDocumentation
   WebSocketSession({this.onOpen, this.onMessage, this.onClose, this.onError});
 
   void _start(WebSocket webSocket) {
@@ -84,6 +94,7 @@ class WebSocketSession {
   }
 }
 
+/// ServerUniverseUncompleteDocumentation
 extension WebSocketHelper on WebSocket {
   /// Sends data to the client
   void send(dynamic data) => add(data);

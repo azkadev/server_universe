@@ -39,6 +39,7 @@ import 'package:server_universe/native/core/server_universe_native.dart';
 
 import 'type_handler.dart';
 
+/// ServerUniverseUncompleteDocumentation
 TypeHandler get fileTypeHandler =>
     TypeHandler<File>((HttpRequest req, HttpResponse res, File file) async {
       if (file.existsSync()) {

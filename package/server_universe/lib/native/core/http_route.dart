@@ -39,24 +39,37 @@ import 'dart:async';
 import 'package:server_universe/core/method.dart';
 import 'package:server_universe/native/native.dart';
 
+/// ServerUniverseUncompleteDocumentation
+///
 class HttpRoute {
+  /// ServerUniverseUncompleteDocumentation
   final ServerUniverseMethodType method;
+
+  /// ServerUniverseUncompleteDocumentation
   final String route;
+
+  /// ServerUniverseUncompleteDocumentation
   final FutureOr Function(HttpRequest req, HttpResponse res) callback;
+
+  /// ServerUniverseUncompleteDocumentation
   final List<FutureOr Function(HttpRequest req, HttpResponse res)> middleware;
 
+  /// ServerUniverseUncompleteDocumentation
   // The RegExp used to match the input URI
   late final RegExp matcher;
 
   // Returns `true` if route can match multiple routes due to usage of
   // wildcards (`*`)
+  /// ServerUniverseUncompleteDocumentation
   final bool usesWildcardMatcher;
 
   // The route parameters (name, type and pattern)
   final Map<String, HttpRouteParam> _params = <String, HttpRouteParam>{};
 
+  /// ServerUniverseUncompleteDocumentation
   Iterable<HttpRouteParam> get params => _params.values;
 
+  /// ServerUniverseUncompleteDocumentation
   HttpRoute(this.route, this.callback, this.method,
       {this.middleware = const []})
       : usesWildcardMatcher = route.contains('*') {
@@ -117,28 +130,39 @@ class HttpRoute {
 /// Throws when a route contains duplicate parameters
 ///
 class DuplicateParameterException implements Exception {
+  /// ServerUniverseUncompleteDocumentation
   DuplicateParameterException(this.name);
 
+  /// ServerUniverseUncompleteDocumentation
   final String name;
 }
 
 /// Class used to retain parameter information (name, type, pattern)
 ///
 class HttpRouteParam {
+  /// ServerUniverseUncompleteDocumentation
   HttpRouteParam(this.name, this.pattern, this.type);
 
+  /// ServerUniverseUncompleteDocumentation
   final String name;
+
+  /// ServerUniverseUncompleteDocumentation
   final String pattern;
+
+  /// ServerUniverseUncompleteDocumentation
   final HttpRouteParamType? type;
 
+  /// ServerUniverseUncompleteDocumentation
   dynamic getValue(String value) {
     // path has been decoded already except for '/'
     value = value.decodeUri(DecodeMode.SlashOnly);
     return type?.parse(value) ?? value;
   }
 
+  /// ServerUniverseUncompleteDocumentation
   static final paramTypes = <HttpRouteParamType>[];
 
+  /// ServerUniverseUncompleteDocumentation
   static HttpRouteParam? tryParse(String segment) {
     /// route param is of the form ":name" or ":name:pattern"
     /// the ":pattern" part can be a regular expression

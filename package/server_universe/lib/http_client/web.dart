@@ -42,6 +42,7 @@ import 'package:http/http.dart' as http;
 import 'package:server_universe/edge/core/io_http_client.dart' show HttpClient;
 import 'base.dart';
 
+/// ServerUniverseUncompleteDocumentation
 class ServerUniverseHttpClient extends ServerUniverseHttpClientBase {
   @override
   http.Client client() {

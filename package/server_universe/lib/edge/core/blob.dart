@@ -38,45 +38,62 @@ import 'dart:typed_data';
 import 'package:server_universe/edge/core/interop/readable_stream.dart';
 import 'package:typings_fork/core.dart' as interop;
 
+/// ServerUniverseUncompleteDocumentation
 class Blob {
   final interop.Blob _delegate;
 
   Blob._(this._delegate);
 
+  /// ServerUniverseUncompleteDocumentation
   Blob([Iterable<dynamic>? blobParts, BlobPropertyBag? options])
       : _delegate = interop.Blob(
           blobParts?.toList() as List<Object>?,
           options?.delegate ?? interop.BlobPropertyBag(),
         );
 
+  /// ServerUniverseUncompleteDocumentation
   int get size => _delegate.size.toInt();
+
+  /// ServerUniverseUncompleteDocumentation
   String get type => _delegate.type;
 
+  /// ServerUniverseUncompleteDocumentation
   Blob slice([int? start, int? end, String? contentType]) {
     return Blob._(_delegate.slice(start, end, contentType));
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Stream<List<int>> stream() {
     return streamFromJSReadable(callMethod(_delegate, 'stream', []));
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Future<String> text() => _delegate.text();
 
+  /// ServerUniverseUncompleteDocumentation
   Future<ByteBuffer> arrayBuffer() => _delegate.arrayBuffer();
 }
 
+/// ServerUniverseUncompleteDocumentation
 extension BlobExtension on Blob {
+  /// ServerUniverseUncompleteDocumentation
   interop.Blob get delegate => _delegate;
 }
 
+/// ServerUniverseUncompleteDocumentation
 Blob blobFromJsObject(interop.Blob delegate) {
   return Blob._(delegate);
 }
 
+/// ServerUniverseUncompleteDocumentation
 class BlobPropertyBag {
+  /// ServerUniverseUncompleteDocumentation
   String? type;
+
+  /// ServerUniverseUncompleteDocumentation
   interop.EndingType? endings;
 
+  /// ServerUniverseUncompleteDocumentation
   BlobPropertyBag({this.type, this.endings});
 }
 

@@ -37,40 +37,60 @@ import 'package:typings_fork/core.dart' as js_interop;
 
 import 'package:server_universe/edge/core/interop/headers.dart' as interop;
 
+/// ServerUniverseUncompleteDocumentation
 class Headers {
   final interop.Headers _delegate;
 
+  /// ServerUniverseUncompleteDocumentation
   Headers([Map<String, String>? headers])
       : _delegate = interop.Headers(jsify(headers ?? {}));
 
   Headers._(this._delegate);
 
+  /// ServerUniverseUncompleteDocumentation
   bool has(String name) => _delegate.has(name);
+
+  /// ServerUniverseUncompleteDocumentation
   void append(String name, String value) => _delegate.append(name, value);
+
+  /// ServerUniverseUncompleteDocumentation
   void delete(String name) => _delegate.delete(name);
+
+  /// ServerUniverseUncompleteDocumentation
   String? get(String name) => _delegate.get(name);
 
+  /// ServerUniverseUncompleteDocumentation
   operator []=(String name, String value) {
     _delegate.set(name, value);
   }
 
+  /// ServerUniverseUncompleteDocumentation
   String? operator [](String name) {
     return _delegate.get(name);
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Iterable<String> get keys => _delegate.keys;
+
+  /// ServerUniverseUncompleteDocumentation
   Iterable<String> get values => _delegate.values;
 
+  /// ServerUniverseUncompleteDocumentation
   Map<String, String> toMap() => _delegate.toMap();
+
+  /// ServerUniverseUncompleteDocumentation
   js_interop.Headers toJsBindingsHeaders() => _delegate as js_interop.Headers;
 }
 
+/// ServerUniverseUncompleteDocumentation
 extension HeadersExtension on Headers {
   // Returns the underlying JS object.
+  /// ServerUniverseUncompleteDocumentation
   interop.Headers get delegate => _delegate;
 }
 
 // Creates a [Headers] instance from a JS object.
+/// ServerUniverseUncompleteDocumentation
 Headers headersFromJsObject(interop.Headers delegate) {
   return Headers._(delegate);
 }

@@ -40,7 +40,9 @@ import 'package:server_universe/edge/request/request.dart';
 
 import 'base.dart';
 
+/// ServerUniverseUncompleteDocumentation
 class ServerUniverseEdge extends ServerUniverseEdgeBase {
+  /// ServerUniverseUncompleteDocumentation
   ServerUniverseEdge({
     required super.onError,
     required super.onNotFound,

@@ -208,6 +208,8 @@ class ServerUniverseNative extends ServerUniverseBase {
     registerOnDoneListener(storePluginOnDoneHandler);
   }
 
+  /// ServerUniverseUncompleteDocumentation
+
   void addRoute(HttpRoute route) {
     routes.add(route);
   }
@@ -253,6 +255,7 @@ class ServerUniverseNative extends ServerUniverseBase {
     return this.server = server;
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Future<HttpServer> listenSecure({
     required SecurityContext securityContext,
     int port = 3000,
@@ -641,6 +644,8 @@ class ServerUniverseNative extends ServerUniverseBase {
         ServerUniverseMethodType.all, path, callback, middleware);
   }
 
+  /// ServerUniverseUncompleteDocumentation
+
   HttpRoute createRoute(
     ServerUniverseMethodType method,
     String path,
@@ -655,6 +660,7 @@ class ServerUniverseNative extends ServerUniverseBase {
     return route;
   }
 
+  /// ServerUniverseUncompleteDocumentation
   HttpRoute websocket({
     required String path,
     required FutureOr<ServerUniverseWebSocketConnection> Function() onWebSocket,
@@ -685,6 +691,8 @@ class ServerUniverseNative extends ServerUniverseBase {
     );
   }
 
+  /// ServerUniverseUncompleteDocumentation
+
   void tcpSocket({
     required FutureOr<ServerUniverseTcpSocketConnection> Function() onTcpSocket,
   }) {}
@@ -694,12 +702,14 @@ class ServerUniverseNative extends ServerUniverseBase {
   // }
 }
 
+/// ServerUniverseUncompleteDocumentation
 typedef ServerUniverseWebSocketFunction = FutureOr<dynamic> Function(
   WebSocket webSocket,
   HttpRequest httpRequest,
   HttpResponse httpResponse,
 );
 
+/// ServerUniverseUncompleteDocumentation
 typedef ServerUniverseWebSocketUpdateFunction = FutureOr<dynamic> Function(
   dynamic update,
   WebSocket webSocket,
@@ -707,6 +717,7 @@ typedef ServerUniverseWebSocketUpdateFunction = FutureOr<dynamic> Function(
   HttpResponse httpResponse,
 );
 
+/// ServerUniverseUncompleteDocumentation
 typedef ServerUniverseWebSocketErrorFunction = FutureOr<dynamic> Function(
   dynamic error,
   WebSocket webSocket,
@@ -714,11 +725,21 @@ typedef ServerUniverseWebSocketErrorFunction = FutureOr<dynamic> Function(
   HttpResponse httpResponse,
 );
 
+/// ServerUniverseUncompleteDocumentation
 class ServerUniverseWebSocketConnection {
+  /// ServerUniverseUncompleteDocumentation
   final ServerUniverseWebSocketFunction onOpen;
+
+  /// ServerUniverseUncompleteDocumentation
   final ServerUniverseWebSocketFunction onClose;
+
+  /// ServerUniverseUncompleteDocumentation
   final ServerUniverseWebSocketUpdateFunction onMessage;
+
+  /// ServerUniverseUncompleteDocumentation
   final ServerUniverseWebSocketErrorFunction onError;
+
+  /// ServerUniverseUncompleteDocumentation
   ServerUniverseWebSocketConnection({
     required this.onClose,
     required this.onError,
@@ -727,7 +748,9 @@ class ServerUniverseWebSocketConnection {
   });
 }
 
+/// ServerUniverseUncompleteDocumentation
 class ServerUniverseTcpSocketConnection {
+  /// ServerUniverseUncompleteDocumentation
   ServerUniverseTcpSocketConnection();
 }
 
@@ -738,9 +761,13 @@ void _unawaited(Future<void> then) {}
 /// Error thrown when a type handler cannot be found for a returned item
 ///
 class NoTypeHandlerError extends Error {
+  /// ServerUniverseUncompleteDocumentation
   final dynamic object;
+
+  /// ServerUniverseUncompleteDocumentation
   final HttpRequest request;
 
+  /// ServerUniverseUncompleteDocumentation
   NoTypeHandlerError(this.object, this.request);
 
   @override

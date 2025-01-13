@@ -37,40 +37,60 @@ import 'dart:js_util' show jsify;
 import 'package:typings_fork/core.dart' as interop;
 import 'package:server_universe/edge/core/interop/utils_interop.dart';
 
+/// ServerUniverseUncompleteDocumentation
 class AbortController {
   final interop.AbortController _delegate;
+
+  /// ServerUniverseUncompleteDocumentation
   AbortController() : _delegate = interop.AbortController();
 
+  /// ServerUniverseUncompleteDocumentation
   AbortSignal get signal => AbortSignal._(_delegate.signal);
+
+  /// ServerUniverseUncompleteDocumentation
   void abort([Object? reason]) =>
       _delegate.abort(reason != null ? jsify(reason) : jsUndefined);
 }
 
+/// ServerUniverseUncompleteDocumentation
 class AbortSignal {
   final interop.AbortSignal _delegate;
+
+  /// ServerUniverseUncompleteDocumentation
 
   AbortSignal() : _delegate = interop.AbortSignal();
 
   AbortSignal._(this._delegate);
 
+  /// ServerUniverseUncompleteDocumentation
   static AbortSignal abort([Object? reason]) {
     if (reason == null) return AbortSignal._(interop.AbortSignal.abort());
     return AbortSignal._(interop.AbortSignal.abort(jsify(reason)));
   }
 
+  /// ServerUniverseUncompleteDocumentation
+
   static AbortSignal timeout(int delay) {
     return AbortSignal._(interop.AbortSignal.timeout(delay));
   }
 
+  /// ServerUniverseUncompleteDocumentation
   bool get aborted => _delegate.aborted;
+
+  /// ServerUniverseUncompleteDocumentation
   Object get reason => _delegate.reason;
+
+  /// ServerUniverseUncompleteDocumentation
   void throwIfAborted() => _delegate.throwIfAborted();
 }
 
+/// ServerUniverseUncompleteDocumentation
 extension AbortSignalExtension on AbortSignal {
+  /// ServerUniverseUncompleteDocumentation
   interop.AbortSignal get delegate => _delegate;
 }
 
+/// ServerUniverseUncompleteDocumentation
 AbortSignal abortSignalToJsObject(interop.AbortSignal abortSignal) {
   return AbortSignal._(abortSignal);
 }

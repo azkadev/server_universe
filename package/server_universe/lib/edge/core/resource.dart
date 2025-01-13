@@ -34,11 +34,18 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 import 'package:server_universe/edge/core/request.dart';
 
+/// ServerUniverseUncompleteDocumentation
 abstract class Resource {
+  /// ServerUniverseUncompleteDocumentation
   const factory Resource(String url) = StringValue;
+
+  /// ServerUniverseUncompleteDocumentation
   const factory Resource.uri(Uri uri) = UriValue;
+
+  /// ServerUniverseUncompleteDocumentation
   const factory Resource.request(Request request) = RequestValue;
 
+  /// ServerUniverseUncompleteDocumentation
   static Uri getUri(Resource resource) {
     if (resource is StringValue) {
       return Uri.parse(resource.url);
@@ -50,20 +57,29 @@ abstract class Resource {
   }
 }
 
+/// ServerUniverseUncompleteDocumentation
 class StringValue implements Resource {
+  /// ServerUniverseUncompleteDocumentation
   final String url;
 
+  /// ServerUniverseUncompleteDocumentation
   const StringValue(this.url);
 }
 
+/// ServerUniverseUncompleteDocumentation
 class UriValue implements Resource {
+  /// ServerUniverseUncompleteDocumentation
   final Uri uri;
 
+  /// ServerUniverseUncompleteDocumentation
   const UriValue(this.uri);
 }
 
+/// ServerUniverseUncompleteDocumentation
 class RequestValue implements Resource {
+  /// ServerUniverseUncompleteDocumentation
   final Request request;
 
+  /// ServerUniverseUncompleteDocumentation
   const RequestValue(this.request);
 }

@@ -40,11 +40,13 @@ import 'package:server_universe/edge/core/request.dart';
 import 'package:server_universe/edge/core/response.dart';
 import 'package:server_universe/edge/response/response.dart';
 
+/// ServerUniverseUncompleteDocumentation
 typedef RequestHandler = FutureOr<Response> Function(
   Request req,
   ServerUniverseFunctionResponse res,
 );
 
+/// ServerUniverseUncompleteDocumentation
 typedef RequestHandlerMore = FutureOr<Response> Function(
   Request req,
   ServerUniverseFunctionResponse res,

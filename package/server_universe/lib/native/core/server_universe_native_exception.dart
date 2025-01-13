@@ -43,9 +43,11 @@ class ServerUniverseException implements Exception {
   ///
   int statusCode;
 
+  /// ServerUniverseUncompleteDocumentation
   ServerUniverseException(this.statusCode, this.response);
 }
 
+/// ServerUniverseUncompleteDocumentation
 class BodyParserException implements ServerUniverseException {
   @override
   Object? response;
@@ -53,9 +55,14 @@ class BodyParserException implements ServerUniverseException {
   @override
   int statusCode;
 
+  /// ServerUniverseUncompleteDocumentation
+
   final Object exception;
+
+  /// ServerUniverseUncompleteDocumentation
   final StackTrace stacktrace;
 
+  /// ServerUniverseUncompleteDocumentation
   BodyParserException(
       {this.statusCode = 400,
       this.response = 'Bad Request',

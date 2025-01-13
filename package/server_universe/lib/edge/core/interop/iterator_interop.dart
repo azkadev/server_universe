@@ -39,7 +39,10 @@ import 'package:js/js.dart';
 
 @JS()
 @staticInterop
+
+/// ServerUniverseUncompleteDocumentation
 class Symbol {
+  /// ServerUniverseUncompleteDocumentation
   external factory Symbol();
 }
 
@@ -49,9 +52,14 @@ external Symbol get _iterator;
 @anonymous
 @JS()
 @staticInterop
+
+/// ServerUniverseUncompleteDocumentation
 class Iterator<T> {
+  /// ServerUniverseUncompleteDocumentation
   external factory Iterator();
 }
+
+/// ServerUniverseUncompleteDocumentation
 
 Iterable<T> fromJSIterator<T>(dynamic jsIterable) sync* {
   while (true) {
@@ -69,7 +77,9 @@ Iterable<T> fromJSIterator<T>(dynamic jsIterable) sync* {
   }
 }
 
+/// ServerUniverseUncompleteDocumentation
 extension PropsIterator<T> on Iterator<T> {
+  /// ServerUniverseUncompleteDocumentation
   Iterable<T> toIterable<T>() sync* {
     final generator = js_util.getProperty(this, _iterator);
     final iterator = js_util.callMethod(generator, 'call', []);
@@ -95,11 +105,16 @@ external Symbol get _asyncIterator;
 @anonymous
 @JS()
 @staticInterop
+
+/// ServerUniverseUncompleteDocumentation
 class AsyncIterator<T> {
+  /// ServerUniverseUncompleteDocumentation
   external factory AsyncIterator();
 }
 
+/// ServerUniverseUncompleteDocumentation
 extension PropsAsyncIterator<T> on AsyncIterator<T> {
+  /// ServerUniverseUncompleteDocumentation
   Stream<T> toStream<T>() async* {
     final iterator = js_util.getProperty(this, _asyncIterator);
     final callable = js_util.callMethod(iterator, 'call', []);
@@ -123,11 +138,18 @@ extension PropsAsyncIterator<T> on AsyncIterator<T> {
 @anonymous
 @JS()
 @staticInterop
+
+/// ServerUniverseUncompleteDocumentation
 class IteratorResult<T> {
+  /// ServerUniverseUncompleteDocumentation
   external factory IteratorResult();
 }
 
+/// ServerUniverseUncompleteDocumentation
 extension PropsIteratorResult<T> on IteratorResult<T> {
+  /// ServerUniverseUncompleteDocumentation
   bool get done => js_util.getProperty(this, 'done');
+
+  /// ServerUniverseUncompleteDocumentation
   T get value => js_util.getProperty(this, 'value');
 }

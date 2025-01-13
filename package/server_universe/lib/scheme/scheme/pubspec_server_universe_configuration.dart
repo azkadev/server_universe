@@ -4,7 +4,9 @@ import "package:general_lib/general_lib.dart";
 
 import "pubspec_server_universe_configuration_supabase.dart";
 
+/// Generated
 class PubspecServerUniverseConfiguration extends JsonScheme {
+  /// Generated
   PubspecServerUniverseConfiguration(super.rawData);
 
   /// return default data
@@ -41,6 +43,7 @@ class PubspecServerUniverseConfiguration extends JsonScheme {
     return PubspecServerUniverseConfiguration({});
   }
 
+  /// Generated
   String? get special_type {
     try {
       if (rawData["@type"] is String == false) {
@@ -52,10 +55,12 @@ class PubspecServerUniverseConfiguration extends JsonScheme {
     }
   }
 
+  /// Generated
   set special_type(String? value) {
     rawData["@type"] = value;
   }
 
+  /// Generated
   PubspecServerUniverseConfigurationSupabase get supabase {
     try {
       if (rawData["supabase"] is Map == false) {
@@ -68,10 +73,12 @@ class PubspecServerUniverseConfiguration extends JsonScheme {
     }
   }
 
+  /// Generated
   set supabase(PubspecServerUniverseConfigurationSupabase value) {
     rawData["supabase"] = value.toJson();
   }
 
+  /// Generated
   static PubspecServerUniverseConfiguration create({
     bool schemeUtilsIsSetDefaultData = false,
     String special_type = "PubspecServerUniverseConfiguration",

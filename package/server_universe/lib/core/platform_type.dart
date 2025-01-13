@@ -32,8 +32,11 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
-
+/// ServerUniverseUncompleteDocumentation
 enum ServerUniversePlatformType {
+  /// ServerUniverseUncompleteDocumentation
   supabase,
+
+  /// ServerUniverseUncompleteDocumentation
   io,
 }

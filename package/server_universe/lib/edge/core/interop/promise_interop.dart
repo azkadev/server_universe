@@ -35,13 +35,19 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 import 'package:js/js.dart' as js;
 
 @js.JS()
+
+/// ServerUniverseUncompleteDocumentation
 class Promise<T> {
+  /// ServerUniverseUncompleteDocumentation
   external Promise(
       void Function(void Function(T result) resolve, Function reject) executor);
+
+  /// ServerUniverseUncompleteDocumentation
   external Promise then(void Function(T result) onFulfilled,
       [Function onRejected]);
 }
 
+/// ServerUniverseUncompleteDocumentation
 Promise<T> futureToPromise<T>(Future<T> future) {
   return Promise<T>(js.allowInterop((resolve, reject) {
     future.then(resolve, onError: reject);

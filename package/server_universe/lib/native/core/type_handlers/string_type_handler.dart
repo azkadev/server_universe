@@ -36,6 +36,7 @@ import 'dart:io';
 
 import 'type_handler.dart';
 
+/// ServerUniverseUncompleteDocumentation
 TypeHandler<String> get stringTypeHandler =>
     TypeHandler<String>((HttpRequest req, HttpResponse res, String value) {
       res.write(value);

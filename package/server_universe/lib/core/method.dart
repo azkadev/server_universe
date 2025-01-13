@@ -32,24 +32,57 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
+/// ServerUniverseUncompleteDocumentation
 enum ServerUniverseMethodType {
+  /// ServerUniverseUncompleteDocumentation
   get,
+
+  /// ServerUniverseUncompleteDocumentation
   post,
+
+  /// ServerUniverseUncompleteDocumentation
   put,
+
+  /// ServerUniverseUncompleteDocumentation
   delete,
+
+  /// ServerUniverseUncompleteDocumentation
   patch,
+
+  /// ServerUniverseUncompleteDocumentation
   options,
+
+  /// ServerUniverseUncompleteDocumentation
   head,
+
+  /// ServerUniverseUncompleteDocumentation
   copy,
+
+  /// ServerUniverseUncompleteDocumentation
   link,
+
+  /// ServerUniverseUncompleteDocumentation
   unlink,
+
+  /// ServerUniverseUncompleteDocumentation
   purge,
+
+  /// ServerUniverseUncompleteDocumentation
   lock,
+
+  /// ServerUniverseUncompleteDocumentation
   unlock,
+
+  /// ServerUniverseUncompleteDocumentation
   propfind,
+
+  /// ServerUniverseUncompleteDocumentation
   view,
+
+  /// ServerUniverseUncompleteDocumentation
   all;
 
+  /// ServerUniverseUncompleteDocumentation
   ServerUniverseMethodType methodFromString(String str) {
     return ServerUniverseMethodType.values.firstWhere(
       (method) {

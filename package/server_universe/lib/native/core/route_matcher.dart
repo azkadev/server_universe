@@ -35,7 +35,9 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 import 'package:server_universe/core/method.dart';
 import 'package:server_universe/native/native.dart';
 
+/// ServerUniverseUncompleteDocumentation
 class RouteMatcher {
+  /// ServerUniverseUncompleteDocumentation
   static Iterable<HttpRouteMatch> match(String input, List<HttpRoute> options,
       ServerUniverseMethodType method) sync* {
     // decode URL path before matching except for "/"
@@ -67,6 +69,7 @@ class RouteMatcher {
 class HttpRouteMatch {
   HttpRouteMatch._(this.route, this.params);
 
+  /// ServerUniverseUncompleteDocumentation
   static HttpRouteMatch? tryParse(HttpRoute route, RegExpMatch match) {
     try {
       final params = <String, dynamic>{};
@@ -86,6 +89,10 @@ class HttpRouteMatch {
     }
   }
 
+  /// ServerUniverseUncompleteDocumentation
+
   final HttpRoute route;
+
+  /// ServerUniverseUncompleteDocumentation
   final Map<String, dynamic> params;
 }

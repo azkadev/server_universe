@@ -44,6 +44,7 @@ import 'package:server_universe/edge/core/interop/utils_interop.dart'
 import 'package:server_universe/edge/core/resource.dart';
 import 'package:server_universe/edge/core/response.dart';
 
+/// ServerUniverseUncompleteDocumentation
 Future<Response> fetch(Resource resource,
     {String? method,
     Headers? headers,
@@ -82,14 +83,18 @@ Future<Response> fetch(Resource resource,
   }
 }
 
+/// ServerUniverseUncompleteDocumentation
 int setInterval(void Function() callback, Duration duration) => interop
     .setInterval(js.allowInterop(callback), duration.inMilliseconds)
     .toInt();
 
+/// ServerUniverseUncompleteDocumentation
 void clearInterval(int handle) => interop.clearInterval(handle);
 
+/// ServerUniverseUncompleteDocumentation
 int setTimeout(void Function() callback, Duration duration) => interop
     .setTimeout(js.allowInterop(callback), duration.inMilliseconds)
     .toInt();
 
+/// ServerUniverseUncompleteDocumentation
 void clearTimeout(int handle) => interop.clearTimeout(handle);

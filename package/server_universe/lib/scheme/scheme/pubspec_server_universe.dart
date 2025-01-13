@@ -5,7 +5,9 @@ import "package:general_lib/general_lib.dart";
 import "pubspec_server_universe_dependencies.dart";
 import "pubspec_server_universe_configuration.dart";
 
+/// Generated
 class PubspecServerUniverse extends JsonScheme {
+  /// Generated
   PubspecServerUniverse(super.rawData);
 
   /// return default data
@@ -52,6 +54,7 @@ class PubspecServerUniverse extends JsonScheme {
     return PubspecServerUniverse({});
   }
 
+  /// Generated
   String? get special_type {
     try {
       if (rawData["@type"] is String == false) {
@@ -63,10 +66,12 @@ class PubspecServerUniverse extends JsonScheme {
     }
   }
 
+  /// Generated
   set special_type(String? value) {
     rawData["@type"] = value;
   }
 
+  /// Generated
   String? get name {
     try {
       if (rawData["name"] is String == false) {
@@ -78,10 +83,12 @@ class PubspecServerUniverse extends JsonScheme {
     }
   }
 
+  /// Generated
   set name(String? value) {
     rawData["name"] = value;
   }
 
+  /// Generated
   String? get repository {
     try {
       if (rawData["repository"] is String == false) {
@@ -93,10 +100,12 @@ class PubspecServerUniverse extends JsonScheme {
     }
   }
 
+  /// Generated
   set repository(String? value) {
     rawData["repository"] = value;
   }
 
+  /// Generated
   String? get homepage {
     try {
       if (rawData["homepage"] is String == false) {
@@ -108,10 +117,12 @@ class PubspecServerUniverse extends JsonScheme {
     }
   }
 
+  /// Generated
   set homepage(String? value) {
     rawData["homepage"] = value;
   }
 
+  /// Generated
   String? get issue_tracker {
     try {
       if (rawData["issue_tracker"] is String == false) {
@@ -123,10 +134,12 @@ class PubspecServerUniverse extends JsonScheme {
     }
   }
 
+  /// Generated
   set issue_tracker(String? value) {
     rawData["issue_tracker"] = value;
   }
 
+  /// Generated
   String? get documentation {
     try {
       if (rawData["documentation"] is String == false) {
@@ -138,10 +151,12 @@ class PubspecServerUniverse extends JsonScheme {
     }
   }
 
+  /// Generated
   set documentation(String? value) {
     rawData["documentation"] = value;
   }
 
+  /// Generated
   ///
   /// default:
   ///
@@ -157,10 +172,12 @@ class PubspecServerUniverse extends JsonScheme {
     }
   }
 
+  /// Generated
   set funding(List<String> value) {
     rawData["funding"] = value;
   }
 
+  /// Generated
   PubspecServerUniverseDependencies get dependencies {
     try {
       if (rawData["dependencies"] is Map == false) {
@@ -172,10 +189,12 @@ class PubspecServerUniverse extends JsonScheme {
     }
   }
 
+  /// Generated
   set dependencies(PubspecServerUniverseDependencies value) {
     rawData["dependencies"] = value.toJson();
   }
 
+  /// Generated
   PubspecServerUniverseConfiguration get server_universe {
     try {
       if (rawData["server_universe"] is Map == false) {
@@ -188,10 +207,12 @@ class PubspecServerUniverse extends JsonScheme {
     }
   }
 
+  /// Generated
   set server_universe(PubspecServerUniverseConfiguration value) {
     rawData["server_universe"] = value.toJson();
   }
 
+  /// Generated
   static PubspecServerUniverse create({
     bool schemeUtilsIsSetDefaultData = false,
     String special_type = "PubspecServerUniverse",

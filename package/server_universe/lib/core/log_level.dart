@@ -34,10 +34,21 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 /// Indicates the severity of logged message
 enum ServerUniverseLogType {
+  /// ServerUniverseUncompleteDocumentation
   debug,
+
+  /// ServerUniverseUncompleteDocumentation
   info,
+
+  /// ServerUniverseUncompleteDocumentation
   warn,
+
+  /// ServerUniverseUncompleteDocumentation
   error,
+
+  /// ServerUniverseUncompleteDocumentation
   all,
+
+  /// ServerUniverseUncompleteDocumentation
   none;
 }

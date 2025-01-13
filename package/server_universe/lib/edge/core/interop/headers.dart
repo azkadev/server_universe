@@ -39,46 +39,62 @@ import 'iterator_interop.dart' as i;
 
 @JS()
 @staticInterop
+
+/// ServerUniverseUncompleteDocumentation
 class Headers {
+  /// ServerUniverseUncompleteDocumentation
   external factory Headers([dynamic init]);
 }
 
+/// ServerUniverseUncompleteDocumentation
 extension HeadersProps on Headers {
+  /// ServerUniverseUncompleteDocumentation
   void append(String name, String value) {
     js_utils.callMethod(this, 'append', [name, value]);
   }
 
+  /// ServerUniverseUncompleteDocumentation
   void delete(String name) {
     js_utils.callMethod(this, 'delete', [name]);
   }
 
+  /// ServerUniverseUncompleteDocumentation
   String? get(String name) {
     return js_utils.callMethod(this, 'get', [name]);
   }
+
+  /// ServerUniverseUncompleteDocumentation
 
   bool has(String name) {
     return js_utils.callMethod(this, 'has', [name]);
   }
 
+  /// ServerUniverseUncompleteDocumentation
+
   void set(String name, String value) {
     js_utils.callMethod(this, 'set', [name, value]);
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Iterable<List<String>> get entries {
     final iterator = js_utils.callMethod(this, 'entries', []);
     return i.fromJSIterator(iterator).map((e) => e.cast<String>());
   }
+
+  /// ServerUniverseUncompleteDocumentation
 
   Iterable<String> get keys {
     final iterator = js_utils.callMethod<i.Iterator>(this, 'keys', []);
     return i.fromJSIterator(iterator).map<String>(dartify);
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Iterable<String> get values {
     final iterator = js_utils.callMethod<i.Iterator>(this, 'values', []);
     return i.fromJSIterator(iterator).map<String>(dartify);
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Map<String, String> toMap() {
     final map = <String, String>{};
     for (final entry in entries) {

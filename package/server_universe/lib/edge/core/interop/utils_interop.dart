@@ -42,6 +42,7 @@ import 'package:typings_fork/core.dart' as interop;
 import 'package:server_universe/edge/core/request.dart';
 import 'package:server_universe/edge/core/resource.dart';
 
+/// ServerUniverseUncompleteDocumentation
 interop.Request requestFromResource(Resource resource) {
   switch (resource.runtimeType) {
     case StringValue:
@@ -56,24 +57,36 @@ interop.Request requestFromResource(Resource resource) {
 }
 
 @JS('Object.keys')
+
+/// ServerUniverseUncompleteDocumentation
 external List<Object?> objectKeys(Object? object);
 
 @JS('undefined')
+
+/// ServerUniverseUncompleteDocumentation
 external Object get jsUndefined;
 
 @anonymous
 @JS()
+
+/// ServerUniverseUncompleteDocumentation
 class JavaScriptObject {
+  /// ServerUniverseUncompleteDocumentation
   external factory JavaScriptObject();
 }
 
+/// ServerUniverseUncompleteDocumentation
 extension PropsJavaScriptObject on JavaScriptObject {
+  /// ServerUniverseUncompleteDocumentation
   T get<T>(String key) => js_util.getProperty(this, key);
+
+  /// ServerUniverseUncompleteDocumentation
   void set(String key, dynamic value) {
     js_util.setProperty(this, key, value);
   }
 }
 
+/// ServerUniverseUncompleteDocumentation
 bool isBasicType(value) {
   if (value == null || value is num || value is bool || value is String) {
     return true;
@@ -81,6 +94,7 @@ bool isBasicType(value) {
   return false;
 }
 
+/// ServerUniverseUncompleteDocumentation
 T dartify<T>(dynamic jsObject) {
   if (isBasicType(jsObject)) {
     return jsObject as T;

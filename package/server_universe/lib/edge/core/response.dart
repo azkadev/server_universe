@@ -48,10 +48,13 @@ import 'package:server_universe/edge/core/interop/utils_interop.dart';
 import 'package:server_universe/edge/core/interop/headers.dart'
     as headers_interop;
 
+/// ServerUniverseUncompleteDocumentation
 class Response implements Body {
   final interop.Response _delegate;
 
   Response._(this._delegate);
+
+  /// ServerUniverseUncompleteDocumentation
 
   Response(
     Object? body, {
@@ -67,9 +70,12 @@ class Response implements Body {
           ),
         );
 
+  /// ServerUniverseUncompleteDocumentation
   factory Response.error() {
     return Response._(interop.Response.error());
   }
+
+  /// ServerUniverseUncompleteDocumentation
 
   factory Response.redirect(Uri url, [int? status = 302]) {
     return Response._(
@@ -95,18 +101,33 @@ class Response implements Body {
     );
   }
 
+  /// ServerUniverseUncompleteDocumentation
   interop.ResponseType get type => _delegate.type;
+
+  /// ServerUniverseUncompleteDocumentation
   Uri get url => Uri.parse(_delegate.url);
+
+  /// ServerUniverseUncompleteDocumentation
   bool get redirected => _delegate.redirected;
+
+  /// ServerUniverseUncompleteDocumentation
   int get status => _delegate.status.toInt();
+
+  /// ServerUniverseUncompleteDocumentation
   bool get ok => _delegate.ok;
+
+  /// ServerUniverseUncompleteDocumentation
+
   String get statusText => _delegate.statusText;
+
+  /// ServerUniverseUncompleteDocumentation
   Headers get headers {
     return headersFromJsObject(
       getProperty<headers_interop.Headers>(_delegate, 'headers'),
     );
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Response clone() => Response._(_delegate.clone());
 
   @override
@@ -141,10 +162,13 @@ class Response implements Body {
   Future<String> text() => _delegate.text();
 }
 
+/// ServerUniverseUncompleteDocumentation
 extension ResponseExtension on Response {
+  /// ServerUniverseUncompleteDocumentation
   interop.Response get delegate => _delegate;
 }
 
+/// ServerUniverseUncompleteDocumentation
 Response responseFromJsObject(interop.Response delegate) {
   return Response._(delegate);
 }

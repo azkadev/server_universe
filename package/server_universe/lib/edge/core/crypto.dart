@@ -36,27 +36,36 @@ import 'dart:typed_data';
 
 import 'package:typings_fork/core.dart' as interop;
 
+/// ServerUniverseUncompleteDocumentation
 final crypto = Crypto._(interop.crypto);
 
+/// ServerUniverseUncompleteDocumentation
 class Crypto {
   final interop.Crypto _delegate;
 
   Crypto._(this._delegate);
 
+  /// ServerUniverseUncompleteDocumentation
+
   SubtleCrypto get subtle => SubtleCrypto._(_delegate.subtle);
 
   // TODO Is this the right way to do this?
+  //
+  /// ServerUniverseUncompleteDocumentation
   interop.ArrayBufferView getRandomValues(interop.ArrayBufferView typedArray) =>
       _delegate.getRandomValues(typedArray);
 
+  /// ServerUniverseUncompleteDocumentation
   String randomUUID() => _delegate.randomUUID();
 }
 
+/// ServerUniverseUncompleteDocumentation
 class SubtleCrypto {
   final interop.SubtleCrypto _delegate;
 
   SubtleCrypto._(this._delegate);
 
+  /// ServerUniverseUncompleteDocumentation
   Future<ByteBuffer> encrypt(
     Algorithm algorithm,
     CryptoKey key,
@@ -69,33 +78,45 @@ class SubtleCrypto {
   // TODO decrypt, sign, verify, digest, generateKey, deriveKey, deriveBits, importKey, exportKey, wrapKey, unwrapKey
 }
 
+/// ServerUniverseUncompleteDocumentation
 abstract class Algorithm {
   final interop.Algorithm _delegate;
   Algorithm._(this._delegate);
+
+  /// ServerUniverseUncompleteDocumentation
   String get name => _delegate.name;
 }
 
+/// ServerUniverseUncompleteDocumentation
 class RsaOaepParams extends Algorithm {
   final interop.RsaOaepParams _rsaDelegate;
 
   RsaOaepParams._(this._rsaDelegate)
       : super._(interop.Algorithm(name: 'RSA-OAEP'));
 
+  /// ServerUniverseUncompleteDocumentation
   factory RsaOaepParams({
     ByteBuffer? label,
   }) =>
       RsaOaepParams._(interop.RsaOaepParams(label: label, name: "RSA-OAEP"));
 
+  /// ServerUniverseUncompleteDocumentation
   ByteBuffer? get label => _rsaDelegate.label as interop.ArrayBufferLike;
   set label(ByteBuffer? value) => _rsaDelegate.label = value;
 }
 
+/// ServerUniverseUncompleteDocumentation
 class CryptoKey {
   final interop.CryptoKey _delegate;
 
   CryptoKey._(this._delegate);
 
+  /// ServerUniverseUncompleteDocumentation
   interop.KeyType get type => _delegate.type;
+
+  /// ServerUniverseUncompleteDocumentation
   bool get extractable => _delegate.extractable;
+
+  /// ServerUniverseUncompleteDocumentation
   List<interop.KeyUsageOptions> get usages => _delegate.usages;
 }

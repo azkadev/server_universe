@@ -35,10 +35,18 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 import 'package:server_universe/edge/request/request.dart';
 
+/// ServerUniverseUncompleteDocumentation
 class ServerUniverseFunction {
+  /// ServerUniverseUncompleteDocumentation
   String path;
+
+  /// ServerUniverseUncompleteDocumentation
   RegExp method;
+
+  /// ServerUniverseUncompleteDocumentation
   RequestHandler onRequest;
+
+  /// ServerUniverseUncompleteDocumentation
   ServerUniverseFunction({
     required this.path,
     required this.method,

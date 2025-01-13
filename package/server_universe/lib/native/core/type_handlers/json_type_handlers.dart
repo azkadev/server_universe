@@ -44,11 +44,15 @@ FutureOr _jsonHandler(HttpRequest req, HttpResponse res, dynamic val) {
   return res.close();
 }
 
+/// ServerUniverseUncompleteDocumentation
 TypeHandler get jsonMapTypeHandler =>
     TypeHandler<Map<String, dynamic>>(_jsonHandler);
 
+/// ServerUniverseUncompleteDocumentation
 TypeHandler get jsonListTypeHandler => TypeHandler<List<dynamic>>(_jsonHandler);
 
+/// ServerUniverseUncompleteDocumentation
 TypeHandler get jsonNumberTypeHandler => TypeHandler<num>(_jsonHandler);
 
+/// ServerUniverseUncompleteDocumentation
 TypeHandler get jsonBooleanTypeHandler => TypeHandler<bool>(_jsonHandler);

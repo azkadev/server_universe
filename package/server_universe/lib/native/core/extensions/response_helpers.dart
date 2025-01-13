@@ -88,6 +88,7 @@ extension ResponseHelpers on HttpResponse {
     return await close();
   }
 
+  /// ServerUniverseUncompleteDocumentation
   HttpResponse status(int value) {
     statusCode = value;
     return this;

@@ -45,12 +45,16 @@ import 'package:server_universe/edge/core/response.dart' show Response;
 import 'package:server_universe/edge/core/headers.dart' show Headers;
 import 'package:server_universe/edge/core/top.dart';
 
+/// ServerUniverseUncompleteDocumentation
 const kUnsupportedEnv = 'Unsupported environment';
 
+/// ServerUniverseUncompleteDocumentation
 class ClientClosedException implements Exception {}
 
+/// ServerUniverseUncompleteDocumentation
 class AbortedByClientException implements Exception {}
 
+/// ServerUniverseUncompleteDocumentation
 class HttpClient implements io.HttpClient {
   @override
   bool autoUncompress = false;
@@ -234,6 +238,7 @@ class HttpClient implements io.HttpClient {
   }
 }
 
+/// ServerUniverseUncompleteDocumentation
 class HttpClientRequest implements io.HttpClientRequest {
   @override
   bool bufferOutput = true;
@@ -384,9 +389,11 @@ class HttpClientRequest implements io.HttpClientRequest {
   }
 }
 
+/// ServerUniverseUncompleteDocumentation
 class HttpHeaders implements io.HttpHeaders {
   HttpHeaders._();
 
+  /// ServerUniverseUncompleteDocumentation
   factory HttpHeaders.fromFetchResponseHeaders(Headers headers) {
     final ioHeaders = HttpHeaders._();
 
@@ -606,6 +613,7 @@ class HttpHeaders implements io.HttpHeaders {
     return _headers[name]?.first;
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Map<String, String> toMap() {
     final map = <String, String>{};
 
@@ -617,6 +625,7 @@ class HttpHeaders implements io.HttpHeaders {
   }
 }
 
+/// ServerUniverseUncompleteDocumentation
 class HttpClientResponse implements io.HttpClientResponse {
   final Response _response;
   @override
@@ -625,6 +634,7 @@ class HttpClientResponse implements io.HttpClientResponse {
   late final io.HttpHeaders headers;
   late final Stream<List<int>> _body;
 
+  /// ServerUniverseUncompleteDocumentation
   HttpClientResponse(this._response) {
     headers = HttpHeaders.fromFetchResponseHeaders(_response.headers);
     _body = _response.body ?? Stream.empty();

@@ -51,11 +51,14 @@ import 'package:server_universe/edge/core/form_data.dart';
 import 'package:server_universe/edge/core/headers.dart';
 import 'package:server_universe/edge/core/resource.dart';
 
+/// ServerUniverseUncompleteDocumentation
 class Request implements Body {
   final interop.Request _delegate;
 
+  /// ServerUniverseUncompleteDocumentation
   Request._(this._delegate);
 
+  /// ServerUniverseUncompleteDocumentation
   Request(
     Resource resource, {
     String? method,
@@ -89,14 +92,19 @@ class Request implements Body {
           ),
         );
 
+  /// ServerUniverseUncompleteDocumentation
   String get method => _delegate.method;
+
+  /// ServerUniverseUncompleteDocumentation
   Uri get url => Uri.parse(_delegate.url);
 
+  /// ServerUniverseUncompleteDocumentation
   String? get base_name {
     // List<String> pathSegments = [...url.pathSegments];
     return url.pathSegments.firstOrNull;
   }
 
+  /// ServerUniverseUncompleteDocumentation
   String get path {
     List<String> pathSegments = [...url.pathSegments];
     if (pathSegments.isNotEmpty) {
@@ -111,22 +119,44 @@ class Request implements Body {
     return path_url;
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Headers get headers {
     return headersFromJsObject(
       getProperty<headers_interop.Headers>(_delegate, 'headers'),
     );
   }
 
+  /// ServerUniverseUncompleteDocumentation
   interop.RequestDestination get destination => _delegate.destination;
+
+  /// ServerUniverseUncompleteDocumentation
   String get referrer => _delegate.referrer;
+
+  /// ServerUniverseUncompleteDocumentation
   interop.ReferrerPolicy get referrerPolicy => _delegate.referrerPolicy;
+
+  /// ServerUniverseUncompleteDocumentation
   interop.RequestMode get mode => _delegate.mode;
+
+  /// ServerUniverseUncompleteDocumentation
   interop.RequestCredentials get credentials => _delegate.credentials;
+
+  /// ServerUniverseUncompleteDocumentation
   interop.RequestCache get cache => _delegate.cache;
+
+  /// ServerUniverseUncompleteDocumentation
   interop.RequestRedirect get redirect => _delegate.redirect;
+
+  /// ServerUniverseUncompleteDocumentation
   String get integrity => _delegate.integrity;
+
+  /// ServerUniverseUncompleteDocumentation
   bool get keepalive => _delegate.keepalive;
+
+  /// ServerUniverseUncompleteDocumentation
   AbortSignal get signal => abortSignalToJsObject(_delegate.signal);
+
+  /// ServerUniverseUncompleteDocumentation
   Request clone() => Request._(_delegate.clone());
 
   @override
@@ -163,8 +193,11 @@ class Request implements Body {
   Future<String> text() => _delegate.text();
 }
 
+/// ServerUniverseUncompleteDocumentation
 extension RequestExtension on Request {
+  /// ServerUniverseUncompleteDocumentation
   interop.Request get delegate => _delegate;
 }
 
+/// ServerUniverseUncompleteDocumentation
 Request requestFromJsObject(interop.Request request) => Request._(request);

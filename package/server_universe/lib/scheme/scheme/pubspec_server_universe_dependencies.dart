@@ -2,7 +2,9 @@
 import "package:general_lib/general_lib.dart";
 // import "dart:convert";
 
+/// Generated
 class PubspecServerUniverseDependencies extends JsonScheme {
+  /// Generated
   PubspecServerUniverseDependencies(super.rawData);
 
   /// return default data
@@ -32,6 +34,7 @@ class PubspecServerUniverseDependencies extends JsonScheme {
     return PubspecServerUniverseDependencies({});
   }
 
+  /// Generated
   String? get special_type {
     try {
       if (rawData["@type"] is String == false) {
@@ -43,10 +46,12 @@ class PubspecServerUniverseDependencies extends JsonScheme {
     }
   }
 
+  /// Generated
   set special_type(String? value) {
     rawData["@type"] = value;
   }
 
+  /// Generated
   static PubspecServerUniverseDependencies create({
     bool schemeUtilsIsSetDefaultData = false,
     String special_type = "PubspecServerUniverseDependencies",

@@ -46,30 +46,61 @@ import 'package:yaml_writer/yaml_writer.dart';
 
 /// build type server
 enum ServerUniverseBuildType {
+  /// ServerUniverseUncompleteDocumentation
   debug,
+
+  /// ServerUniverseUncompleteDocumentation
   release,
 }
 
 /// build platfomr type
 enum ServerUniversePlatformType {
+  /// ServerUniverseUncompleteDocumentation
   supabase,
+
+  /// ServerUniverseUncompleteDocumentation
+
   vercel,
+
+  /// ServerUniverseUncompleteDocumentation
   netlify,
 }
 
+/// ServerUniverseUncompleteDocumentation
 enum ServerUniverseApiStatusType {
+  /// ServerUniverseUncompleteDocumentation
+  ///
   succes,
+
+  /// ServerUniverseUncompleteDocumentation
   failed,
+
+  /// ServerUniverseUncompleteDocumentation
+  ///
   info,
+
+  /// ServerUniverseUncompleteDocumentation
   start,
+
+  /// ServerUniverseUncompleteDocumentation
   progress_start,
+
+  /// ServerUniverseUncompleteDocumentation
   progress,
+
+  /// ServerUniverseUncompleteDocumentation
   progress_complete,
 }
 
+/// ServerUniverseUncompleteDocumentation
 class ServerUniverseApiStatus {
+  /// ServerUniverseUncompleteDocumentation
   String value;
+
+  /// ServerUniverseUncompleteDocumentation
   ServerUniverseApiStatusType serverUniverseApiStatusType;
+
+  /// ServerUniverseUncompleteDocumentation
   ServerUniverseApiStatus({
     required this.serverUniverseApiStatusType,
     required this.value,

@@ -36,50 +36,65 @@ import 'dart:typed_data' show Uint8List;
 
 import 'package:typings_fork/core.dart' as interop;
 
+/// ServerUniverseUncompleteDocumentation
 class TextEncoder {
   final interop.TextEncoder _delegate;
 
   TextEncoder._(this._delegate);
 
+  /// ServerUniverseUncompleteDocumentation
+
   String get encoding => _delegate.encoding;
 
+  /// ServerUniverseUncompleteDocumentation
   Uint8List encode([String? input]) => _delegate.encode(input);
 
+  /// ServerUniverseUncompleteDocumentation
   TextEncoderEncodeIntoResult encodeInto(String input, Uint8List destination) =>
       TextEncoderEncodeIntoResult._(
         _delegate.encodeInto(input, destination),
       );
 }
 
+/// ServerUniverseUncompleteDocumentation
 extension TextEncoderExtension on TextEncoder {
+  /// ServerUniverseUncompleteDocumentation
   interop.TextEncoder get delegate => _delegate;
 }
 
+/// ServerUniverseUncompleteDocumentation
 TextEncoder textEncoderFromJsObject(interop.TextEncoder jsObject) =>
     TextEncoder._(jsObject);
 
+/// ServerUniverseUncompleteDocumentation
 class TextEncoderEncodeIntoResult {
   final interop.TextEncoderEncodeIntoResult _delegate;
 
   TextEncoderEncodeIntoResult._(this._delegate);
 
+  /// ServerUniverseUncompleteDocumentation
   int get read => _delegate.read as int? ?? 0;
 
   set read(int newValue) {
     _delegate.read = newValue;
   }
 
+  /// ServerUniverseUncompleteDocumentation
   int get written => _delegate.written as int? ?? 0;
 
+  /// ServerUniverseUncompleteDocumentation
   set written(int newValue) {
     _delegate.written = newValue;
   }
 }
 
+/// ServerUniverseUncompleteDocumentation
 extension TextEncoderEncodeIntoResultExtension on TextEncoderEncodeIntoResult {
+  /// ServerUniverseUncompleteDocumentation
   interop.TextEncoderEncodeIntoResult get delegate => _delegate;
 }
 
+/// ServerUniverseUncompleteDocumentation
 TextEncoder textEncoderEncodeIntoResultFromJsObject(
         interop.TextEncoder jsObject) =>
     TextEncoder._(jsObject);

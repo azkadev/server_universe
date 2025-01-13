@@ -41,18 +41,30 @@ import 'package:server_universe/core/log_level.dart';
 
 import 'platform_type.dart';
 
+/// ServerUniverseUncompleteDocumentation
 abstract interface class ServerUniverseBaseCore<T extends ServerUniverseBase> {
+  /// ServerUniverseUncompleteDocumentation
   T get app {
     throw UnimplementedError();
   }
 }
 
+/// ServerUniverseUncompleteDocumentation
 abstract class ServerUniverseBase
     implements ServerUniverseBaseCore<ServerUniverseBase> {
+  /// ServerUniverseUncompleteDocumentation
   String pathPrefix;
+
+  /// ServerUniverseUncompleteDocumentation
   final ServerUniverseLogType serverUniverseLogType;
+
+  /// ServerUniverseUncompleteDocumentation
   final ServerUniversePlatformType serverUniversePlatformType;
+
+  /// ServerUniverseUncompleteDocumentation
   int simultaneousProcessing;
+
+  /// ServerUniverseUncompleteDocumentation
   ServerUniverseBase({
     this.pathPrefix = "",
     this.serverUniverseLogType = ServerUniverseLogType.info,
@@ -60,7 +72,11 @@ abstract class ServerUniverseBase
     this.simultaneousProcessing = 1000000000,
   });
 
+  /// ServerUniverseUncompleteDocumentation
+
   FutureOr<void> ensureInitialized() {}
+
+  /// ServerUniverseUncompleteDocumentation
 
   String parsePattern(String path) {
     String get_pattern = "";

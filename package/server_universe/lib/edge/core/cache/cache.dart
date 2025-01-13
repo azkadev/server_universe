@@ -42,23 +42,30 @@ import 'package:server_universe/edge/core/request.dart';
 import 'package:server_universe/edge/core/response.dart';
 import 'cache_query_options.dart';
 
+/// ServerUniverseUncompleteDocumentation
 class Cache {
   final interop.Cache _delegate;
 
   Cache._(this._delegate);
 
+  /// ServerUniverseUncompleteDocumentation
   Future<void> add(Request request) async {
     await _delegate.add(request.delegate);
   }
+
+  /// ServerUniverseUncompleteDocumentation
 
   Future<void> addAll(Iterable<Request> requests) async {
     await _delegate.addAll(requests.map((r) => r.delegate).toList());
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Future<void> delete(Request request,
       [MultiCacheQueryOptions? options]) async {
     await _delegate.delete(request.delegate, options?.delegate);
   }
+
+  /// ServerUniverseUncompleteDocumentation
 
   Future<Response?> match(Request request, [CacheQueryOptions? options]) async {
     final obj = await promiseToFuture(
@@ -66,6 +73,7 @@ class Cache {
     return obj == null ? null : responseFromJsObject(obj);
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Future<Iterable<Response>> matchAll(
       [Request? request, CacheQueryOptions? options]) async {
     final matches = await _delegate.matchAll(
@@ -75,6 +83,7 @@ class Cache {
     return matches.map((obj, _, __) => responseFromJsObject(obj));
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Future<void> put(
     Request request,
     Response response,
@@ -82,6 +91,8 @@ class Cache {
     return _delegate.put(request.delegate, response.delegate);
   }
 }
+
+/// ServerUniverseUncompleteDocumentation
 
 Cache cacheFromJsObject(interop.Cache delegate) {
   return Cache._(delegate);

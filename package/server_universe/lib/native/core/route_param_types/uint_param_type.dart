@@ -34,6 +34,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 <!-- END LICENSE --> */
 import 'http_route_param_type.dart';
 
+/// ServerUniverseUncompleteDocumentation
 class UintParamType implements HttpRouteParamType {
   @override
   final String name = 'uint';

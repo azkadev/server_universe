@@ -39,13 +39,19 @@ import 'package:js/js.dart';
 @JS()
 @staticInterop
 @anonymous
+
+/// ServerUniverseUncompleteDocumentation
 class ReadableStream {
+  /// ServerUniverseUncompleteDocumentation
   external factory ReadableStream();
 }
 
+/// ServerUniverseUncompleteDocumentation
 extension ReadableStreamProps on ReadableStream {
+  /// ServerUniverseUncompleteDocumentation
   bool get locked => js_util.getProperty(this, 'locked');
 
+  /// ServerUniverseUncompleteDocumentation
   ReadableStreamDefaultReader getReader() {
     final reader = js_util.callMethod<ReadableStreamDefaultReader>(
       this,
@@ -57,21 +63,31 @@ extension ReadableStreamProps on ReadableStream {
   }
 }
 
+/// ServerUniverseUncompleteDocumentation
 class ReadResult {
+  /// ServerUniverseUncompleteDocumentation
   final bool done;
+
+  /// ServerUniverseUncompleteDocumentation
   final Uint8List? value;
 
+  /// ServerUniverseUncompleteDocumentation
   ReadResult(this.done, this.value);
 }
 
 @JS()
 @staticInterop
 @anonymous
+
+/// ServerUniverseUncompleteDocumentation
 class ReadableStreamDefaultReader {
+  /// ServerUniverseUncompleteDocumentation
   external factory ReadableStreamDefaultReader();
 }
 
+/// ServerUniverseUncompleteDocumentation
 extension ReadableStreamReaderProps on ReadableStreamDefaultReader {
+  /// ServerUniverseUncompleteDocumentation
   Future<ReadResult> read() async {
     final promise = js_util.callMethod(this, 'read', []);
     final future = js_util.promiseToFuture(promise);
@@ -83,22 +99,27 @@ extension ReadableStreamReaderProps on ReadableStreamDefaultReader {
     return ReadResult(done, value);
   }
 
+  /// ServerUniverseUncompleteDocumentation
   bool get closed => js_util.getProperty(this, 'closed');
 
+  /// ServerUniverseUncompleteDocumentation
   Future<void> cancel() async {
     await js_util.callMethod(this, 'cancel', []);
   }
 
+  /// ServerUniverseUncompleteDocumentation
   Future<void> releaseLock() async {
     await js_util.callMethod(this, 'releaseLock', []);
   }
 }
 
+/// ServerUniverseUncompleteDocumentation
 Stream<List<int>> streamFromJSReadable(ReadableStream jsStream) {
   final reader = jsStream.getReader();
   return streamFromJSReader(reader);
 }
 
+/// ServerUniverseUncompleteDocumentation
 Stream<List<int>> streamFromJSReader(
     ReadableStreamDefaultReader reader) async* {
   while (true) {
