@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use_from_same_package
+
 import 'dart:async';
 
 class _QueuedFuture<T> {
@@ -61,10 +63,11 @@ class Queue {
   int parallel;
   int _lastProcessId = 0;
   bool _isCancelled = false;
-
+  
+  /// 
   bool get isCancelled => _isCancelled;
   StreamController<int>? _remainingItemsController;
-
+  ///
   Stream<int> get remainingItems {
     // Lazily create the remaining items controller so if people aren't listening to the stream, it won't create any potential memory leaks.
     // Probably not necessary, but hey, why not?
@@ -86,11 +89,12 @@ class Queue {
 
   @Deprecated(
       "v4 - listen to the [remainingItems] stream to listen to queue status")
+      ///
   Set<int> activeItems = {};
 
   /// Returns the number of items that are currently processed
   /// And the number of items in queue
-  int get remainingItemCount => _nextCycle.length + activeItems.length;
+   int get remainingItemCount => _nextCycle.length + activeItems.length;
 
   /// Cancels the queue. Also cancels any unprocessed items throwing a [QueueCancelledException]
   ///
@@ -112,7 +116,7 @@ class Queue {
     _remainingItemsController?.close();
     cancel();
   }
-
+  ///
   Queue({this.delay, this.parallel = 1, this.timeout, this.lifo = false});
 
   /// Adds the future-returning closure to the queue.
@@ -141,7 +145,7 @@ class Queue {
   /// When each item completes it will only fire up one othe process
   ///
   Future<void> _process() async {
-    if (activeItems.length < parallel) {
+     if (activeItems.length < parallel) {
       _queueUpNext();
     }
   }
@@ -184,7 +188,8 @@ class Queue {
   }
 }
 
+///
 class QueueCancelledException implements Exception {}
 
-// Don't throw analysis error on unawaited future.
+/// Don't throw analysis error on unawaited future.
 void unawaited(Future<void> future) {}

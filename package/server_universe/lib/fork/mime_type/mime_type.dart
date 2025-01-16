@@ -1,8 +1,8 @@
-library mime_type;
+library;
 
 import 'dart:collection';
 
-// get MIME type from file name (returns null if there is no such extension)
+/// get MIME type from file name (returns null if there is no such extension)
 String? mime(String? fileName) {
   if (fileName == null || fileName.trim().isEmpty) {
     return null;
@@ -17,10 +17,10 @@ String? mime(String? fileName) {
   }
 }
 
-// get MIME type from extension (returns null if there is no such extension)
+/// get MIME type from extension (returns null if there is no such extension)
 String? mimeFromExtension(String extension) => _mimeMaps[extension];
 
-// gets extension from MIME type (returns null if there is no such mime type)
+/// gets extension from MIME type (returns null if there is no such mime type)
 String? extensionFromMime(String mime) {
   for (final key in _mimeMaps.keys) {
     if (_mimeMaps[key] == mime.toLowerCase()) {
