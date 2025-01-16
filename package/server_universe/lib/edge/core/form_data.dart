@@ -121,6 +121,7 @@ class FormData {
 FormData formDataFromJsObject(interop.FormData delegate) {
   return FormData._(delegate);
 }
+
 ///
 class FormDataEntryValue with _$FormDataEntryValue {
   /// ServerUniverseUncompleteDocumentation
@@ -154,7 +155,6 @@ mixin _$FormDataEntryValue {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(File file)? file,
     TResult Function(String value)? string,
-
     required TResult Function() orElse,
   }) =>
       throw _privateConstructorUsedError;
@@ -193,6 +193,7 @@ class _$FileValue implements FileValue {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(File file)? file,
     TResult Function(String value)? string,
+
     ///
     required TResult Function() orElse,
   }) {
@@ -202,11 +203,13 @@ class _$FileValue implements FileValue {
     return orElse();
   }
 }
+
 ///
 abstract class FileValue implements FormDataEntryValue {
   ///
   const factory FileValue(final File file) = _$FileValue;
-///
+
+  ///
   File get file;
 }
 
@@ -243,7 +246,6 @@ class _$StringValue implements StringValue {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(File file)? file,
     TResult Function(String value)? string,
-    
     required TResult Function() orElse,
   }) {
     if (string != null) {
@@ -252,10 +254,12 @@ class _$StringValue implements StringValue {
     return orElse();
   }
 }
+
 ///
 abstract class StringValue implements FormDataEntryValue {
   ///
   const factory StringValue(final String value) = _$StringValue;
+
   ///
   String get value;
 }

@@ -35,7 +35,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 import 'dart:io';
 
 import 'package:server_universe/fork/mime_type/mime_type.dart';
- 
+
 /// A set of extensions on the file object which help in composing http responses
 extension FileHelpers on File {
   /// Get the mimeType as a string
