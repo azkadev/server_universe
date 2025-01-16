@@ -37,12 +37,12 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 import 'dart:async';
 import 'dart:io';
 
+import 'package:general_lib/fork/yaml_writer/core/yaml_writer.dart';
 import 'package:general_lib/general_lib.dart';
 import 'package:general_lib/watch/watch.dart';
 import 'package:server_universe/scheme/scheme/scheme.dart';
 import "package:path/path.dart" as path;
 import "package:yaml/yaml.dart" as yaml;
-import 'package:yaml_writer/yaml_writer.dart';
 
 /// build type server
 enum ServerUniverseBuildType {
@@ -262,7 +262,7 @@ class ServerUniverseApi {
         value: "Start Save Pubspec: ${path.basename(file_pubspec.path)}");
 
     String yaml_documents_new =
-        YamlWriter().write(pubspec_server_universe.toJson());
+        YamlWriterGeneralLib().write(pubspec_server_universe.toJson());
 
     await file_pubspec.writeAsString(yaml_documents_new);
     yield ServerUniverseApiStatus(

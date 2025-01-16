@@ -32,12 +32,11 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 
 <!-- END LICENSE --> */
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:typings_fork/core.dart' as interop;
 
 import 'package:server_universe/edge/core/file.dart';
 
-part 'form_data.freezed.dart';
+// part 'form_data.freezed.dart';
 
 /// ServerUniverseUncompleteDocumentation
 class FormData {
@@ -122,17 +121,141 @@ class FormData {
 FormData formDataFromJsObject(interop.FormData delegate) {
   return FormData._(delegate);
 }
-
-/// Represents a form data entry.
-@Freezed(
-  equal: false,
-  copyWith: false,
-  map: FreezedMapOptions.none,
-)
+///
 class FormDataEntryValue with _$FormDataEntryValue {
   /// ServerUniverseUncompleteDocumentation
   const factory FormDataEntryValue.file(File file) = FileValue;
 
   /// Creates a [FormDataEntryValue] instance from a [String].
   const factory FormDataEntryValue.string(String value) = StringValue;
+}
+
+///
+// // ignore: unused_element
+// T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
+mixin _$FormDataEntryValue {
+  TResult when<TResult extends Object?>({
+    required TResult Function(File file) file,
+    required TResult Function(String value) string,
+  }) =>
+      throw _privateConstructorUsedError;
+
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(File file)? file,
+    TResult? Function(String value)? string,
+  }) =>
+      throw _privateConstructorUsedError;
+
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(File file)? file,
+    TResult Function(String value)? string,
+
+    required TResult Function() orElse,
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+
+class _$FileValue implements FileValue {
+  const _$FileValue(this.file);
+
+  @override
+  final File file;
+
+  @override
+  String toString() {
+    return 'FormDataEntryValue.file(file: $file)';
+  }
+
+  @override
+  TResult when<TResult extends Object?>({
+    required TResult Function(File file) file,
+    required TResult Function(String value) string,
+  }) {
+    return file(this.file);
+  }
+
+  @override
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(File file)? file,
+    TResult? Function(String value)? string,
+  }) {
+    return file?.call(this.file);
+  }
+
+  @override
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(File file)? file,
+    TResult Function(String value)? string,
+    ///
+    required TResult Function() orElse,
+  }) {
+    if (file != null) {
+      return file(this.file);
+    }
+    return orElse();
+  }
+}
+///
+abstract class FileValue implements FormDataEntryValue {
+  ///
+  const factory FileValue(final File file) = _$FileValue;
+///
+  File get file;
+}
+
+/// @nodoc
+
+class _$StringValue implements StringValue {
+  const _$StringValue(this.value);
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'FormDataEntryValue.string(value: $value)';
+  }
+
+  @override
+  TResult when<TResult extends Object?>({
+    required TResult Function(File file) file,
+    required TResult Function(String value) string,
+  }) {
+    return string(value);
+  }
+
+  @override
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(File file)? file,
+    TResult? Function(String value)? string,
+  }) {
+    return string?.call(value);
+  }
+
+  @override
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(File file)? file,
+    TResult Function(String value)? string,
+    
+    required TResult Function() orElse,
+  }) {
+    if (string != null) {
+      return string(value);
+    }
+    return orElse();
+  }
+}
+///
+abstract class StringValue implements FormDataEntryValue {
+  ///
+  const factory StringValue(final String value) = _$StringValue;
+  ///
+  String get value;
 }
