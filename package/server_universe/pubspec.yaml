@@ -27,8 +27,6 @@ dependencies:
   js: '^0.7.1'
   typings_fork: '^0.0.6'
   mime: '^2.0.0'
-  mime_type: '^1.0.1'
-  queue: '^3.1.0+2'
   meta: '>=1.11.0 <=1.16.0'
   path: '^1.9.0'
   general_lib: '^0.0.60' 
