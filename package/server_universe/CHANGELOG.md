@@ -1,3 +1,8 @@
+## 0.0.35
+
+- New Version 0.0.35
+- Add Support Wasm
+- Update Dependencies
 ## 0.0.34
 
 - New Version 0.0.34
