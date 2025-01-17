@@ -1,5 +1,9 @@
 # Server Universe
- 
+<p align="center">
+  <img src="https://raw.githubusercontent.com/azkadev/telegram_client/main/package/telegram_client/assets/telegram.png" width="350px">
+</p>
+<h2 align="center">Ultra Fast, Enjoyable & Cross Platform Server Universe</h2>
+
 **Server Universe** is library for speed up and help you to make server rest api / forwarding / proxy very simple with highly customizable feature in cross platform (Server Side / Client Side) and Severless functions like (Supabase Functions, Vercel, Netlify, Cloud Flare)
 
 ## Demo
@@ -135,7 +139,7 @@ void main() async {
   int port = int.tryParse(Platform.environment["PORT"] ?? "3000") ?? 3000;
   String host = Platform.environment["HOST"] ?? "0.0.0.0";
   ServerUniverseNative app = ServerUniverseNative(
-    logLevel: LogType.debug,
+    serverUniverseLogType: ServerUniverseLogType.debug,
     onNotFound: (request, res) async {
       return res.status(400).send(({
         "@type": "error",
