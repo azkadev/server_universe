@@ -44,5 +44,5 @@ executables:
   server_universe: 'server_universe'
 
 screenshots:
-  - description: 'Telegram Logo'
-    path: 'assets/telegram.png'
+  - description: 'Server Universe Logo'
+    path: 'assets/server_universe.png'
