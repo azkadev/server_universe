@@ -1,6 +1,6 @@
 # Server Universe
 <p align="center">
-  <img src="https://raw.githubusercontent.com/azkadev/telegram_client/main/package/telegram_client/assets/telegram.png" width="350px">
+  <img src="https://raw.githubusercontent.com/azkadev/server_universe/refs/heads/main/.github/assets/server_universe.png" width="350px">
 </p>
 <h2 align="center">Ultra Fast, Enjoyable & Cross Platform Server Universe</h2>
 
