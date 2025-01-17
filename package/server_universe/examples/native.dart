@@ -1,7 +1,7 @@
-
 import 'dart:io';
 import 'package:general_lib/extension/dynamic.dart';
-import 'package:server_universe/native.dart'; 
+import 'package:server_universe/native.dart';
+
 void main() async {
   print("start");
   int port = int.tryParse(Platform.environment["PORT"] ?? "3000") ?? 3000;
@@ -10,10 +10,10 @@ void main() async {
     serverUniverseLogType: ServerUniverseLogType.debug,
     onNotFound: (request, res) async {
       return res.status(400).send(({
-        "@type": "error",
-        "message": "path_not_found",
-        "description": "PATH: Not Found",
-      }.toStringifyPretty()));
+            "@type": "error",
+            "message": "path_not_found",
+            "description": "PATH: Not Found",
+          }.toStringifyPretty()));
     },
   );
   app.all("/", (req, res) {
@@ -25,6 +25,6 @@ void main() async {
     count++;
     return await res.status(200).send("\nCOUNT: ${count}");
   });
-  await app.listen(port:port, bindIp: host); 
+  await app.listen(port: port, bindIp: host);
   print("Server on");
 }
