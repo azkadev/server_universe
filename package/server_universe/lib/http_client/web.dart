@@ -1,257 +1,255 @@
-/* <!-- START LICENSE -->
+// /* <!-- START LICENSE -->
 
+// This Software / Program / Source Code Created By Developer From Company GLOBAL CORPORATION
+// Social Media:
 
-This Software / Program / Source Code Created By Developer From Company GLOBAL CORPORATION
-Social Media:
+//    - Youtube: https://youtube.com/@Global_Corporation
+//    - Github: https://github.com/globalcorporation
+//    - TELEGRAM: https://t.me/GLOBAL_CORP_ORG_BOT
 
-   - Youtube: https://youtube.com/@Global_Corporation 
-   - Github: https://github.com/globalcorporation
-   - TELEGRAM: https://t.me/GLOBAL_CORP_ORG_BOT
+// All code script in here created 100% original without copy / steal from other code if we copy we add description source at from top code
 
-All code script in here created 100% original without copy / steal from other code if we copy we add description source at from top code
+// If you wan't edit you must add credit me (don't change)
 
-If you wan't edit you must add credit me (don't change)
+// If this Software / Program / Source Code has you
 
-If this Software / Program / Source Code has you
+// Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin update segera lapor ke sub)
 
-Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin update segera lapor ke sub)
+// Misal anda beli Beli source code di Slebew CORPORATION anda lapor dahulu di slebew jangan lapor di GLOBAL CORPORATION!
 
-Misal anda beli Beli source code di Slebew CORPORATION anda lapor dahulu di slebew jangan lapor di GLOBAL CORPORATION!
+// Jika ada kendala program ini (Pastikan sebelum deal project tidak ada negosiasi harga)
+// Karena jika ada negosiasi harga kemungkinan
 
-Jika ada kendala program ini (Pastikan sebelum deal project tidak ada negosiasi harga)
-Karena jika ada negosiasi harga kemungkinan
+// 1. Software Ada yang di kurangin
+// 2. Informasi tidak lengkap
+// 3. Bantuan Tidak Bisa remote / full time (Ada jeda)
 
-1. Software Ada yang di kurangin
-2. Informasi tidak lengkap
-3. Bantuan Tidak Bisa remote / full time (Ada jeda)
+// Sebelum program ini sampai ke pembeli developer kami sudah melakukan testing
 
-Sebelum program ini sampai ke pembeli developer kami sudah melakukan testing
+// jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesuai ?
+// Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
 
-jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesuai ? 
-Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
+// <!-- END LICENSE --> */
 
+// import 'dart:typed_data';
+// import 'dart:convert';
 
-<!-- END LICENSE --> */
+// // todo: this should come from server_universe_io
+// // import 'package:server_universe/edge/edge_lib.dart' show HttpClient;
+// import 'package:http/http.dart' as http;
+// import 'package:server_universe/edge/core/io_http_client.dart' show HttpClient;
+// import 'base.dart';
 
-import 'dart:typed_data';
-import 'dart:convert';
+// /// ServerUniverseUncompleteDocumentation
+// class ServerUniverseHttpClient extends ServerUniverseHttpClientBase {
+//   @override
+//   http.Client client() {
+//     return _ServerUniverseHttpClient();
+//   }
+// }
 
-// todo: this should come from server_universe_io
-// import 'package:server_universe/edge/edge_lib.dart' show HttpClient;
-import 'package:http/http.dart' as http;
-import 'package:server_universe/edge/core/io_http_client.dart' show HttpClient;
-import 'base.dart';
+// /// A ServerUniverse compatible [http.Client] implementation.
+// class _ServerUniverseHttpClient implements http.Client {
+//   final _ioClient = HttpClient();
 
-/// ServerUniverseUncompleteDocumentation
-class ServerUniverseHttpClient extends ServerUniverseHttpClientBase {
-  @override
-  http.Client client() {
-    return _ServerUniverseHttpClient();
-  }
-}
+//   static const _allowedBodyMethods = {
+//     'POST',
+//     'PUT',
+//     'PATCH',
+//     'DELETE',
+//   };
 
-/// A ServerUniverse compatible [http.Client] implementation.
-class _ServerUniverseHttpClient implements http.Client {
-  final _ioClient = HttpClient();
+//   @override
+//   void close() {
+//     _ioClient.close();
+//   }
 
-  static const _allowedBodyMethods = {
-    'POST',
-    'PUT',
-    'PATCH',
-    'DELETE',
-  };
+//   @override
+//   Future<http.Response> delete(
+//     Uri url, {
+//     Map<String, String>? headers,
+//     Object? body,
+//     Encoding? encoding,
+//   }) {
+//     return _makeRequest(
+//       method: 'DELETE',
+//       url: url,
+//       body: body,
+//       headers: headers,
+//       encoding: encoding ?? utf8,
+//     );
+//   }
 
-  @override
-  void close() {
-    _ioClient.close();
-  }
+//   @override
+//   Future<http.Response> get(
+//     Uri url, {
+//     Map<String, String>? headers,
+//   }) async {
+//     return _makeRequest(
+//       method: 'GET',
+//       url: url,
+//       headers: headers,
+//     );
+//   }
 
-  @override
-  Future<http.Response> delete(
-    Uri url, {
-    Map<String, String>? headers,
-    Object? body,
-    Encoding? encoding,
-  }) {
-    return _makeRequest(
-      method: 'DELETE',
-      url: url,
-      body: body,
-      headers: headers,
-      encoding: encoding ?? utf8,
-    );
-  }
+//   @override
+//   Future<http.Response> head(
+//     Uri url, {
+//     Map<String, String>? headers,
+//   }) {
+//     return _makeRequest(
+//       method: 'HEAD',
+//       url: url,
+//       headers: headers,
+//     );
+//   }
 
-  @override
-  Future<http.Response> get(
-    Uri url, {
-    Map<String, String>? headers,
-  }) async {
-    return _makeRequest(
-      method: 'GET',
-      url: url,
-      headers: headers,
-    );
-  }
+//   @override
+//   Future<http.Response> patch(
+//     Uri url, {
+//     Map<String, String>? headers,
+//     Object? body,
+//     Encoding? encoding,
+//   }) {
+//     return _makeRequest(
+//       method: 'PATCH',
+//       url: url,
+//       body: body,
+//       headers: headers,
+//       encoding: encoding ?? utf8,
+//     );
+//   }
 
-  @override
-  Future<http.Response> head(
-    Uri url, {
-    Map<String, String>? headers,
-  }) {
-    return _makeRequest(
-      method: 'HEAD',
-      url: url,
-      headers: headers,
-    );
-  }
+//   @override
+//   Future<http.Response> post(
+//     Uri url, {
+//     Map<String, String>? headers,
+//     Object? body,
+//     Encoding? encoding,
+//   }) {
+//     return _makeRequest(
+//       method: 'POST',
+//       url: url,
+//       body: body,
+//       headers: headers,
+//       encoding: encoding ?? utf8,
+//     );
+//   }
 
-  @override
-  Future<http.Response> patch(
-    Uri url, {
-    Map<String, String>? headers,
-    Object? body,
-    Encoding? encoding,
-  }) {
-    return _makeRequest(
-      method: 'PATCH',
-      url: url,
-      body: body,
-      headers: headers,
-      encoding: encoding ?? utf8,
-    );
-  }
+//   @override
+//   Future<http.Response> put(
+//     Uri url, {
+//     Map<String, String>? headers,
+//     Object? body,
+//     Encoding? encoding,
+//   }) {
+//     return _makeRequest(
+//       method: 'PUT',
+//       url: url,
+//       body: body,
+//       headers: headers,
+//       encoding: encoding ?? utf8,
+//     );
+//   }
 
-  @override
-  Future<http.Response> post(
-    Uri url, {
-    Map<String, String>? headers,
-    Object? body,
-    Encoding? encoding,
-  }) {
-    return _makeRequest(
-      method: 'POST',
-      url: url,
-      body: body,
-      headers: headers,
-      encoding: encoding ?? utf8,
-    );
-  }
+//   @override
+//   Future<String> read(
+//     Uri url, {
+//     Map<String, String>? headers,
+//   }) async {
+//     final req = http.Request('GET', url);
+//     req.headers.addAll(headers ?? {});
 
-  @override
-  Future<http.Response> put(
-    Uri url, {
-    Map<String, String>? headers,
-    Object? body,
-    Encoding? encoding,
-  }) {
-    return _makeRequest(
-      method: 'PUT',
-      url: url,
-      body: body,
-      headers: headers,
-      encoding: encoding ?? utf8,
-    );
-  }
+//     final res = await send(req);
+//     return res.stream.bytesToString();
+//   }
 
-  @override
-  Future<String> read(
-    Uri url, {
-    Map<String, String>? headers,
-  }) async {
-    final req = http.Request('GET', url);
-    req.headers.addAll(headers ?? {});
+//   @override
+//   Future<Uint8List> readBytes(
+//     Uri url, {
+//     Map<String, String>? headers,
+//   }) async {
+//     final req = http.Request('GET', url);
+//     req.headers.addAll(headers ?? {});
 
-    final res = await send(req);
-    return res.stream.bytesToString();
-  }
+//     final res = await send(req);
+//     return res.stream.toBytes();
+//   }
 
-  @override
-  Future<Uint8List> readBytes(
-    Uri url, {
-    Map<String, String>? headers,
-  }) async {
-    final req = http.Request('GET', url);
-    req.headers.addAll(headers ?? {});
+//   @override
+//   Future<http.StreamedResponse> send(http.BaseRequest request) async {
+//     final req = await _ioClient.openUrl(request.method, request.url);
 
-    final res = await send(req);
-    return res.stream.toBytes();
-  }
+//     for (final entry in request.headers.entries) {
+//       req.headers.add(entry.key, entry.value);
+//     }
 
-  @override
-  Future<http.StreamedResponse> send(http.BaseRequest request) async {
-    final req = await _ioClient.openUrl(request.method, request.url);
+//     final body = request.finalize();
 
-    for (final entry in request.headers.entries) {
-      req.headers.add(entry.key, entry.value);
-    }
+//     if (_allowedBodyMethods.contains(request.method)) {
+//       final bytes = await body.toBytes();
+//       req.contentLength = bytes.length;
+//       req.add(bytes);
+//     }
+//     final res = await req.close();
+//     final resHeaders = <String, String>{};
 
-    final body = request.finalize();
+//     res.headers.forEach((key, values) {
+//       resHeaders[key] = values.join(',');
+//     });
 
-    if (_allowedBodyMethods.contains(request.method)) {
-      final bytes = await body.toBytes();
-      req.contentLength = bytes.length;
-      req.add(bytes);
-    }
-    final res = await req.close();
-    final resHeaders = <String, String>{};
+//     return http.StreamedResponse(
+//       res,
+//       res.statusCode,
+//       request: request,
+//       contentLength: res.contentLength == -1 ? null : res.contentLength,
+//       headers: resHeaders,
+//       isRedirect: res.isRedirect,
+//       persistentConnection: res.persistentConnection,
+//       reasonPhrase: res.reasonPhrase,
+//     );
+//   }
 
-    res.headers.forEach((key, values) {
-      resHeaders[key] = values.join(',');
-    });
+//   Future<http.Response> _makeRequest({
+//     required String method,
+//     required Uri url,
+//     Object? body,
+//     Map<String, String>? headers,
+//     Encoding encoding = utf8,
+//   }) async {
+//     http.BaseRequest req;
 
-    return http.StreamedResponse(
-      res,
-      res.statusCode,
-      request: request,
-      contentLength: res.contentLength == -1 ? null : res.contentLength,
-      headers: resHeaders,
-      isRedirect: res.isRedirect,
-      persistentConnection: res.persistentConnection,
-      reasonPhrase: res.reasonPhrase,
-    );
-  }
+//     if (body == null) {
+//       req = http.Request(method, url)..headers.addAll(headers ?? {});
+//     } else if (body is String) {
+//       req = http.StreamedRequest(method, url);
+//       req.headers.addAll(headers ?? {});
 
-  Future<http.Response> _makeRequest({
-    required String method,
-    required Uri url,
-    Object? body,
-    Map<String, String>? headers,
-    Encoding encoding = utf8,
-  }) async {
-    http.BaseRequest req;
+//       encoding.encoder
+//           .startChunkedConversion((req as http.StreamedRequest).sink)
+//         ..add(body)
+//         ..close();
+//     } else if (body is List<int>) {
+//       final r = http.StreamedRequest(method, url);
+//       r.headers.addAll(headers ?? {});
 
-    if (body == null) {
-      req = http.Request(method, url)..headers.addAll(headers ?? {});
-    } else if (body is String) {
-      req = http.StreamedRequest(method, url);
-      req.headers.addAll(headers ?? {});
+//       r.sink.add(body);
+//       r.sink.close();
 
-      encoding.encoder
-          .startChunkedConversion((req as http.StreamedRequest).sink)
-        ..add(body)
-        ..close();
-    } else if (body is List<int>) {
-      final r = http.StreamedRequest(method, url);
-      r.headers.addAll(headers ?? {});
+//       req = r;
+//     } else if (body is Map<String, String>) {
+//       final r = http.Request(method, url);
+//       r.headers.addAll(headers ?? {});
+//       r.bodyFields = body;
+//       req = r;
+//     } else {
+//       throw ArgumentError(
+//         body,
+//         'body must be a String, List<int>, or Map<String, String>',
+//       );
+//     }
 
-      r.sink.add(body);
-      r.sink.close();
-
-      req = r;
-    } else if (body is Map<String, String>) {
-      final r = http.Request(method, url);
-      r.headers.addAll(headers ?? {});
-      r.bodyFields = body;
-      req = r;
-    } else {
-      throw ArgumentError(
-        body,
-        'body must be a String, List<int>, or Map<String, String>',
-      );
-    }
-
-    final res = await send(req);
-    return http.Response.fromStream(res);
-  }
-}
+//     final res = await send(req);
+//     return http.Response.fromStream(res);
+//   }
+// }

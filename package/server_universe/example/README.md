@@ -1,16 +1,37 @@
-# example
+# Example
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+if you want deploy on device or server or vps, or flutter app try this script
 
-A few resources to get you started if this is your first Flutter project:
+```dart
+import 'dart:io';
+import 'package:general_lib/extension/dynamic.dart';
+import 'package:server_universe/native.dart'; 
+void main() async {
+  print("start");
+  int port = int.tryParse(Platform.environment["PORT"] ?? "3000") ?? 3000;
+  String host = Platform.environment["HOST"] ?? "0.0.0.0";
+  ServerUniverseNative app = ServerUniverseNative(
+    serverUniverseLogType: ServerUniverseLogType.debug,
+    onNotFound: (request, res) async {
+      return res.status(400).send(({
+        "@type": "error",
+        "message": "path_not_found",
+        "description": "PATH: Not Found",
+      }.toStringifyPretty()));
+    },
+  );
+  app.all("/", (req, res) {
+    return res.status(200).send("oke");
+  });
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  int count = 0;
+  app.all("/version", (req, res) async {
+    count++;
+    return await res.status(200).send("\nCOUNT: ${count}");
+  });
+  await app.listen(port:port, bindIp: host); 
+  print("Server on");
+}
+```

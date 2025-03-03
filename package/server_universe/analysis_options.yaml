@@ -5,7 +5,6 @@ analyzer:
     - dev
     - templates
     - temp
-    - example
     - examples
 linter:
   rules:
