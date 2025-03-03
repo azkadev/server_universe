@@ -25,10 +25,7 @@ topics:
 environment:
   sdk: '>=3.6.0 <4.0.0'
 dependencies:
-  js: '^0.7.2'
-  typings_fork: '^0.0.7'
   mime: '^2.0.0'
-  meta: '^1.16.0'
   path: '^1.9.0'
   general_lib: '^0.0.67'
   collection: '^1.19.0'
