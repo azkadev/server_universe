@@ -80,76 +80,9 @@ And your laptop has the programming language installed [dart](https://dart.dev)
 dart pub add server_universe
 ```
 
-2. **Flutter**
-
-```bash
-flutter pub add server_universe_flutter
-```
-
-### 💻️ Install Cli
-
-- from pub
-
-```bash
-dart pub global activate server_universe
-```
-
 ## 🚀️ Quick Start
 
 Example Quickstart script minimal for insight you or make you use this library because very simple 
-
-### Api
-
-```dart
-import 'dart:io';
-import 'package:server_universe/api/server_universe_api.dart';
-
-void main(List<String> args) async {
-  ServerUniverseApi serverUniverseApi = ServerUniverseApi();
-  serverUniverseApi.create(newName: "hi", directoryBase: Directory("path_to_dir/slebew")).listen((event) {
-    print(event.value);
-  });
-  serverUniverseApi.build(directoryBase: Directory("path_to_dir/slebew"), directoryOutputBuildServerUniverse: Directory("path_to_dir/slebew/build"), inputFileName: "path_to_dir/slebew/bin/server.dart", server_universeDartBuildType: ServerUniverseBuildType.release, server_universeDartPlatformType: ServerUniversePlatformType.supabase).listen((event) {
-    print(event.value);
-  });
-}
-```
-
-### Cli
-
-```dart
-dart run server_universe
-```
-
-### Edge
-
-if you want deploy server rest api on Severless functions Like (Supabase, Cloud Flare, Deno Deploy, Vercel, Netlify)
-
-```dart
-import 'package:server_universe/edge/edge.dart';
-void main() async {
-  print("start");
-  ServerUniverseEdge app = ServerUniverseEdge(
-    onNotFound: (request, res) async {
-      return res.status(404).json({"@type": "error", "message": "path_not_found", "description": "PATH: ${request.path} Not Found"});
-    },
-    onError: (req, res, object, stackTrace) {
-      return res.status(500).json({"@type": "error", "message": "server_crash"});
-    },
-  );
-  app.ensureInitialized();
-  
-  app.all("/", (req, res) {
-    return res.send("oke");
-  });
-  app.all("/version", (req, res) {
-    return res.json({
-      "@type": "version",
-      "version": "new update",
-    });
-  });
-}
-```
 
 
 ### Native
@@ -187,6 +120,7 @@ void main() async {
   print("Server on");
 }
 ```
+
 <!-- START GLOBAL CORPORATION -->
 <h3 align="center">
   Global Corporation
