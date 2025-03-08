@@ -38,12 +38,21 @@ import 'dart:io';
 /// CORS Middlware.
 ///
 /// Has some sensible defaults. You probably want to change the origin
-FutureOr Function(HttpRequest, HttpResponse) cors(
-    {int age = 86400,
-    String headers = '*',
-    String methods = 'POST, GET, OPTIONS, PUT, PATCH, DELETE',
-    String origin = '*'}) {
+FutureOr Function(HttpRequest, HttpResponse) cors({
+  int age = 86400,
+  String headers = '*',
+  String methods = 'POST, GET, OPTIONS, PUT, PATCH, DELETE',
+  String origin = '*',
+  String crossOriginEmbedderPolicy = "credentialless",
+  String crossOriginOpenerPolicy = "cross-origin",
+}) {
   return (HttpRequest req, HttpResponse res) {
+    // web wasm https
+    res.headers.set('Cross-Origin-Embedder-Policy', crossOriginEmbedderPolicy);
+    res.headers.set('Cross-Origin-Opener-Policy', crossOriginOpenerPolicy);
+
+    /// web wasm
+
     res.headers.set('Access-Control-Allow-Origin', origin);
     res.headers.set('Access-Control-Allow-Methods', methods);
     res.headers.set('Access-Control-Allow-Headers', headers);
